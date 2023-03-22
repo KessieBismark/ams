@@ -266,7 +266,6 @@ class AbsentReportCon extends GetxController {
         "department": depText.text,
         "staff_id": empName.text,
       };
-
       var result = await Query.queryData(data);
       var empJson = json.decode(result);
       if (empJson == 'false') {
