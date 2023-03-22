@@ -1,0 +1,45 @@
+import 'package:ams/pages/absent_report/component/controller.dart';
+import 'package:ams/pages/absentee/component/controller/controller.dart';
+import 'package:ams/pages/branches/component/controller/controller.dart';
+import 'package:ams/pages/daily/component/controller/controller.dart';
+import 'package:ams/pages/dash/component/controller.dart';
+import 'package:ams/pages/department/component/controller/controller.dart';
+import 'package:ams/pages/employee/component/controller.dart';
+import 'package:ams/pages/holiday/component/controller/controller.dart';
+import 'package:ams/pages/lunch_break/component/controller/controller.dart';
+import 'package:ams/pages/monthly/component/controller.dart';
+import 'package:ams/pages/overtime/component/controller/controller.dart';
+import 'package:ams/pages/permission/component/controller.dart';
+import 'package:ams/pages/salary/component/controller/controller.dart';
+import 'package:get/get.dart';
+import '../../pages/accounts/role/controller/controller.dart';
+import '../../pages/accounts/users/component/controllers/users_controller.dart';
+import '../../pages/company/component/controller/controller.dart';
+import '../../pages/company_info/component/controller/controller.dart';
+import '../../pages/login/controllers/login_controller.dart';
+import '../../pages/sms/component/controller/controller.dart';
+
+class AMSBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => DashCon());
+    Get.lazyPut(() => LoginController());
+    Get.lazyPut(() => AbsentReportCon());
+    Get.lazyPut(() => AbsenteeCon());
+    Get.lazyPut(() => EmployeeCon());
+    Get.lazyPut(() => DepartmentCon());
+    Get.lazyPut(() => AttendanceCon());
+    Get.lazyPut(() => MonthlyReportCon());
+    Get.lazyPut(() => PermissionCon());
+    Get.lazyPut(() => OvertimeCon());
+    Get.lazyPut(() => SalaryCon());
+    Get.lazyPut(() => BranchesCon());
+    Get.lazyPut(() => SmsCon());
+    Get.lazyPut(() => UsersController());
+    Get.lazyPut(() => CompanyCon());
+    Get.lazyPut(() => CompanyInfoCon());
+    Get.lazyPut(() => RoleController());
+    Get.lazyPut(() => HolidayCon());
+    Get.lazyPut(() => LunchCon());
+  }
+}
