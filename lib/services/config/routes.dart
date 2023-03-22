@@ -1,14 +1,14 @@
-import 'package:ams/pages/absent_report/absent_report.dart';
-import 'package:ams/pages/absentee/absentee.dart';
-import 'package:ams/pages/accounts/users/users.dart';
-import 'package:ams/pages/daily/daily.dart';
-import 'package:ams/pages/department/department.dart';
-import 'package:ams/pages/employee/employee.dart';
-import 'package:ams/pages/holiday/holiday.dart';
-import 'package:ams/pages/login/login.dart';
-import 'package:ams/pages/lunch_break/lunch.dart';
-import 'package:ams/pages/permission/permission.dart';
-import 'package:ams/pages/salary/salary.dart';
+import '../../pages/absent_report/absent_report.dart';
+import '../../pages/absentee/absentee.dart';
+import '../../pages/accounts/users/users.dart';
+import '../../pages/daily/daily.dart';
+import '../../pages/department/department.dart';
+import '../../pages/employee/employee.dart';
+import '../../pages/holiday/holiday.dart';
+import '../../pages/login/login.dart';
+import '../../pages/lunch_break/lunch.dart';
+import '../../pages/permission/permission.dart';
+import '../../pages/salary/salary.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 

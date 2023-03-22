@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../../../users/component/controllers/users_controller.dart';
 
 UsersController user = Get.find();

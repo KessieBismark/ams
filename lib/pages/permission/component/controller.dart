@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:ams/pages/branches/component/controller/controller.dart';
-import 'package:ams/pages/employee/component/controller.dart';
-import 'package:ams/services/utils/helpers.dart';
-import 'package:ams/services/utils/query.dart';
+import '../../branches/component/controller/controller.dart';
+import '../../employee/component/controller.dart';
+import '../../../services/utils/helpers.dart';
+import '../../../services/utils/query.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

@@ -1,8 +1,8 @@
-import '../../../../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../services/constants/color.dart';
+import '../../../../../services/widgets/extension.dart';
 import '../../../users/component/controllers/users_controller.dart';
 import 'p_controller.dart';
 

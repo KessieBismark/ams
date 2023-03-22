@@ -1,15 +1,16 @@
-import 'package:ams/services/constants/constant.dart';
-import 'package:ams/services/widgets/extension.dart';
-import 'package:ams/services/widgets/waiting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/animate.dart';
 import 'package:flutter_animate/effects/effects.dart';
 import 'package:flutter_animate/extensions/extensions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+
 import '../../responsive.dart';
+import '../../services/constants/constant.dart';
 import '../../services/widgets/button.dart';
+import '../../services/widgets/extension.dart';
 import '../../services/widgets/stacked_info.dart';
+import '../../services/widgets/waiting.dart';
 import '../../widgets/header/header.dart';
 import 'component/att_summary.dart';
 import 'component/controller.dart';

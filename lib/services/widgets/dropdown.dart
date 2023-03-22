@@ -1,8 +1,8 @@
 import 'package:dropdown_search/dropdown_search.dart';
-import '../utils/model.dart';
-import 'extension.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/model.dart';
+import 'extension.dart';
 import 'waiting.dart';
 
 class DropDownText extends StatelessWidget {

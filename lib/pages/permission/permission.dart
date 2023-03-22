@@ -1,7 +1,7 @@
-import 'package:ams/pages/permission/component/controller.dart';
-import 'package:ams/pages/permission/component/printing/print_pdf.dart';
-import 'package:ams/services/widgets/extension.dart';
-import 'package:ams/services/widgets/textbox.dart';
+import 'component/controller.dart';
+import 'component/printing/print_pdf.dart';
+import '../../services/widgets/extension.dart';
+import '../../services/widgets/textbox.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

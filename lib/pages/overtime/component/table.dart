@@ -1,11 +1,11 @@
-import 'package:ams/pages/overtime/component/controller/controller.dart';
-import 'package:ams/services/widgets/extension.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../services/widgets/waiting.dart';
 import '../../../services/utils/helpers.dart';
+import '../../../services/widgets/extension.dart';
+import 'controller/controller.dart';
 
 class OvertimeTable extends GetView<OvertimeCon> {
   const OvertimeTable({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
-import 'package:ams/pages/absent_report/component/controller.dart';
-import 'package:ams/pages/absent_report/component/table.dart';
-import 'package:ams/services/widgets/extension.dart';
+import 'component/controller.dart';
+import 'component/table.dart';
+import '../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:get/get.dart';

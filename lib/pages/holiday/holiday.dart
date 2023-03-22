@@ -1,4 +1,4 @@
-import 'package:ams/services/widgets/extension.dart';
+import '../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

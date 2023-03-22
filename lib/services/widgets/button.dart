@@ -1,9 +1,8 @@
-import 'waiting.dart';
-
-import 'extension.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/color.dart';
+import 'extension.dart';
+import 'waiting.dart';
 
 enum ButtonType { save, add, delete, cancel, search, close }
 

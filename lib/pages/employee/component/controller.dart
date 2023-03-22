@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:ams/pages/branches/component/controller/controller.dart';
-import 'package:ams/pages/department/component/controller/controller.dart';
-import 'package:ams/services/utils/helpers.dart';
-import 'package:ams/services/utils/query.dart';
+import '../../branches/component/controller/controller.dart';
+import '../../department/component/controller/controller.dart';
+import '../../../services/utils/helpers.dart';
+import '../../../services/utils/query.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

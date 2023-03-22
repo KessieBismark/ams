@@ -1,4 +1,3 @@
-import 'package:ams/services/widgets/extension.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +10,7 @@ import '../../../../../services/widgets/textbox.dart';
 import '../../../../../services/widgets/waiting.dart';
 import '../../../services/utils/model.dart';
 import '../../../services/widgets/dropdown.dart';
-import '../../absentee/component/model/absentee_model.dart';
+import '../../../services/widgets/extension.dart';
 import 'controller/controller.dart';
 
 class DepartmentTable extends GetView<DepartmentCon> {

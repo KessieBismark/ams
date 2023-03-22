@@ -1,5 +1,5 @@
-import 'package:ams/services/utils/model.dart';
-import 'package:ams/services/widgets/extension.dart';
+import '../utils/model.dart';
+import 'extension.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:multiselect/multiselect.dart';

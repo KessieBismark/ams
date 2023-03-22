@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:ams/pages/branches/component/controller/controller.dart';
-import 'package:ams/pages/department/component/controller/controller.dart';
-import 'package:ams/pages/employee/component/controller.dart';
-import 'package:ams/pages/employee/component/models/emp_models.dart';
+import '../../../branches/component/controller/controller.dart';
+import '../../../department/component/controller/controller.dart';
+import '../../../employee/component/controller.dart';
+import '../../../employee/component/models/emp_models.dart';
 import '../../../../services/utils/model.dart';
 import '../../../../services/utils/sms.dart';
 import '../../../../services/constants/constant.dart';

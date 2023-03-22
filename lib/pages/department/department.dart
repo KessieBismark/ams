@@ -1,7 +1,6 @@
-import 'package:ams/pages/department/component/table.dart';
-import 'package:ams/services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../services/constants/color.dart';
 import '../../services/constants/constant.dart';
 import '../../services/utils/helpers.dart';
@@ -9,12 +8,13 @@ import '../../services/utils/model.dart';
 import '../../services/widgets/button.dart';
 import '../../services/widgets/dialogs.dart';
 import '../../services/widgets/dropdown.dart';
+import '../../services/widgets/extension.dart';
 import '../../services/widgets/richtext.dart';
 import '../../services/widgets/textbox.dart';
 import '../../services/widgets/waiting.dart';
 import '../../widgets/header/header.dart';
-import '../absentee/component/model/absentee_model.dart';
 import 'component/controller/controller.dart';
+import 'component/table.dart';
 
 class Department extends GetView<DepartmentCon> {
   const Department({super.key});

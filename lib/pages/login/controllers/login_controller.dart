@@ -1,15 +1,17 @@
 import 'dart:convert';
-import '../../../services/utils/company_details.dart';
-import '../../../services/utils/helpers.dart';
-import '../../../services/utils/query.dart';
-import '../../../services/utils/sms.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
 import '../../../services/constants/constant.dart';
 import '../../../services/constants/global.dart';
+import '../../../services/utils/company_details.dart';
+import '../../../services/utils/helpers.dart';
 import '../../../services/utils/mailer.dart';
+import '../../../services/utils/query.dart';
+import '../../../services/utils/sms.dart';
 import '../model.dart';
 
 class LoginController extends GetxController {

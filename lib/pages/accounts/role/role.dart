@@ -1,15 +1,14 @@
-import '../../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../services/widgets/button.dart';
+import '../../../services/widgets/extension.dart';
 import '../../company/company.dart';
 import 'controller/controller.dart';
 import 'steppers/attendance/step.dart';
-import 'steppers/sms/step.dart';
-
 import 'steppers/entries/steps.dart';
 import 'steppers/report/steps.dart';
+import 'steppers/sms/step.dart';
 
 class Role extends GetView<RoleController> {
   const Role({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import 'package:ams/services/widgets/extension.dart';
+import 'extension.dart';
 import 'package:flutter/material.dart';
 
 class MyRichText extends StatelessWidget {

@@ -1,5 +1,6 @@
-import 'package:ams/pages/absent_report/component/controller.dart';
 import 'package:get/get.dart';
+
+import 'controller.dart';
 
 class AbsentReportBind implements Bindings {
   @override

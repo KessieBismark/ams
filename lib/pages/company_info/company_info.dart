@@ -1,15 +1,14 @@
-import '../../services/utils/helpers.dart';
-import '../../services/widgets/textbox.dart';
-
-import '../../services/widgets/extension.dart';
-import '../../services/widgets/keyboard_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 
 import '../../services/constants/color.dart';
+import '../../services/utils/helpers.dart';
 import '../../services/widgets/button.dart';
+import '../../services/widgets/extension.dart';
+import '../../services/widgets/keyboard_listener.dart';
+import '../../services/widgets/textbox.dart';
 import 'component/controller/controller.dart';
 
 class CompanyInfo extends GetView<CompanyInfoCon> {

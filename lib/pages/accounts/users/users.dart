@@ -1,16 +1,14 @@
-import '../../../services/utils/helpers.dart';
-import '../../../services/utils/model.dart';
-import '../../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../services/constants/constant.dart';
-
+import '../../../services/utils/helpers.dart';
+import '../../../services/utils/model.dart';
 import '../../../services/widgets/button.dart';
 import '../../../services/widgets/dropdown.dart';
+import '../../../services/widgets/extension.dart';
 import '../../../services/widgets/textbox.dart';
 import '../../../widgets/header/header.dart';
-import '../../absentee/component/model/absentee_model.dart';
 import 'component/controllers/users_controller.dart';
 import 'component/widget/users_table.dart';
 

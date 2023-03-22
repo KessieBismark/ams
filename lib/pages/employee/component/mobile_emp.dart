@@ -1,7 +1,7 @@
-import 'package:ams/pages/employee/component/controller.dart';
-import 'package:ams/services/constants/constant.dart';
-import 'package:ams/services/utils/helpers.dart';
-import 'package:ams/services/widgets/extension.dart';
+import 'controller.dart';
+import '../../../services/constants/constant.dart';
+import '../../../services/utils/helpers.dart';
+import '../../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

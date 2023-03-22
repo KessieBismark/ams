@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-import '../constants/constant.dart';
 import '../constants/server.dart';
 
 class Query {

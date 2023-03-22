@@ -1,8 +1,9 @@
-import 'package:ams/services/config/binding.dart';
-import 'package:ams/services/config/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import 'services/config/binding.dart';
+import 'services/config/routes.dart';
 import 'services/utils/themes.dart';
 
 void main() async {
