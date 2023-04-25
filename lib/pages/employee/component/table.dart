@@ -1,4 +1,3 @@
-import '../../absentee/component/model/absentee_model.dart';
 import 'controller.dart';
 import '../../../services/widgets/extension.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -308,10 +307,16 @@ class EmployeeTable extends GetView<EmployeeCon> {
                           controller.employeeRecords[index].eContact!;
                       controller.hDateText.text =
                           controller.employeeRecords[index].hiredDate!;
+                      controller.selectedHiredDate = DateTime.parse(
+                          controller.employeeRecords[index].hiredDate!);
+                      controller.isHire.value = true;
                       controller.residenceText.text =
                           controller.employeeRecords[index].residence!;
                       controller.resignedText.text =
                           controller.employeeRecords[index].resigned;
+                      controller.isResign.value = true;
+                      controller.resigned = DateTime(2030);
+
                       controller.selBranch = DropDownModel(
                           id: controller.employeeRecords[index].staffID
                               .toString(),

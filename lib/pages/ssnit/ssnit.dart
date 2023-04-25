@@ -76,8 +76,7 @@ class Ssnit extends GetView<SsnitCon> {
                               ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                               
                                   subColor: Colors.red,
                                   mainText: "Contributed records ",
                                   subText: "(${controller.ssnitAmt.length})")),
@@ -98,8 +97,7 @@ class Ssnit extends GetView<SsnitCon> {
                               //     .contains(_fxn.initials("Departments", 1)))
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                  
                                   subColor: Colors.red,
                                   mainText: "Contributed records ",
                                   subText: "(${controller.ssnitAmt.length})")),

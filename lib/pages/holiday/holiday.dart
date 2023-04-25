@@ -73,8 +73,7 @@ class Holiday extends GetView<HolidayCon> {
                               ).hPadding9,
                             Obx(() => MyRichText(
                                 load: controller.getData.value,
-                                mainColor:
-                                    Utils.isLightTheme.value ? dark : light,
+                              
                                 subColor: Colors.red,
                                 mainText: "Holidays Table ",
                                 subText: "(${controller.hList.length})")),

@@ -1,7 +1,6 @@
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../services/widgets/extension.dart';
-import '../../services/widgets/keyboard_listener.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,19 +18,13 @@ class Login extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return KeyBoardTap(
-        focusNode: FocusNode(),
-        onKey: (event) {
-          final key = event.logicalKey;
-          if (event is RawKeyDownEvent) {
-            if (controller.keys.contains(key)) return;
-            if (event.isKeyPressed(LogicalKeyboardKey.enter)) {
+    return RawKeyboardListener(
+        focusNode: controller.loginFocusNode,
+        onKey: (RawKeyEvent event) {
+          if (event.runtimeType == RawKeyDownEvent) {
+            if (event.logicalKey == LogicalKeyboardKey.enter) {
               controller.login();
             }
-
-            controller.keys.add(key);
-          } else {
-            controller.keys.remove(key);
           }
         },
         child: Scaffold(

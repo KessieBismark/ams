@@ -11,8 +11,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../absentee/component/model/absentee_model.dart';
-
 class EmployInput extends GetWidget<EmployeeCon> {
   const EmployInput({
     Key? key,

@@ -110,8 +110,7 @@ class Lunch extends GetView<LunchCon> {
                               Obx(
                                 () => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                
                                   subColor: Colors.red,
                                   mainText: "Lunch Table ",
                                   subText:
@@ -166,8 +165,7 @@ class Lunch extends GetView<LunchCon> {
                               Obx(
                                 () => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                
                                   subColor: Colors.red,
                                   mainText: "Lunch Break Table ",
                                   subText:

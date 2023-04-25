@@ -12,6 +12,7 @@ import '../../../services/utils/helpers.dart';
 import '../../../services/utils/mailer.dart';
 import '../../../services/utils/query.dart';
 import '../../../services/utils/sms.dart';
+import '../../../widgets/home.dart';
 import '../model.dart';
 
 class LoginController extends GetxController {
@@ -20,6 +21,7 @@ class LoginController extends GetxController {
   String contact = '';
   final cpassword = TextEditingController();
   final emailController = TextEditingController();
+  final loginFocusNode = FocusNode();
 
   var isForgot = false.obs;
   double left = 0.0;
@@ -201,8 +203,8 @@ class LoginController extends GetxController {
                   ? Utils.branchID = "0"
                   : Utils.branchID = res[0]['branch'].toString();
               Utils.userRole == "Super Admin"
-                  ? Get.offNamed('/dash')
-                  : Get.offNamed('/attendance');
+                  ? Get.to(() => const MyHome())
+                  : Get.to(() => const MyHome());
             }
           } catch (e) {
             loading.value = false;

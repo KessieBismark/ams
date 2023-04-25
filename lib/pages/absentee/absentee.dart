@@ -87,8 +87,7 @@ class Absentee extends GetView<AbsenteeCon> {
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                               
                                   subColor: Colors.red,
                                   mainText: "Absentees Table ",
                                   subText:
@@ -139,8 +138,7 @@ class Absentee extends GetView<AbsenteeCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                 
                                   subColor: Colors.red,
                                   mainText: "Absentees Table ",
                                   subText:

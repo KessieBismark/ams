@@ -139,9 +139,7 @@ class Employee extends GetView<EmployeeCon> {
                                     ).hPadding9,
                                   Obx(() => MyRichText(
                                       load: controller.getData.value,
-                                      mainColor: Utils.isLightTheme.value
-                                          ? dark
-                                          : light,
+                                    
                                       subColor: Colors.red,
                                       mainText: "Employee Table ",
                                       subText:
@@ -175,9 +173,7 @@ class Employee extends GetView<EmployeeCon> {
                                 children: [
                                   Obx(() => MyRichText(
                                       load: controller.loadData.value,
-                                      mainColor: Utils.isLightTheme.value
-                                          ? dark
-                                          : light,
+                                     
                                       subColor: Colors.red,
                                       mainText: "Employee Table ",
                                       subText:

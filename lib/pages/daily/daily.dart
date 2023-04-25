@@ -119,8 +119,7 @@ class Attendance extends GetView<AttendanceCon> {
                                 ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                 
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absent Table "
@@ -184,8 +183,7 @@ class Attendance extends GetView<AttendanceCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                 
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absent Table "

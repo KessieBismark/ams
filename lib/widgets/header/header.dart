@@ -46,20 +46,20 @@ class Header extends StatelessWidget {
         if (Responsive.isTablet(context))
           SizedBox(width: 300, child: Expanded(child: searchBar!)),
         if (Responsive.isMobile(context)) Expanded(child: searchBar!),
-        const ProfileCard(),
-        IconButton(
-                onPressed: () {
-                  Utils.isLightTheme.toggle();
-                  Get.changeThemeMode(
-                    Utils.isLightTheme.value ? ThemeMode.light : ThemeMode.dark,
-                  );
+        // const ProfileCard(),
+        // IconButton(
+        //         onPressed: () {
+        //           Utils.isLightTheme.toggle();
+        //           Get.changeThemeMode(
+        //             Utils.isLightTheme.value ? ThemeMode.light : ThemeMode.dark,
+        //           );
 
-                  ThemeController().saveThemeStatus();
-                },
-                icon: Utils.isLightTheme.value
-                    ? const Icon(FontAwesomeIcons.solidMoon)
-                    : const Icon(Icons.wb_sunny))
-            .hPadding9
+        //           ThemeController().saveThemeStatus();
+        //         },
+        //         icon: Utils.isLightTheme.value
+        //             ? const Icon(FontAwesomeIcons.solidMoon)
+        //             : const Icon(Icons.wb_sunny))
+        //     .hPadding9
       ],
     );
   }

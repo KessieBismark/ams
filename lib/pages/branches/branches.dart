@@ -68,8 +68,7 @@ class Branches extends GetView<BranchesCon> {
                               ).hPadding9,
                             Obx(() => MyRichText(
                                 load: controller.loading.value,
-                                mainColor:
-                                    Utils.isLightTheme.value ? dark : light,
+                              
                                 subColor: Colors.red,
                                 mainText: "Branches Record ",
                                 subText: "(${controller.bhList.length})")),

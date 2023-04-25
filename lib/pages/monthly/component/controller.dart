@@ -175,16 +175,19 @@ class MonthlyReportCon extends GetxController {
   }
 
   void clearText() {
-    depText.clear();
-    empName.clear();
+    // depText.clear();
+    // empName.clear();
+
     // sdateText.clear();
     // edateText.clear();
-    selDepartment = null;
-    selEmployee = null;
-    selBranch = null;
-    branch.clear();
-    isB.value = true;
-    isB.value = false;
+
+    // selDepartment = null;
+    // selEmployee = null;
+    // selBranch = null;
+    // branch.clear();
+    // isB.value = true;
+    // isB.value = false;
+
     depLoading.value = true;
     depLoading.value = false;
     empLoading.value = true;
@@ -357,6 +360,7 @@ class MonthlyReportCon extends GetxController {
 
       var result = await Query.queryData(data);
       var empJson = json.decode(result);
+     print(data);
       if (empJson == 'false') {
       } else {
         for (var empJson in empJson) {

@@ -95,8 +95,7 @@ class SMS extends GetView<SmsCon> {
                               ),
                             Obx(() => MyRichText(
                                 load: controller.loading.value,
-                                mainColor:
-                                    Utils.isLightTheme.value ? dark : light,
+                               
                                 subColor: Colors.red,
                                 mainText: "SMS ",
                                 subText: "(${controller.smsList.length})")),

@@ -20,6 +20,7 @@ class Utils {
   static String branchID = '';
   static String branchName = '';
   static List<String> access = [];
+  static List<String> activeMenus = [];
 
   static var iv = enc.IV.fromLength(16);
   static var key = enc.Key.fromLength(32);
@@ -32,7 +33,16 @@ class Utils {
     days = days - sunday;
     return days;
   }
-
+ static String getInitials(String str) {
+  List<String> words = str.split(' ');
+  String initials = '';
+  for (String word in words) {
+    initials += word[0].toUpperCase();
+  }
+  var rand = Random();
+  int randomNum = rand.nextInt(100);
+  return initials + randomNum.toString();
+}
   static checkAccess() {
     if (uid.value.isEmpty) {
       Get.toNamed('/auth');

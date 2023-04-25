@@ -87,8 +87,7 @@ class OverTime extends GetView<OvertimeCon> {
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                
                                   subColor: Colors.red,
                                   mainText: "Overtime Table ",
                                   subText:
@@ -137,8 +136,7 @@ class OverTime extends GetView<OvertimeCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                
                                   subColor: Colors.red,
                                   mainText: "Overtime Table ",
                                   subText:

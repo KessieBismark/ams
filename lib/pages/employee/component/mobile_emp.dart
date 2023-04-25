@@ -11,7 +11,6 @@ import '../../../services/widgets/button.dart';
 import '../../../services/widgets/dropdown.dart';
 import '../../../services/widgets/textbox.dart';
 import '../../../services/widgets/waiting.dart';
-import '../../absentee/component/model/absentee_model.dart';
 
 class EmployeeMobileInput extends GetView<EmployeeCon> {
   const EmployeeMobileInput({Key? key}) : super(key: key);
@@ -340,7 +339,7 @@ class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
                     label: "Select department",
                     controller: controller.selDepartment,
                     isLoading: controller.depLoad.value,
-                    validate:true,
+                    validate: true,
                     list: controller.departmentList,
                     onChange: (DropDownModel? data) {
                       controller.depText.text = data!.id.toString();

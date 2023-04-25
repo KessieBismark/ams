@@ -120,8 +120,7 @@ class Permission extends GetView<PermissionCon> {
                               ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absentee Table "
@@ -183,8 +182,7 @@ class Permission extends GetView<PermissionCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:
-                                      Utils.isLightTheme.value ? dark : light,
+                                
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Attendance Table "

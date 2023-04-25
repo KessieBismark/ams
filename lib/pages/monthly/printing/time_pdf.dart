@@ -46,11 +46,12 @@ class TimePrint extends StatelessWidget {
           pw.Table.fromTextArray(
               columnWidths: const {
                 0: pw.FlexColumnWidth(1.5),
-                1: pw.FlexColumnWidth(4),
-                2: pw.FlexColumnWidth(2),
-                3: pw.FlexColumnWidth(1.5),
-                4: pw.FlexColumnWidth(4),
+                1: pw.FlexColumnWidth(4.5),
+                2: pw.FlexColumnWidth(2.5),
+                3: pw.FlexColumnWidth(2),
+                4: pw.FlexColumnWidth(1.5),
                 5: pw.FlexColumnWidth(6),
+                 6: pw.FlexColumnWidth(6),
               },
               context: context,
               cellStyle: const pw.TextStyle(

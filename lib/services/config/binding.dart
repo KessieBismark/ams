@@ -1,3 +1,5 @@
+import 'package:ams/pages/layout/component/controller/controller.dart';
+
 import '../../pages/absent_report/component/controller.dart';
 import '../../pages/absentee/component/controller/controller.dart';
 import '../../pages/branches/component/controller/controller.dart';
@@ -22,6 +24,7 @@ import '../../pages/sms/component/controller/controller.dart';
 class AMSBinding implements Bindings {
   @override
   void dependencies() {
+    Get.lazyPut(() => HomeController());
     Get.lazyPut(() => DashCon());
     Get.lazyPut(() => LoginController());
     Get.lazyPut(() => AbsentReportCon());
