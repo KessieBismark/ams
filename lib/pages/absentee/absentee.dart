@@ -80,7 +80,7 @@ class Absentee extends GetView<AbsenteeCon> {
                                   .contains(Utils.initials("absentees", 1)))
                                 MButton(
                                   onTap: () {
-                                    controller.clearText();
+                                  //  controller.clearText();
                                     add(context);
                                   },
                                   type: ButtonType.search,
@@ -149,7 +149,7 @@ class Absentee extends GetView<AbsenteeCon> {
                                   if (newValue == "Search record") {
                                     if (Utils.access.contains(
                                         Utils.initials("absentees", 1))) {
-                                      controller.clearText();
+                                     // controller.clearText();
                                       add(context);
                                     } else {
                                       Utils().showError(
@@ -300,7 +300,7 @@ class Absentee extends GetView<AbsenteeCon> {
                     ),
                     MButton(
                       onTap: () {
-                        controller.clearText();
+                        //controller.clearText();
                         Get.back();
                       },
                       type: ButtonType.cancel,

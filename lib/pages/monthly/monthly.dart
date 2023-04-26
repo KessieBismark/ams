@@ -101,7 +101,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                   children: [
                                     MButton(
                                       onTap: () {
-                                        controller.clearText();
+                                     //   controller.clearText();
                                         controller.getBranches();
                                         showDialog(context);
                                       },
@@ -113,7 +113,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                         controller.wkdBool.value = false;
                                         controller.inTime.value = false;
                                         controller.outTime.value = false;
-                                        controller.clearText();
+                                      //  controller.clearText();
                                         controller.getBranches();
                                         byTimeDialog(context);
                                       },
@@ -212,7 +212,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                   if (newValue == "By time") {
                                     if (Utils.access.contains(
                                         Utils.initials("monthly report", 1))) {
-                                      controller.clearText();
+                                     // controller.clearText();
                                       controller.getBranches();
                                       byTimeDialog(context);
                                     } else {
@@ -222,7 +222,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                   } else if (newValue == "By date") {
                                     if (Utils.access.contains(
                                         Utils.initials("monthly report", 1))) {
-                                      controller.clearText();
+                                     // controller.clearText();
                                       controller.getBranches();
                                       showDialog(context);
                                     } else {
@@ -422,7 +422,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                   ),
                   MButton(
                     onTap: () {
-                      controller.clearText();
+                     // controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,
@@ -588,7 +588,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                   ),
                   MButton(
                     onTap: () {
-                      controller.clearText();
+                    //  controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,

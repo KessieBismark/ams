@@ -26,11 +26,11 @@ class Header extends StatelessWidget {
   ) {
     return Row(
       children: [
-        if (!Responsive.isDesktop(context))
-          IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: context.read<MyMenuController>().controlMenu,
-          ),
+        // if (!Responsive.isDesktop(context))
+        //   IconButton(
+        //     icon: const Icon(Icons.menu),
+        //     onPressed: context.read<MyMenuController>().controlMenu,
+        //   ),
         if (Responsive.isTablet(context) || Responsive.isDesktop(context))
           Padding(
             padding: const EdgeInsets.only(right: 28.0),

@@ -174,25 +174,25 @@ class MonthlyReportCon extends GetxController {
     }
   }
 
-  void clearText() {
-    // depText.clear();
-    // empName.clear();
+  // void clearText() {
+  //   // depText.clear();
+  //   // empName.clear();
 
-    // sdateText.clear();
-    // edateText.clear();
+  //   // sdateText.clear();
+  //   // edateText.clear();
 
-    // selDepartment = null;
-    // selEmployee = null;
-    // selBranch = null;
-    // branch.clear();
-    // isB.value = true;
-    // isB.value = false;
+  //   // selDepartment = null;
+  //   // selEmployee = null;
+  //   // selBranch = null;
+  //   // branch.clear();
+  //   // isB.value = true;
+  //   // isB.value = false;
 
-    depLoading.value = true;
-    depLoading.value = false;
-    empLoading.value = true;
-    empLoading.value = false;
-  }
+  //   depLoading.value = true;
+  //   depLoading.value = false;
+  //   empLoading.value = true;
+  //   empLoading.value = false;
+  // }
 
   static const menuItems = <String>[
     'By time',

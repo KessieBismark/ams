@@ -102,8 +102,18 @@ class MyDrawer extends GetView<HomeController> {
                                   final tab = controller.generateTab(tabIndex,
                                       MenuHeader.data[index].menus[i]);
                                   controller.tabs!.add(tab);
+                                  controller.currentIndex.value =
+                                      controller.tabs!.length;
                                   if (Responsive.isMobile(context)) {
                                     closeDrawer(context);
+                                  }
+                                } else {
+                                  if (Utils.activeMenus.contains(
+                                      MenuHeader.data[index].menus[i].id)) {
+                                    controller.currentIndex.value =
+                                        Utils.activeMenus.indexWhere((id) =>
+                                            id ==
+                                            MenuHeader.data[index].menus[i].id);
                                   }
                                 }
                               },

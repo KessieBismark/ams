@@ -244,21 +244,21 @@ class PermissionCon extends GetxController {
   }
 
   clearTexts() {
-    depText.clear();
+    // depText.clear();
     empName.clear();
     typeText.clear();
     sDateText.clear();
     eDateText.clear();
-    selBranch = null;
+    //selBranch = null;
     reason.clear();
     eListSelected = [];
     selEList = [];
-    selDepartment = null;
+    // selDepartment = null;
     selEmployee = null;
     loading.value = false;
     setDate.value = false;
-    depLoading.value = true;
-    depLoading.value = false;
+    // depLoading.value = true;
+    // depLoading.value = false;
     empLoading.value = true;
     empLoading.value = false;
     typeSelected.value = '';
@@ -274,7 +274,6 @@ class PermissionCon extends GetxController {
   Future<bool> getDuration(String dep, String branch) async {
     bool result;
     try {
-      print("started");
       var data = {
         "action": "get_duration",
         "department": dep,
@@ -282,7 +281,6 @@ class PermissionCon extends GetxController {
         "cid": Utils.cid
       };
       var res = await Query.queryData(data);
-      print(res);
       var val = json.decode(res);
       DateTime wkdH, wknH;
       wkdH = DateFormat("hh:mm:ss").parse(val[0]['weekHour']);
@@ -335,7 +333,6 @@ class PermissionCon extends GetxController {
                       Utils.branchID == '0' ? branch.text : Utils.branchID,
                   "cid": Utils.cid
                 };
-                print.call(data);
                 var val = await Query.queryData(data);
                 if (jsonDecode(val) == 'true') {
                   loading.value = false;
@@ -379,7 +376,6 @@ class PermissionCon extends GetxController {
           Utils().showError("All fields are required");
         } else {
           loading.value = true;
-
           try {
             int? hour, days;
             getDuration(depText.text, branch.text).then((value) async {
@@ -401,7 +397,6 @@ class PermissionCon extends GetxController {
                       Utils.branchID == '0' ? branch.text : Utils.branchID,
                   "cid": Utils.cid
                 };
-                print.call(data);
                 var val = await Query.queryData(data);
                 if (jsonDecode(val) == 'true') {
                   loading.value = false;
@@ -495,9 +490,7 @@ class PermissionCon extends GetxController {
         "sdate": sDate.toString(),
         "edate": eDate.toString(),
       };
-      print(data);
       var result = await Query.queryData(data);
-      print(result);
       var empJson = json.decode(result);
       if (empJson == 'false') {
       } else {

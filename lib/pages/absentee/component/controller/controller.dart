@@ -129,29 +129,29 @@ class AbsenteeCon extends GetxController {
         absent.addAll(value);
         absentDisplayData = absent;
         getData.value = false;
-        clearText();
+       // clearText();
       });
     } else {
       Utils().showError(noInternet);
     }
   }
 
-  void clearText() {
-    depText.clear();
-    empName.clear();
-    dateText.clear();
-    selDepartment = null;
-    selEmployee = null;
-    selBranch = null;
-    branch.clear();
-    isB.value = true;
-    isB.value = false;
-    depLoading.value = true;
-    depLoading.value = false;
-    empLoading.value = true;
-    empLoading.value = false;
-    setDate.value = false;
-  }
+  // void clearText() {
+  //   depText.clear();
+  //   empName.clear();
+  //   dateText.clear();
+  //   selDepartment = null;
+  //   selEmployee = null;
+  //   selBranch = null;
+  //   branch.clear();
+  //   isB.value = true;
+  //   isB.value = false;
+  //   depLoading.value = true;
+  //   depLoading.value = false;
+  //   empLoading.value = true;
+  //   empLoading.value = false;
+  //   setDate.value = false;
+  // }
 
   Future<void> generateCsv(List<AbsentModel> data) async {
     if (data.isEmpty) {

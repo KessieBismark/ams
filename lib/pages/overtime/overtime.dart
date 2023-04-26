@@ -302,7 +302,7 @@ class OverTime extends GetView<OvertimeCon> {
                     ),
                     MButton(
                       onTap: () {
-                        controller.clearText();
+                      //  controller.clearText();
                         Get.back();
                       },
                       type: ButtonType.cancel,

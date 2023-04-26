@@ -11,7 +11,6 @@ import 'package:path_provider/path_provider.dart';
 import '../../../../services/constants/constant.dart';
 import '../../../../services/utils/helpers.dart';
 import '../../../../services/utils/model.dart';
-import '../../../absentee/component/model/absentee_model.dart';
 import '../../../branches/component/controller/controller.dart';
 import '../../../employee/component/controller.dart';
 import '../../../employee/component/models/emp_models.dart';
@@ -141,12 +140,12 @@ class LunchCon extends GetxController {
     }
   }
 
-  void clearText() {
-    depText.clear();
-    empNametext.clear();
-    //  dateText.clear();
-    //setDate.value = false;
-  }
+  // void clearText() {
+  //   depText.clear();
+  //   empNametext.clear();
+  //   //  dateText.clear();
+  //   //setDate.value = false;
+  // }
 
   Future<void> generateCsv(List<LunchModel> data) async {
     if (data.isEmpty) {

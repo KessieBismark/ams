@@ -171,12 +171,12 @@ class AttendanceCon extends GetxController {
     }
   }
 
-  void clearText() {
-    depText.clear();
-    empNametext.clear();
-    //  dateText.clear();
-    //setDate.value = false;
-  }
+  // void clearText() {
+  //   depText.clear();
+  //   empNametext.clear();
+  //   //  dateText.clear();
+  //   //setDate.value = false;
+  // }
 
   Future<void> generateCsv(List<DailyModel> data) async {
     if (data.isEmpty) {

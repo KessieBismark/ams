@@ -20,11 +20,11 @@ class EmployInput extends GetWidget<EmployeeCon> {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Container(
+      child: SizedBox(
         width: 550,
-        color: Utils.isLightTheme.value ? light : dark,
+        //color: Utils.isLightTheme.value ? light : dark,
         child: PhysicalModel(
-          color: Utils.isLightTheme.value ? light : dark,
+          color: light,
           elevation: 30,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -345,11 +345,11 @@ class UpdateEmployInput extends GetWidget<EmployeeCon> {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Container(
+      child: SizedBox(
         width: 550,
-        color: Utils.isLightTheme.value ? light : dark,
+        // color: Utils.isLightTheme.value ? light : dark,
         child: PhysicalModel(
-          color: Utils.isLightTheme.value ? light : dark,
+          color: light,
           elevation: 30,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

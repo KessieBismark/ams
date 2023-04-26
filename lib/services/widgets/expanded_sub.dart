@@ -44,7 +44,8 @@ class SubItem extends GetView<HomeController> {
   const SubItem({
     Key? key,
     required this.subMenu,
-    this.selected,required this.drawerContext, 
+    this.selected,
+    required this.drawerContext,
   }) : super(key: key);
 
   @override
@@ -74,8 +75,14 @@ class SubItem extends GetView<HomeController> {
           final tabIndex = controller.tabs!.length + 1;
           final tab = controller.generateTab(tabIndex, subMenu);
           controller.tabs!.add(tab);
+          controller.currentIndex.value = controller.tabs!.length;
           if (Responsive.isMobile(context)) {
             closeDrawer(drawerContext);
+          }
+        } else {
+          if (Utils.activeMenus.contains(subMenu.id)) {
+            controller.currentIndex.value =
+                Utils.activeMenus.indexWhere((id) => id == subMenu.id);
           }
         }
       },
@@ -83,6 +90,6 @@ class SubItem extends GetView<HomeController> {
   }
 }
 
-  void closeDrawer(context) {
-    Navigator.of(context).pop();
-  }
+void closeDrawer(context) {
+  Navigator.of(context).pop();
+}

@@ -16,7 +16,6 @@ import '../../services/widgets/dialogs.dart';
 import '../../services/widgets/dropdown.dart';
 import '../../services/widgets/richtext.dart';
 import '../../widgets/header/header.dart';
-import '../absentee/component/model/absentee_model.dart';
 import 'component/printing/ab_pdf.dart';
 
 class AbsentReport extends GetView<AbsentReportCon> {
@@ -77,14 +76,13 @@ class AbsentReport extends GetView<AbsentReportCon> {
                                   .contains(Utils.initials("absent Report", 1)))
                                 MButton(
                                   onTap: () {
-                                    controller.clearText();
+                                   // controller.clearText();
                                     add(context);
                                   },
                                   type: ButtonType.search,
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.loadData.value,
-                               
                                   subColor: Colors.red,
                                   mainText: "Absent Report ",
                                   subText: "(${controller.dataList.length})")),
@@ -135,7 +133,6 @@ class AbsentReport extends GetView<AbsentReportCon> {
 
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                               
                                   subColor: Colors.red,
                                   mainText: "Absent Table ",
                                   subText: "(${controller.dataList.length})")),
@@ -146,7 +143,7 @@ class AbsentReport extends GetView<AbsentReportCon> {
                                   if (newValue == "Search record") {
                                     if (Utils.access.contains(
                                         Utils.initials("absent Report", 1))) {
-                                      controller.clearText();
+                                    //  controller.clearText();
                                       add(context);
                                     } else {
                                       Utils().showError(
@@ -221,7 +218,7 @@ class AbsentReport extends GetView<AbsentReportCon> {
                         label: "Select branch",
                         controller: controller.selBranch,
                         isLoading: controller.isB.value,
-                        validate:true,
+                        validate: true,
                         list: controller.bList,
                         onChange: (DropDownModel? data) {
                           controller.branch.text = data!.id.toString();
@@ -300,7 +297,7 @@ class AbsentReport extends GetView<AbsentReportCon> {
                     ),
                     MButton(
                       onTap: () {
-                        controller.clearText();
+                        //controller.clearText();
                         Get.back();
                       },
                       type: ButtonType.cancel,

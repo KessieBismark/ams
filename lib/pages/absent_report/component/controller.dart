@@ -73,25 +73,25 @@ class AbsentReportCon extends GetxController {
 
   reload() {
     getBranches();
-    clearText();
+    //clearText();
   }
 
-  clearText() {
-    selDepartment = null;
-    selBranch = null;
-    selEmployee = null;
-    branch.clear();
-    depText.clear();
-    empNametext.clear();
-    isB.value = true;
-    isB.value = false;
-    depLoading.value = true;
-    depLoading.value = false;
-    empLoading.value = true;
-    empLoading.value = false;
-    setDate.value = false;
-    getData.value = false;
-  }
+  // clearText() {
+  //   selDepartment = null;
+  //   selBranch = null;
+  //   selEmployee = null;
+  //   branch.clear();
+  //   depText.clear();
+  //   empNametext.clear();
+  //   isB.value = true;
+  //   isB.value = false;
+  //   depLoading.value = true;
+  //   depLoading.value = false;
+  //   empLoading.value = true;
+  //   empLoading.value = false;
+  //   setDate.value = false;
+  //   getData.value = false;
+  // }
 
   void setSelected(String value) {
     typeSelected.value = value;
@@ -195,7 +195,7 @@ class AbsentReportCon extends GetxController {
         data.addAll(value);
         dataList = data;
         getData.value = false;
-        clearText();
+       // clearText();
       });
     } else {
       Utils().showError(infoNeeded);

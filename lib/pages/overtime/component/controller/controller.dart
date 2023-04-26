@@ -10,7 +10,6 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../../../services/constants/constant.dart';
 import '../../../../services/utils/model.dart';
-import '../../../absentee/component/model/absentee_model.dart';
 import '../../../branches/component/controller/controller.dart';
 import '../../../department/component/controller/controller.dart';
 import '../../../employee/component/controller.dart';
@@ -80,19 +79,19 @@ class OvertimeCon extends GetxController {
         overTime.addAll(value);
         overTimeDisplayData = overTime;
         getData.value = false;
-        clearText();
+       // clearText();
       });
     } else {
       Utils().showError(infoNeeded);
     }
   }
 
-  void clearText() {
-    depText.clear();
-    empNametext.clear();
-    setDate1.value = false;
-    setDate2.value = false;
-  }
+  // void clearText() {
+  //   depText.clear();
+  //   empNametext.clear();
+  //   setDate1.value = false;
+  //   setDate2.value = false;
+  // }
 
   getBranches() {
     isB.value = true;

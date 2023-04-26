@@ -180,11 +180,11 @@ class Login extends GetView<LoginController> {
   }
 
   _launchURL() async {
-    const url = 'https://ams.royalfoamghana.com/ams_5.0.exe';
+    const url = 'https://plaza.royalfoamghana.com/ams_5.0.exe';
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {
-      throw 'Could not launch $url';
+      throw 'Could not launch download link';
     }
   }
 }

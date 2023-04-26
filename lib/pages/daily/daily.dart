@@ -370,7 +370,7 @@ class Attendance extends GetView<AttendanceCon> {
                         type: ButtonType.search)),
                     MButton(
                       onTap: () {
-                        controller.clearText();
+                      //  controller.clearText();
                         Get.back();
                       },
                       type: ButtonType.cancel,
@@ -472,7 +472,7 @@ class Attendance extends GetView<AttendanceCon> {
                   ),
                   MButton(
                     onTap: () {
-                      controller.clearText();
+                    //  controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,

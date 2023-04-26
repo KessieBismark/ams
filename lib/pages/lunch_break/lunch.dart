@@ -343,7 +343,7 @@ class Lunch extends GetView<LunchCon> {
                       type: ButtonType.search)),
                   MButton(
                     onTap: () {
-                      controller.clearText();
+                    //  controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,
