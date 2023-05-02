@@ -73,7 +73,9 @@ class Holiday extends GetView<HolidayCon> {
                               ).hPadding9,
                             Obx(() => MyRichText(
                                 load: controller.getData.value,
-                              
+                                 mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                 subColor: Colors.red,
                                 mainText: "Holidays Table ",
                                 subText: "(${controller.hList.length})")),
@@ -85,7 +87,7 @@ class Holiday extends GetView<HolidayCon> {
                         if (Utils.access
                             .contains(Utils.initials("holidays", 0)))
                           SizedBox(
-                              height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                               child: const HolidayTable())
                       ],
                     ),

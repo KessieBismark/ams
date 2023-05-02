@@ -150,3 +150,13 @@ class MenuHeader {
     ])
   ];
 }
+
+
+class SearchableModel {
+  final String id;
+  final IconData? icon;
+  final String title;
+  final Widget widget;
+
+  SearchableModel({this.icon,required this.id, required this.title, required this.widget});
+}

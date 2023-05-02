@@ -139,7 +139,9 @@ class Employee extends GetView<EmployeeCon> {
                                     ).hPadding9,
                                   Obx(() => MyRichText(
                                       load: controller.getData.value,
-                                    
+                                       mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                       subColor: Colors.red,
                                       mainText: "Employee Table ",
                                       subText:
@@ -173,7 +175,9 @@ class Employee extends GetView<EmployeeCon> {
                                 children: [
                                   Obx(() => MyRichText(
                                       load: controller.loadData.value,
-                                     
+                                        mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                       subColor: Colors.red,
                                       mainText: "Employee Table ",
                                       subText:
@@ -246,7 +250,7 @@ class Employee extends GetView<EmployeeCon> {
                             if (Utils.access
                                 .contains(Utils.initials("employee", 0)))
                               SizedBox(
-                                  height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                                   child: const EmployeeTable())
                           ],
                         ),

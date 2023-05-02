@@ -68,7 +68,9 @@ class Branches extends GetView<BranchesCon> {
                               ).hPadding9,
                             Obx(() => MyRichText(
                                 load: controller.loading.value,
-                              
+                                 mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                 subColor: Colors.red,
                                 mainText: "Branches Record ",
                                 subText: "(${controller.bhList.length})")),
@@ -79,7 +81,7 @@ class Branches extends GetView<BranchesCon> {
                         ).padding3.card,
                         if (Utils.userRole == "Super Admin")
                           SizedBox(
-                              height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                               child: const BranchTable())
                       ],
                     ),

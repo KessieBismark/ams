@@ -38,7 +38,7 @@ class Login extends GetView<LoginController> {
                   children: [
                     Center(
                       child: Image.asset(
-                        "assets/icons/Fingerprint.ico",
+                        "assets/icons/finger.png",
                         height: 80,
                       ).animate().fade(duration: 500.ms).scale(delay: 500.ms),
                     ).vMargin3,

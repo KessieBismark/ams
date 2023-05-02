@@ -125,7 +125,9 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                 ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                 
+                                    mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Record Table ",
                                   subText: controller.byPerson.value
@@ -200,7 +202,9 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                 
+                                    mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Monthly Report Table ",
                                   subText: controller.byPerson.value
@@ -295,7 +299,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                         if (Utils.access
                             .contains(Utils.initials("monthly report", 0)))
                           SizedBox(
-                            height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                             child: Obx(
                               () => controller.byPerson.value
                                   ? const PersonTable()

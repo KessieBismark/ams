@@ -8,7 +8,6 @@ import '../../../../services/utils/model.dart';
 import '../../../../services/utils/sms.dart';
 import '../../../../services/constants/constant.dart';
 import '../../../../services/utils/helpers.dart';
-import '../../../absentee/component/model/absentee_model.dart';
 import '../model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

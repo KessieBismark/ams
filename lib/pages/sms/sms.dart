@@ -11,7 +11,6 @@ import '../../../widgets/header/header.dart';
 import '../../services/utils/model.dart';
 import '../../services/widgets/dropdown.dart';
 import '../../services/widgets/textbox.dart';
-import '../absentee/component/model/absentee_model.dart';
 import 'component/controller/controller.dart';
 import 'component/table.dart';
 
@@ -95,7 +94,9 @@ class SMS extends GetView<SmsCon> {
                               ),
                             Obx(() => MyRichText(
                                 load: controller.loading.value,
-                               
+                                mainColor: Utils.isLightTheme.value
+                                    ? Colors.black
+                                    : light,
                                 subColor: Colors.red,
                                 mainText: "SMS ",
                                 subText: "(${controller.smsList.length})")),
@@ -107,7 +108,7 @@ class SMS extends GetView<SmsCon> {
                         if (Utils.access
                             .contains(Utils.initials("sms portal", 0)))
                           SizedBox(
-                              height: myHeight(context, 1.19),
+                              height: myHeight(context, 1.28),
                               child: const SmsTable())
                       ],
                     ),

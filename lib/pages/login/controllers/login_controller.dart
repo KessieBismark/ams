@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ams/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -38,6 +39,7 @@ class LoginController extends GetxController {
   void onInit() {
     // Utils.uid.value = '';
     // Simulating obtaining the user name from some local storage
+      loginFocusNode.requestFocus();
     if (box.read("userEmail") != null) {
       emailController.text = box.read("userEmail").toString();
     }
@@ -205,6 +207,7 @@ class LoginController extends GetxController {
               Utils.userRole == "Super Admin"
                   ? Get.to(() => const MyHome())
                   : Get.to(() => const MyHome());
+                
             }
           } catch (e) {
             loading.value = false;

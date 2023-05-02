@@ -1,15 +1,9 @@
 import '../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
 
 import '../../responsive.dart';
-import '../../services/config/themes.dart';
 import '../../services/constants/constant.dart';
-import '../../services/menu_controller/menu_controller.dart';
 import '../../services/utils/helpers.dart';
-import '../../services/utils/themes.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -36,7 +30,7 @@ class Header extends StatelessWidget {
             padding: const EdgeInsets.only(right: 28.0),
             child: Text(
               pageName,
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
         if (!Responsive.isMobile(context))

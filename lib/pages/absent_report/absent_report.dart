@@ -83,6 +83,9 @@ class AbsentReport extends GetView<AbsentReportCon> {
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.loadData.value,
+                                     mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Absent Report ",
                                   subText: "(${controller.dataList.length})")),
@@ -133,6 +136,9 @@ class AbsentReport extends GetView<AbsentReportCon> {
 
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
+                                     mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Absent Table ",
                                   subText: "(${controller.dataList.length})")),
@@ -186,7 +192,7 @@ class AbsentReport extends GetView<AbsentReportCon> {
                         if (Utils.access
                             .contains(Utils.initials("absent Report", 0)))
                           SizedBox(
-                              height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                               child: const AbrTable())
                       ],
                     ),

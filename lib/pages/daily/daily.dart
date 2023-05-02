@@ -119,7 +119,9 @@ class Attendance extends GetView<AttendanceCon> {
                                 ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                 
+                                    mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absent Table "
@@ -183,7 +185,9 @@ class Attendance extends GetView<AttendanceCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                 
+                                    mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absent Table "
@@ -260,7 +264,7 @@ class Attendance extends GetView<AttendanceCon> {
                         if (Utils.access
                             .contains(Utils.initials("Daily attendance", 0)))
                           SizedBox(
-                              height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                               child: Obx(() => controller.isAbsent.value
                                   ? const AbsentTable()
                                   : const AttendanceTable()))

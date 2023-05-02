@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../pages/layout/component/model/side_model.dart';
+import '../../pages/login/login.dart';
+import '../config/binding.dart';
 import '../constants/color.dart';
 import '../constants/constant.dart';
 
@@ -21,6 +24,8 @@ class Utils {
   static String branchName = '';
   static List<String> access = [];
   static List<String> activeMenus = [];
+   static  List<SearchableModel> drawerItems = [];
+
 
   static var iv = enc.IV.fromLength(16);
   static var key = enc.Key.fromLength(32);
@@ -33,25 +38,28 @@ class Utils {
     days = days - sunday;
     return days;
   }
- static String getInitials(String str) {
-  List<String> words = str.split(' ');
-  String initials = '';
-  for (String word in words) {
-    initials += word[0].toUpperCase();
+
+  static String getInitials(String str) {
+    List<String> words = str.split(' ');
+    String initials = '';
+    for (String word in words) {
+      initials += word[0].toUpperCase();
+    }
+    var rand = Random();
+    int randomNum = rand.nextInt(100);
+    return initials + randomNum.toString();
   }
-  var rand = Random();
-  int randomNum = rand.nextInt(100);
-  return initials + randomNum.toString();
-}
+
   static checkAccess() {
     if (uid.value.isEmpty) {
-      Get.toNamed('/auth');
+      Get.to(() => const Login());
     }
   }
 
   static logOut() {
     uid.value = '';
-    Get.toNamed('/auth');
+    activeMenus = [];
+    Get.offAll(() => const Login(), binding: AMSBinding());
   }
 
   static int hoursDifference(

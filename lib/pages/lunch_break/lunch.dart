@@ -110,7 +110,9 @@ class Lunch extends GetView<LunchCon> {
                               Obx(
                                 () => MyRichText(
                                   load: controller.getData.value,
-                                
+                                   mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Lunch Table ",
                                   subText:
@@ -165,7 +167,9 @@ class Lunch extends GetView<LunchCon> {
                               Obx(
                                 () => MyRichText(
                                   load: controller.getData.value,
-                                
+                                   mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Lunch Break Table ",
                                   subText:
@@ -234,7 +238,7 @@ class Lunch extends GetView<LunchCon> {
                         if (Utils.access
                             .contains(Utils.initials("Lunch Break", 0)))
                           SizedBox(
-                            height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                             child: const LunchTable(),
                           )
                       ],

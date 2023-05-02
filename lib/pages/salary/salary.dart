@@ -80,7 +80,9 @@ class Salary extends GetView<SalaryCon> {
                               ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                
+                                   mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Salary Table ",
                                   subText: "(${controller.salary.length})")),
@@ -101,7 +103,9 @@ class Salary extends GetView<SalaryCon> {
                               //     .contains(_fxn.initials("Departments", 1)))
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                 
+                                    mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Attendance Table ",
                                   subText: "(${controller.salary.length})")),
@@ -121,7 +125,7 @@ class Salary extends GetView<SalaryCon> {
                             ],
                           ).padding3.card,
                         SizedBox(
-                            height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                             child: const SalartTable())
                       ],
                     ),

@@ -65,26 +65,16 @@ class SubItem extends GetView<HomeController> {
       // selected: list[1] == selected ? true : false,
       onTap: () {
         if (!Utils.activeMenus.contains(subMenu.id)) {
-          if (controller.currentIndex.value == 0) {
-            controller.currentIndex.value++;
-            controller.currentIndex.value--;
-          } else {
-            controller.currentIndex.value++;
-          }
           Utils.activeMenus.add(subMenu.id);
-          final tabIndex = controller.tabs!.length + 1;
-          final tab = controller.generateTab(tabIndex, subMenu);
-          controller.tabs!.add(tab);
-          controller.currentIndex.value = controller.tabs!.length;
+          controller.generateTab(SearchableModel(
+              id: subMenu.id,
+              title: subMenu.title,
+              widget: subMenu.widget,
+              icon: subMenu.icon));
           if (Responsive.isMobile(context)) {
             closeDrawer(drawerContext);
           }
-        } else {
-          if (Utils.activeMenus.contains(subMenu.id)) {
-            controller.currentIndex.value =
-                Utils.activeMenus.indexWhere((id) => id == subMenu.id);
-          }
-        }
+        } 
       },
     );
   }

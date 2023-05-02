@@ -87,7 +87,9 @@ class Absentee extends GetView<AbsenteeCon> {
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                               
+                                  mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Absentees Table ",
                                   subText:
@@ -138,7 +140,9 @@ class Absentee extends GetView<AbsenteeCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                 
+                                    mainColor:  Utils.isLightTheme.value
+              ? Colors.black
+              :  light,
                                   subColor: Colors.red,
                                   mainText: "Absentees Table ",
                                   subText:
@@ -193,7 +197,7 @@ class Absentee extends GetView<AbsenteeCon> {
                         if (Utils.access
                             .contains(Utils.initials("absentees", 0)))
                           SizedBox(
-                              height: myHeight(context, 1.19),
+                            height: myHeight(context, 1.28),
                               child: const AbsentTable())
                       ],
                     ),

@@ -22,10 +22,8 @@ class MyHome extends StatelessWidget {
               : Container(),
           const Expanded(
             flex: 5,
-            child: fluent.FluentApp(
-              debugShowCheckedModeBanner: false,
-              home: Home(),
-            ),
+            child:Home(),
+            
           ),
         ],
       ),

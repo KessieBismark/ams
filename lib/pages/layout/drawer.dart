@@ -1,12 +1,15 @@
 import 'package:ams/services/widgets/extension.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../services/constants/color.dart';
 import '../../services/constants/constant.dart';
 import '../../services/utils/helpers.dart';
+import '../../services/utils/themes.dart';
 import '../../services/widgets/drawer_list.dart';
+import '../../services/widgets/dropdowntext2.dart';
 import '../../services/widgets/expanded_list.dart';
 import '../../services/widgets/richtext_two.dart';
 import 'component/controller/controller.dart';
@@ -18,33 +21,33 @@ class MyDrawer extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      elevation: 10.0,
-      child: Column(
-        children: [
-          DrawerHeader(
-            curve: Curves.easeIn,
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+    return  Drawer(
+          elevation: 10.0,
+          child: Column(
+            children: [
+              DrawerHeader(
+                curve: Curves.easeIn,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      "assets/icons/logo.png",
-                      height: 40,
-                    ).padding3,
-                    appName.toLabel(
-                        bold: true,
-                        fontsize: 30,
-                        color: const Color.fromARGB(182, 75, 184, 187))
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                "Welcome ${Utils.userName.capitalizeFirst}"
-                    .toLabel(fontsize: 15),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "assets/icons/logo.png",
+                          height: 40,
+                        ).padding3,
+                        appName.toLabel(
+                            bold: true,
+                            fontsize: 30,
+                            color: const Color.fromARGB(182, 75, 184, 187))
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    "Welcome ${Utils.userName.capitalizeFirst}"
+                        .toLabel(fontsize: 15),
                 const SizedBox(
                   height: 10,
                 ),
@@ -55,6 +58,31 @@ class MyDrawer extends GetView<HomeController> {
                 )
               ],
             ),
+          ),
+          DrawerSearch(
+            hint: "Search menu items",
+            label: "Search menu items",
+            controller: controller.selectedItem,
+            list: Utils.drawerItems,
+            onChange: (val) {
+              if (!Utils.activeMenus.contains(val!.id)) {
+                Utils.activeMenus.add(val.id);
+                controller.generateTab(SearchableModel(
+                    id: val.id, title: val.title, widget: val.widget));
+
+                if (Responsive.isMobile(context)) {
+                  closeDrawer(context);
+                }
+              } else {
+                if (Utils.activeMenus.contains(val.id)) {
+                  int index = controller.tabs.indexOf(val);
+                  controller.tabController!.animateTo(index);
+                }
+              }
+            },
+          ).hMargin9,
+          const SizedBox(
+            height: 10,
           ),
           Expanded(
             child: ListView.builder(
@@ -89,33 +117,22 @@ class MyDrawer extends GetView<HomeController> {
                               onTap: () {
                                 if (!Utils.activeMenus.contains(
                                     MenuHeader.data[index].menus[i].id)) {
-                                  if (controller.currentIndex.value == 0) {
-                                    controller.currentIndex.value++;
-                                    controller.currentIndex.value--;
-                                  } else {
-                                    controller.currentIndex.value++;
-                                  }
                                   Utils.activeMenus
                                       .add(MenuHeader.data[index].menus[i].id);
 
-                                  final tabIndex = controller.tabs!.length + 1;
-                                  final tab = controller.generateTab(tabIndex,
-                                      MenuHeader.data[index].menus[i]);
-                                  controller.tabs!.add(tab);
-                                  controller.currentIndex.value =
-                                      controller.tabs!.length;
+                                  controller.generateTab(SearchableModel(
+                                      id: MenuHeader.data[index].menus[i].id,
+                                      icon:
+                                          MenuHeader.data[index].menus[i].icon,
+                                      title:
+                                          MenuHeader.data[index].menus[i].title,
+                                      widget: MenuHeader
+                                          .data[index].menus[i].widget!));
+
                                   if (Responsive.isMobile(context)) {
                                     closeDrawer(context);
                                   }
-                                } else {
-                                  if (Utils.activeMenus.contains(
-                                      MenuHeader.data[index].menus[i].id)) {
-                                    controller.currentIndex.value =
-                                        Utils.activeMenus.indexWhere((id) =>
-                                            id ==
-                                            MenuHeader.data[index].menus[i].id);
-                                  }
-                                }
+                                } 
                               },
                               title: MenuHeader
                                   .data[index].menus[i].title.capitalizeFirst!
@@ -133,6 +150,28 @@ class MyDrawer extends GetView<HomeController> {
               },
             ),
           ),
+          Row(
+            children: [
+              const Text("Theme: "),
+              Obx(
+                () => IconButton(
+                        onPressed: () {
+                          Utils.isLightTheme.toggle();
+                          Get.changeThemeMode(
+                            Utils.isLightTheme.value
+                                ? ThemeMode.light
+                                : ThemeMode.dark,
+                          );
+
+                          ThemeController().saveThemeStatus();
+                        },
+                        icon: Utils.isLightTheme.value
+                            ? const Icon(FontAwesomeIcons.solidMoon)
+                            : const Icon(Icons.wb_sunny))
+                    .hPadding9,
+              ),
+            ],
+          )  .hPadding9,
           InkWell(
             onTap: _launchURL,
             child: MyRichTextTwo(
