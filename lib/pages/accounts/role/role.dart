@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 import '../../../services/widgets/button.dart';
 import '../../../services/widgets/extension.dart';
-import '../../company/company.dart';
 import 'controller/controller.dart';
 import 'steppers/attendance/step.dart';
+import 'steppers/company/step.dart';
 import 'steppers/entries/steps.dart';
 import 'steppers/report/steps.dart';
 import 'steppers/sms/step.dart';
@@ -33,7 +33,7 @@ class Role extends GetView<RoleController> {
                 children: [
                   ExpansionTile(
                     title: "Company Branches".toLabel(bold: true),
-                    children: const [Company()],
+                    children: const [CompanyRole()],
                   ),
                   ExpansionTile(
                     title: "Sms".toLabel(bold: true),

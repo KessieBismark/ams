@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:ams/main.dart';
+import 'package:ams/pages/login/reset.dart';
+import 'package:ams/pages/login/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import '../../../services/constants/constant.dart';
 import '../../../services/constants/global.dart';
 import '../../../services/utils/company_details.dart';
@@ -14,6 +14,8 @@ import '../../../services/utils/mailer.dart';
 import '../../../services/utils/query.dart';
 import '../../../services/utils/sms.dart';
 import '../../../widgets/home.dart';
+import '../../company/company.dart';
+import '../login.dart';
 import '../model.dart';
 
 class LoginController extends GetxController {
@@ -39,7 +41,7 @@ class LoginController extends GetxController {
   void onInit() {
     // Utils.uid.value = '';
     // Simulating obtaining the user name from some local storage
-      loginFocusNode.requestFocus();
+    loginFocusNode.requestFocus();
     if (box.read("userEmail") != null) {
       emailController.text = box.read("userEmail").toString();
     }
@@ -73,7 +75,7 @@ class LoginController extends GetxController {
 
       var val = await Query.login(data);
       if (jsonDecode(val) == 'false') {
-        Get.toNamed('/company');
+        Get.to(() => const Company());
         return false;
       } else {
         var res = jsonDecode(val);
@@ -165,7 +167,7 @@ class LoginController extends GetxController {
           Utils.userName = 'Developer';
           Utils.userEmail = 'kessiebismark19@gmail.com';
           loading.value = false;
-          Get.offNamed('/dash');
+          Get.to(() => const MyHome());
         } else {
           try {
             mail = emailController.text;
@@ -185,10 +187,10 @@ class LoginController extends GetxController {
               loading.value = false;
               Utils.isLogged = true;
               passwordController.clear();
-              Get.toNamed('/verify');
+              Get.to(() => const Verify());
             } else if (jsonDecode(val) == 'reset') {
               loading.value = false;
-              Get.toNamed('/reset');
+              Get.to(() => const Reset());
             } else {
               passwordController.clear();
               Utils.isLogged = true;
@@ -196,7 +198,6 @@ class LoginController extends GetxController {
               var res = jsonDecode(val);
               Utils.uid.value = res[0]['id'];
               Utils.userName = res[0]['name'];
-
               Utils.access = res[0]['access'].split(",");
 
               Utils.userRole = res[0]['role'];
@@ -207,7 +208,6 @@ class LoginController extends GetxController {
               Utils.userRole == "Super Admin"
                   ? Get.to(() => const MyHome())
                   : Get.to(() => const MyHome());
-                
             }
           } catch (e) {
             loading.value = false;
@@ -254,7 +254,7 @@ class LoginController extends GetxController {
           var val = await Query.queryData(data);
           if (jsonDecode(val) == 'true') {
             loading.value = false;
-            Get.offNamed('/auth');
+            Get.to(() => const Login());
             // fxn.showInfo(saved);
           } else {
             loading.value = false;
@@ -296,7 +296,6 @@ class LoginController extends GetxController {
             Utils().showError("Wrong reset code was entered");
           } else {
             loading.value = false;
-
             Utils()
                 .showError("Something went wrong. Check internet connection");
           }
@@ -342,7 +341,6 @@ class LoginController extends GetxController {
           var cList = jsonDecode(gContact);
           String contact = cList[0]['contact'];
           String uname = cList[0]['name'];
-
           var data = {
             "action": "forgot",
             "reset": Utils.encryptMyData(myRand),
@@ -360,7 +358,7 @@ class LoginController extends GetxController {
 
             Mail.sendMail(mail, "Account Reset", message);
             isForgot.value = false;
-            Get.toNamed('/reset');
+            Get.to(() => const Reset());
           } else {
             isForgot.value = false;
             Utils().showError(

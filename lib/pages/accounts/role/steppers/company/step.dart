@@ -9,8 +9,8 @@ import 'p_controller.dart';
 UsersController user = Get.find();
 final con = Get.put(CompanyController());
 
-class Company extends StatelessWidget {
-  const Company({Key? key}) : super(key: key);
+class CompanyRole extends StatelessWidget {
+  const CompanyRole({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

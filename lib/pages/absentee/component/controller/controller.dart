@@ -192,10 +192,7 @@ class AbsenteeCon extends GetxController {
         "department": dep,
         "staff_id": emp,
       };
-      print(data);
       var res = await Query.queryData(data);
-      print(res);
-      print.call((res));
       if (jsonDecode(res) != 'false') {
         var productsJson = jsonDecode(res);
         for (var productJson in productsJson) {

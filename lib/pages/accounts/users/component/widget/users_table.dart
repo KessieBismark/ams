@@ -11,6 +11,7 @@ import '../../../../../services/widgets/button.dart';
 import '../../../../../services/widgets/extension.dart';
 import '../../../../../services/widgets/textbox.dart';
 import '../../../../../services/widgets/waiting.dart';
+import '../../../role/role.dart';
 import '../controllers/users_controller.dart';
 import '../model/users_model.dart';
 
@@ -73,7 +74,9 @@ class UserTable extends GetWidget<UsersController> {
                     controller.permission.value =
                         ((fileInfo.access!).split(","));
                   }
-                  Get.toNamed('/role', arguments: fileInfo.id);
+                  Get.to(() => const Role(), arguments: fileInfo.id);
+
+                  //   Get.to('/role', arguments: fileInfo.id);
                 },
                 icon: Icon(
                   FontAwesomeIcons.userLock,

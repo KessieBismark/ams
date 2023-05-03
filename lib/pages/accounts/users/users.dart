@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../services/constants/constant.dart';
 import '../../../services/utils/helpers.dart';
 import '../../../services/utils/model.dart';
@@ -186,7 +185,7 @@ class Users extends GetView<UsersController> {
                   type: ButtonType.cancel,
                 ),
               ],
-            ).padding9
+            )
           ],
         ),
       ),

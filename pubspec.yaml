@@ -1,9 +1,9 @@
 name: ams
-description: Developed by Bistech Ghana.
+description: Our biometric attendance system integrates with your existing devices to directly pull data and generate accurate reports on absentees, monthly attendance, overtime, and more. You can also receive SMS alerts for real-time updates on attendance status. With our system, managing attendance has never been easier or more efficient. Developed by Bistech Ghana. website; https://bistechgh.com/
 
 publish_to: 'none'
 
-version: 3.2.0+1
+version: 3.8.0+1
 
 environment:
   sdk: '>=2.18.1 <3.0.0'
@@ -17,10 +17,8 @@ dependencies:
   date_format: ^2.0.6
   dropdown_search: ^5.0.2
   encrypt: ^5.0.1
-  fluent_ui: ^4.4.2
   flutter:
     sdk: flutter
-  flutter_acrylic: ^1.1.2
   flutter_animate: ^2.0.0
   flutter_launcher_icons: ^0.10.0
   fluttericon: ^2.0.0

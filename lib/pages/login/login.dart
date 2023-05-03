@@ -1,5 +1,6 @@
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../services/constants/server.dart';
 import '../../services/widgets/extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -180,7 +181,7 @@ class Login extends GetView<LoginController> {
   }
 
   _launchURL() async {
-    const url = 'https://plaza.royalfoamghana.com/ams_5.0.exe';
+    const url = Api.exeUrl;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {

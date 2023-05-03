@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ams/pages/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -25,7 +26,7 @@ class CompanyInfoCon extends GetxController {
   @override
   void onInit() {
     super.onInit();
-      Utils.checkAccess();
+    Utils.checkAccess();
     cname.text = Cpy.cpyName;
     contact.text = Cpy.cpyContact;
     address.text = Cpy.cpyAddress;
@@ -52,7 +53,7 @@ class CompanyInfoCon extends GetxController {
         var val = await Query.queryData(query);
         if (jsonDecode(val) == 'true') {
           isSave.value = false;
-          Get.toNamed('/auth');
+          Get.to(() => const Login());
         } else {
           isSave.value = false;
           Utils().showError(notSaved);

@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../services/constants/constant.dart';
 import '../../../../../services/constants/global.dart';
 import '../../../../../services/utils/helpers.dart';
@@ -43,7 +41,7 @@ class UsersController extends GetxController {
   var genSelected = ' '.obs;
   @override
   void onInit() {
-    //  Utils.checkAccess();
+      Utils.checkAccess();
     super.onInit();
     getSmsDetails();
     reload();
@@ -155,7 +153,6 @@ class UsersController extends GetxController {
           "cid": Utils.cid
         };
         var val = await Query.queryData(data);
-        print(val);
         if (jsonDecode(val) == 'true') {
           cRole.value = false;
           reload();
@@ -260,7 +257,6 @@ class UsersController extends GetxController {
               "cid": Utils.cid,
             };
             var val = await Query.queryData(data);
-            print(val);
             if (jsonDecode(val) == 'true') {
               Sms().sendSms(contact.text,
                   "Welcome, Please visit $appSite or open the application on your desktop, login with your email and this temporary password: $myRand to create a new password");
@@ -294,7 +290,7 @@ class UsersController extends GetxController {
       var data = {
         "action": "view_users",
         "cid": Utils.cid,
-        "branch": Utils.branchID == '0' ? branch.text : Utils.branchID,
+        "branch": Utils.branchID //== '0' ? branch.text : Utils.branchID,
       };
       var result = await Query.queryData(data);
       var empJson = json.decode(result);

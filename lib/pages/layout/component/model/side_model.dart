@@ -1,5 +1,6 @@
 import 'package:ams/pages/absent_report/absent_report.dart';
 import 'package:ams/pages/absentee/absentee.dart';
+import 'package:ams/pages/accounts/users/users.dart';
 import 'package:ams/pages/dash/dash.dart';
 import 'package:ams/pages/department/department.dart';
 import 'package:ams/pages/employee/employee.dart';
@@ -14,6 +15,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../services/utils/helpers.dart';
 import '../../../branches/branches.dart';
+import '../../../company_info/company_info.dart';
 import '../../../daily/daily.dart';
 import '../../../sms/sms.dart';
 
@@ -142,15 +144,28 @@ class MenuHeader {
     ]),
     MenuHeader(header: "Configurations & Settings", menus: [
       MenuModel(
-          id: Utils.getInitials('Overtime Report'),
+          id: Utils.getInitials('Branches'),
           title: 'Branches',
           subMenu: [],
           icon: FontAwesomeIcons.codeBranch,
-          widget: const Branches())
+          widget: const Branches()),
+      MenuModel(
+          id: Utils.getInitials('Company info'),
+          title: 'Company info',
+          subMenu: [],
+          icon: FontAwesomeIcons.industry,
+          widget: const CompanyInfo())
+    ]),
+    MenuHeader(header: "User Accounts", menus: [
+      MenuModel(
+          id: Utils.getInitials('Accounts'),
+          title: 'Accounts',
+          subMenu: [],
+          icon: Icons.verified_user,
+          widget: const Users())
     ])
   ];
 }
-
 
 class SearchableModel {
   final String id;
@@ -158,5 +173,6 @@ class SearchableModel {
   final String title;
   final Widget widget;
 
-  SearchableModel({this.icon,required this.id, required this.title, required this.widget});
+  SearchableModel(
+      {this.icon, required this.id, required this.title, required this.widget});
 }

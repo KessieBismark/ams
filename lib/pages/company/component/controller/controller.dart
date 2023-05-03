@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ams/pages/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -39,7 +40,7 @@ class CompanyCon extends GetxController {
 
         if (jsonDecode(val) == 'true') {
           isSave.value = false;
-          Get.toNamed('/auth');
+           Get.to(() => const Login());
         } else {
           isSave.value = false;
           Utils().showError(notSaved);
