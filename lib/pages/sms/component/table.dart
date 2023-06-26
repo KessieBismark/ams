@@ -11,7 +11,6 @@ import '../../../services/utils/model.dart';
 import '../../../services/widgets/button.dart';
 import '../../../services/widgets/dropdown.dart';
 import '../../../services/widgets/textbox.dart';
-import '../../absentee/component/model/absentee_model.dart';
 import 'controller/controller.dart';
 
 class SmsTable extends GetView<SmsCon> {
@@ -138,7 +137,7 @@ class SmsTable extends GetView<SmsCon> {
               key: controller.formKey,
               child: Column(
                 children: [
-                 Obx(()=> DropDownText(
+                  Obx(() => DropDownText(
                           hint: "Select Sender type",
                           label: "Select Sender type",
                           controller: controller.type.value,
@@ -177,7 +176,7 @@ class SmsTable extends GetView<SmsCon> {
                                 label: "Select department",
                                 controller: controller.selDepartment,
                                 isLoading: controller.depLoading.value,
-                                validate:true,
+                                validate: true,
                                 list: controller.departmentList,
                                 onChange: (DropDownModel? data) {
                                   controller.depText.text = data!.id.toString();
@@ -191,7 +190,7 @@ class SmsTable extends GetView<SmsCon> {
                                 label: "Select employee",
                                 controller: controller.selEmployee,
                                 isLoading: controller.empLoading.value,
-                                validate:true,
+                                validate: true,
                                 list: controller.employeesList,
                                 onChange: (DropDownModel? data) {
                                   controller.empName.text = data!.id.toString();

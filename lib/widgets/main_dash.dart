@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../responsive.dart';
-import '../services/menu_controller/menu_controller.dart';
-import 'drawer/drawer.dart';
 
 // class Framework extends StatelessWidget {
 //   final Widget panel;

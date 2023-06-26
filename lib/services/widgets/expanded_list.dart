@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../constants/color.dart';
 import 'expanded_sub.dart';
 import 'extension.dart';
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../services/constants/server.dart';
@@ -146,7 +148,7 @@ class Login extends GetView<LoginController> {
                             : const MWaiting())
                       ],
                     ),
-                    if (!GetPlatform.isWindows)
+                    if (!Platform.isWindows)
                       Row(
                         children: [
                           const Spacer(),

@@ -75,7 +75,7 @@ class Users extends GetView<UsersController> {
                                 : Container(),
                             Text(
                               "List Of Users",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: Theme.of(context).textTheme.titleMedium,
                             ),
                             IconButton(
                                 onPressed: () => controller.reload(),
@@ -156,18 +156,17 @@ class Users extends GetView<UsersController> {
               ],
             ).padding9,
             Utils.userRole == "Super Admin"
-                ?Obx(() =>  !controller.isAdmin.value
+                ? Obx(() => !controller.isAdmin.value
                     ? Container()
                     : Obx(() => DropDownText2(
                         hint: "Select branch",
                         label: "Select branch",
                         controller: controller.selBranch,
                         isLoading: controller.isB.value,
-                        validate:true,
+                        validate: true,
                         list: controller.bList,
                         onChange: (DropDownModel? data) {
                           controller.branch.text = data!.id.toString();
-                        
                         }).padding9))
                 : Container(),
             Row(

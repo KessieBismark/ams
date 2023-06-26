@@ -129,7 +129,8 @@ class AbrTable extends GetView<AbsentReportCon> {
                       context,
                       controller.dataList[index].staffID,
                       controller.dataList[index].dates,
-                      controller.dataList[index].permission),
+                      controller.dataList[index].permission,
+                      "${controller.dataList[index].surname}, ${controller.dataList[index].middlename} ${controller.dataList[index].firstname}"),
                   color: index.isEven
                       ? MaterialStateColor.resolveWith(
                           (states) => const Color.fromARGB(31, 167, 162, 162))
@@ -156,11 +157,11 @@ class AbrTable extends GetView<AbsentReportCon> {
     ).card;
   }
 
-  showsDates(context, String id, String date, String type) {
+  showsDates(context, String id, String date, String type, String name) {
     List<String> list = date.split(',');
     list.sort(((a, b) => a.compareTo(b)));
     Get.defaultDialog(
-      title: 'List of absent days ($type)',
+      title: '$name\'s absent days ($type)',
       content: Column(
         children: [
           SizedBox(
@@ -169,19 +170,20 @@ class AbrTable extends GetView<AbsentReportCon> {
             child: ListView.builder(
                 itemCount: list.length,
                 itemBuilder: (BuildContext ctx, index) {
-                  return Obx(() => controller.permDate.value.contains('$id-${list[index]}')
-                      ? Container()
-                      : ListTile(
-                          trailing: IconButton(
-                              onPressed: () =>
-                                  addPermission(context, id, list[index]),
-                              icon: const Icon(
-                                Icons.edit,
-                                color: Colors.green,
-                              )),
-                          title: Text(Utils.niceDateString(list[index])),
-                          subtitle: null,
-                        ));
+                  return Obx(
+                      () => controller.permDate.contains('$id-${list[index]}')
+                          ? Container()
+                          : ListTile(
+                              trailing: IconButton(
+                                  onPressed: () =>
+                                      addPermission(context, id, list[index]),
+                                  icon: const Icon(
+                                    Icons.edit,
+                                    color: Colors.green,
+                                  )),
+                              title: Text(Utils.niceDateString(list[index])),
+                              subtitle: null,
+                            ));
                 }),
           ),
           Align(
@@ -296,8 +298,7 @@ class AbrTable extends GetView<AbsentReportCon> {
               Row(
                 children: [
                   Text(date),
-                  IconButton(
-                      onPressed: () => null, icon: const Icon(Icons.edit))
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.edit))
                 ],
               ),
               Row(

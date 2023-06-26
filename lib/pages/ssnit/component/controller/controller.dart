@@ -13,8 +13,8 @@ import '../../../../services/utils/query.dart';
 import '../../../employee/component/models/emp_models.dart';
 
 class SsnitCon extends GetxController {
-  List<ssnitModel> ssnit = <ssnitModel>[];
-  List<ssnitModel> ssnitAmt = <ssnitModel>[];
+  List<SsnitModel> ssnit = <SsnitModel>[];
+  List<SsnitModel> ssnitAmt = <SsnitModel>[];
   final formKey = GlobalKey<FormState>();
 
   final percentage = TextEditingController();
@@ -139,8 +139,8 @@ class SsnitCon extends GetxController {
     }
   }
 
-  Future<List<ssnitModel>> fetchSsnit() async {
-    var permission = <ssnitModel>[];
+  Future<List<SsnitModel>> fetchSsnit() async {
+    var permission = <SsnitModel>[];
     try {
       var data = {
         "action": "view_permissions",
@@ -150,7 +150,7 @@ class SsnitCon extends GetxController {
       if (empJson == 'false') {
       } else {
         for (var empJson in empJson) {
-          permission.add(ssnitModel.fromJson(empJson));
+          permission.add(SsnitModel.fromJson(empJson));
         }
       }
       return permission;

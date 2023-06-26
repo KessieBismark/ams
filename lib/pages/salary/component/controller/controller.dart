@@ -7,7 +7,6 @@ import '../../../../services/constants/constant.dart';
 import '../../../../services/utils/helpers.dart';
 import '../../../../services/utils/model.dart';
 import '../../../../services/utils/query.dart';
-import '../../../absentee/component/model/absentee_model.dart';
 import '../../../branches/component/controller/controller.dart';
 import '../../../department/component/controller/controller.dart';
 import '../../../employee/component/controller.dart';

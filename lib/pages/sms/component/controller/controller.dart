@@ -293,9 +293,9 @@ class SmsCon extends GetxController {
       var data = {
         "action": "view_sms",
         "cid": Utils.cid,
-        "branch": Utils.branchID == '0' ? branch.text : Utils.branchID,
-        "department": depText.text,
-        "staff_id": empName.text,
+        "branch": Utils.branchID
+        // "department": depText.text,
+        // "staff_id": empName.text,
       };
       var result = await Query.queryData(data);
       var res = json.decode(result);

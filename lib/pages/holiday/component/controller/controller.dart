@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 import '../../../../services/constants/constant.dart';
 import '../../../../services/utils/model.dart';
-import '../../../absentee/component/model/absentee_model.dart';
 import '../../../branches/component/controller/controller.dart';
 import '../model/model.dart';
 

@@ -1,31 +1,3 @@
-import '../../pages/absent_report/absent_report.dart';
-import '../../pages/absentee/absentee.dart';
-import '../../pages/accounts/users/users.dart';
-import '../../pages/daily/daily.dart';
-import '../../pages/department/department.dart';
-import '../../pages/employee/employee.dart';
-import '../../pages/holiday/holiday.dart';
-import '../../pages/login/login.dart';
-import '../../pages/lunch_break/lunch.dart';
-import '../../pages/permission/permission.dart';
-import '../../pages/salary/salary.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-
-import '../../pages/accounts/role/role.dart';
-import '../../pages/branches/branches.dart';
-import '../../pages/company/company.dart';
-import '../../pages/company_info/company_info.dart';
-import '../../pages/dash/dash.dart';
-import '../../pages/employee/component/mobile_emp.dart';
-import '../../pages/login/reset.dart';
-import '../../pages/login/verify.dart';
-import '../../pages/monthly/monthly.dart';
-import '../../pages/overtime/overtime.dart';
-import '../../pages/sms/sms.dart';
-import '../../widgets/main_dash.dart';
-import '../menu_controller/menu_controller.dart';
-import 'binding.dart';
 
 class Routes {
   static final routes = [

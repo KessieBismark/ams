@@ -1,3 +1,4 @@
+import '../../services/widgets/multi_select.dart';
 import 'component/controller.dart';
 import 'component/printing/print_pdf.dart';
 import '../../services/widgets/extension.dart';
@@ -14,7 +15,6 @@ import '../../services/utils/model.dart';
 import '../../services/widgets/button.dart';
 import '../../services/widgets/dialogs.dart';
 import '../../services/widgets/dropdown.dart';
-import '../../services/widgets/multi_select.dart';
 import '../../services/widgets/richtext.dart';
 import '../../widgets/header/header.dart';
 import '../absentee/component/printing/absent_pdf.dart';

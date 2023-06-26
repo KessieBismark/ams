@@ -1,7 +1,4 @@
-import 'package:ams/pages/layout/responsive.dart';
-import 'package:ams/pages/layout/tab_panel.dart';
 import 'package:ams/pages/login/login.dart';
-import 'package:ams/widgets/mobile_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -29,5 +26,3 @@ class MyApp extends StatelessWidget {
         home: const Login());
   }
 }
-
-

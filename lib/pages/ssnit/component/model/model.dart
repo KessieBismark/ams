@@ -1,4 +1,4 @@
-class ssnitModel {
+class SsnitModel {
   final String id;
   final String surname;
   final String firstname;
@@ -7,7 +7,7 @@ class ssnitModel {
   final String year;
   final String amount;
 
-  ssnitModel(
+  SsnitModel(
       {required this.id,
       required this.surname,
       required this.firstname,
@@ -16,8 +16,8 @@ class ssnitModel {
       required this.year,
       required this.amount});
 
-  factory ssnitModel.fromJson(Map<String, dynamic> map) {
-    return ssnitModel(
+  factory SsnitModel.fromJson(Map<String, dynamic> map) {
+    return SsnitModel(
         id: map[''],
         surname: map['surname'],
         firstname: map['firstname'],

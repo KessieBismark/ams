@@ -14,7 +14,6 @@ import '../../services/widgets/dialogs.dart';
 import '../../services/widgets/dropdown.dart';
 import '../../services/widgets/richtext.dart';
 import '../../widgets/header/header.dart';
-import '../absentee/component/model/absentee_model.dart';
 import 'component/controller/controller.dart';
 import 'component/printing/print_pdf.dart';
 import 'component/table.dart';

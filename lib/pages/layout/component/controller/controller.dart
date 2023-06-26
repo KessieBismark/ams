@@ -70,22 +70,21 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
       if (tabs.isNotEmpty && tabLength.value != 0) {
         print("animate: ${tabs.length - 1}");
       }
-     
     } else {
       tabs.remove(data);
       tabController = TabController(length: tabs.length, vsync: this);
       if (tabs.isNotEmpty && tabLength.value != 0) {
         tabController!.animateTo(tabs.length - 1);
       }
-    } 
+    }
     // tabs.remove(data);
     // tabLength.value--;
     // tabController = TabController(length: tabs.length, vsync: this);
     // if (tabs.isNotEmpty && tabLength.value != 0) {
     //   tabController!.animateTo(tabs.length - 1);
     // }
-   Utils.activeMenus.remove(data.id);
-     tabLength.value--;
+    Utils.activeMenus.remove(data.id);
+    tabLength.value--;
     update();
   }
 }

@@ -11,7 +11,6 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import '../../../services/constants/constant.dart';
 import '../../../services/utils/model.dart';
-import '../../absentee/component/model/absentee_model.dart';
 import 'models/emp_models.dart';
 
 final dep = Get.find<DepartmentCon>();

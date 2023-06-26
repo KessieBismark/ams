@@ -8,10 +8,8 @@ import '../../../../services/utils/model.dart';
 import '../../../../services/widgets/button.dart';
 import '../../../../services/widgets/dialogs.dart';
 import '../../../../services/widgets/dropdown.dart';
-import '../../../../services/widgets/multi_select.dart';
 import '../../../../services/widgets/textbox.dart';
 import '../../../../services/widgets/waiting.dart';
-import '../../../absentee/component/model/absentee_model.dart';
 import '../controller/controller.dart';
 
 class SalartTable extends GetView<SalaryCon> {
@@ -209,32 +207,32 @@ class SalartTable extends GetView<SalaryCon> {
                       controller.getEmployees(
                           controller.branch.text, data.id.toString());
                     }).padding9),
-                Obx(() => MultiSelect(
-                        onChange: (value) {
-                          controller.eListSelected = value;
-                        },
-                        isLoading: controller.empLoading.value,
-                        selected: controller.eListSelected,
-                        items: controller.eList,
-                        hint: "Group employee under this structure")
-                    .padding9),
+                // Obx(() => MultiSelect(
+                //         onChange: (value) {
+                //           controller.eListSelected = value;
+                //         },
+                //         isLoading: controller.empLoading.value,
+                //         selected: controller.eListSelected,
+                //         items: controller.eList,
+                //         hint: "Group employee under this structure")
+                //     .padding9),
                 MEdit(
                   hint: "Salary Amount",
                   controller: controller.amount,
                   inputType: TextInputType.number,
                   validate: Utils.validator,
                 ),
-                Obx(() => !controller.isGroup.value
-                    ? MultiSelect(
-                            onChange: (item) {
-                              controller.selectedGroup = item;
-                              //  controller.getItemList(item.join(","));
-                            },
-                            selected: controller.selectedGroup,
-                            items: controller.salaryGroup,
-                            hint: "Group employee under this structure")
-                        .padding9
-                    : const MWaiting()),
+                // Obx(() => !controller.isGroup.value
+                //     ? MultiSelect(
+                //             onChange: (item) {
+                //               controller.selectedGroup = item;
+                //               //  controller.getItemList(item.join(","));
+                //             },
+                //             selected: controller.selectedGroup,
+                //             items: controller.salaryGroup,
+                //             hint: "Group employee under this structure")
+                //         .padding9
+                //     : const MWaiting()),
                 const Divider().padding9,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

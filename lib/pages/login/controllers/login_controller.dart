@@ -223,6 +223,7 @@ class LoginController extends GetxController {
   getAPI() async {
     try {
       var query = {"action": "view_api", "cid": Utils.cid};
+      print(query);
       var val = await Query.queryData(query);
       if (jsonDecode(val) == 'false') {
         Sms.smsAPI = "";

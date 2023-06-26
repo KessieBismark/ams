@@ -13,7 +13,6 @@ import '../../../../../services/widgets/waiting.dart';
 import '../../../services/utils/model.dart';
 import '../../../services/widgets/delete_dailog.dart';
 import '../../../services/widgets/dropdown.dart';
-import '../../absentee/component/model/absentee_model.dart';
 import 'controller/controller.dart';
 
 class HolidayTable extends GetView<HolidayCon> {

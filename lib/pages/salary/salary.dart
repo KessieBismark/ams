@@ -10,11 +10,9 @@ import '../../services/utils/model.dart';
 import '../../services/widgets/button.dart';
 import '../../services/widgets/dialogs.dart';
 import '../../services/widgets/dropdown.dart';
-import '../../services/widgets/multi_select.dart';
 import '../../services/widgets/richtext.dart';
 import '../../services/widgets/textbox.dart';
 import '../../widgets/header/header.dart';
-import '../absentee/component/model/absentee_model.dart';
 import 'component/table/table.dart';
 
 class Salary extends GetView<SalaryCon> {
@@ -184,15 +182,15 @@ class Salary extends GetView<SalaryCon> {
                       controller.getEmployees(
                           controller.branch.text, data.id.toString());
                     }).padding9),
-                Obx(() => MultiSelect(
-                        onChange: (value) {
-                          controller.eListSelected = value;
-                        },
-                        isLoading: controller.empLoading.value,
-                        selected: controller.eListSelected,
-                        items: controller.eList,
-                        hint: "Group employee under this structure")
-                    .padding9),
+                // Obx(() => MultiSelect(
+                //         onChange: (value) {
+                //           controller.eListSelected = value;
+                //         },
+                //         isLoading: controller.empLoading.value,
+                //         selected: controller.eListSelected,
+                //         items: controller.eList,
+                //         hint: "Group employee under this structure")
+                //     .padding9),
                 MEdit(
                   hint: "Salary Amount",
                   controller: controller.amount,
