@@ -42,7 +42,7 @@ class OvertimePrint extends StatelessWidget {
           ),
           pw.SizedBox(height: 10),
           pw.Center(child: pw.SizedBox(child: pw.Text(title.toUpperCase()))),
-          pw.Table.fromTextArray(
+          pw.TableHelper.fromTextArray(
               context: context,
               cellStyle: const pw.TextStyle(
                 fontSize: pdfFont,

@@ -3,12 +3,12 @@ description: Our biometric attendance system integrates with your existing
   devices to directly pull data and generate accurate reports on absentees,
   monthly attendance, overtime, and more. You can also receive SMS alerts for
   real-time updates on attendance status. With our system, managing attendance
-  has never been easier or more efficient. Developed by Bistech Ghana. website;
+  has never been easier or more efficient. Developed by Bistech Ghana. website:\
   https://bistechgh.com/
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 5.0.0+1
+version: 5.1.0+1
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

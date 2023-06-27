@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme,
         initialBinding: AMSBinding(),
         darkTheme: darkTheme,
-        themeMode: ThemeMode.system,
+        // themeMode: ThemeMode.system,
         home: const Login());
   }
 }

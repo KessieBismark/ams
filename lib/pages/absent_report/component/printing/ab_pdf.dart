@@ -44,7 +44,7 @@ class AbscentPrint extends StatelessWidget {
           printHeader(image),
           pw.SizedBox(height: 10),
           pw.Center(child: pw.SizedBox(child: pw.Text(title.toUpperCase()))),
-          pw.Table.fromTextArray(
+          pw.TableHelper.fromTextArray(
               columnWidths: const {
                 0: pw.FlexColumnWidth(1.5),
                 1: pw.FlexColumnWidth(4),

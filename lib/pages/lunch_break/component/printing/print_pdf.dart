@@ -53,7 +53,7 @@ class LunchPrint extends StatelessWidget {
                 style:
                     pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold))
           ]),
-          pw.Table.fromTextArray(
+          pw.TableHelper.fromTextArray(
               context: context,
               cellStyle: const pw.TextStyle(
                 fontSize: pdfFont,

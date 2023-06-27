@@ -30,7 +30,7 @@ class SyncCartesianChart extends StatelessWidget {
       height: height,
       width: myWidth(context, width),
       child: SfCartesianChart(
-          legend: Legend(
+          legend: const Legend(
               isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
           tooltipBehavior: tooltipBehavior,
           title: ChartTitle(

@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../services/constants/server.dart';
 import '../../services/widgets/extension.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
 import '../../services/constants/color.dart';
 import '../../services/widgets/button.dart';
 import '../../services/widgets/waiting.dart';
@@ -148,7 +144,7 @@ class Login extends GetView<LoginController> {
                             : const MWaiting())
                       ],
                     ),
-                    if (!Platform.isWindows)
+                    if (!GetPlatform.isWindows)
                       Row(
                         children: [
                           const Spacer(),

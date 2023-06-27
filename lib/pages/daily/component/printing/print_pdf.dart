@@ -57,7 +57,7 @@ class AttendancePrint extends StatelessWidget {
                 style:
                     pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold))
           ]),
-          pw.Table.fromTextArray(
+          pw.TableHelper.fromTextArray(
               columnWidths: const {
                 0: pw.FlexColumnWidth(1.5),
                 1: pw.FlexColumnWidth(8),

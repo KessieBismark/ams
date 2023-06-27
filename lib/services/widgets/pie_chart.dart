@@ -25,7 +25,7 @@ class SyncPieChart extends StatelessWidget {
         height: height,
         width: width,
         child: SfCircularChart(
-            legend: Legend(
+            legend: const Legend(
                 isVisible: true, overflowMode: LegendItemOverflowMode.none),
             tooltipBehavior: tooltipBehavior,
             // title: ChartTitle(
