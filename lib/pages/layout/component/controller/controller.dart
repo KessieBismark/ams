@@ -5,29 +5,25 @@ import '../model/side_model.dart';
 
 class HomeController extends GetxController with GetTickerProviderStateMixin {
   var tabLength = 0.obs;
-  var isAdd = false.obs;
   List<SearchableModel> tabs = [];
   SearchableModel? selectedItem;
-  TabController? tabController;
-  final ScrollController scrollController = ScrollController();
-  int selectedIndex = 0;
   @override
   onInit() {
     super.onInit();
     tabs.add(SearchableModel(id: '2322', title: 'title', widget: Container()));
-    tabController = TabController(length: tabs.length, vsync: this);
+    Utils.tabController = TabController(length: tabs.length, vsync: this);
     getDrawerList();
   }
 
   @override
   void onClose() {
-    tabController!.dispose();
+   Utils. tabController!.dispose();
     super.onClose();
   }
 
   @override
   void dispose() {
-    tabController!.dispose();
+   Utils. tabController!.dispose();
     super.dispose();
   }
 
@@ -56,8 +52,8 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
 
   generateTab(SearchableModel data) {
     tabs.add(data);
-    tabController = TabController(length: tabs.length, vsync: this);
-    tabController!.animateTo(tabs.length - 1);
+   Utils. tabController = TabController(length: tabs.length, vsync: this);
+   Utils. tabController!.animateTo(tabs.length - 1);
 
     tabLength.value++;
     update();
@@ -66,15 +62,15 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   removeTab(SearchableModel data) {
     if (tabLength.value == 1) {
       tabs.remove(data);
-      tabController = TabController(length: tabs.length, vsync: this);
+    Utils.  tabController = TabController(length: tabs.length, vsync: this);
       if (tabs.isNotEmpty && tabLength.value != 0) {
         print("animate: ${tabs.length - 1}");
       }
     } else {
       tabs.remove(data);
-      tabController = TabController(length: tabs.length, vsync: this);
+     Utils. tabController = TabController(length: tabs.length, vsync: this);
       if (tabs.isNotEmpty && tabLength.value != 0) {
-        tabController!.animateTo(tabs.length - 1);
+     Utils.   tabController!.animateTo(tabs.length - 1);
       }
     }
     // tabs.remove(data);

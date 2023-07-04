@@ -10,6 +10,7 @@ import '../../../../../services/widgets/waiting.dart';
 import '../../../responsive.dart';
 import '../../../services/utils/helpers.dart';
 import '../../../services/utils/model.dart';
+import 'mobile_emp.dart';
 
 class EmployeeTable extends GetView<EmployeeCon> {
   const EmployeeTable({Key? key}) : super(key: key);
@@ -333,9 +334,11 @@ class EmployeeTable extends GetView<EmployeeCon> {
                           ? controller.on.value = true
                           : controller.on.value = false;
                       if (Responsive.isMobile(context)) {
-                        Get.toNamed('/editEmployee');
+                        Get.to(() => const UpdateEmployeeMobileInput());
                       } else {
                         controller.updateEmployee.value = true;
+                        controller.isResign.value = false;
+                        controller.isResign.value = true;
                       }
                     },
                     color: index.isEven

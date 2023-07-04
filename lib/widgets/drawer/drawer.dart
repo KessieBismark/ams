@@ -1,4 +1,3 @@
-
 import '../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +42,8 @@ class MyDrawer extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  "Welcome ${Utils.userName.capitalizeFirst}".toLabel(fontsize: 15),
+                  "Welcome ${Utils.userName.capitalizeFirst}"
+                      .toLabel(fontsize: 15),
                   const SizedBox(
                     height: 10,
                   ),
@@ -106,7 +106,7 @@ class MyDrawer extends StatelessWidget {
                                   .data[index].items[i].title.capitalize!
                                   .toLabel(fontsize: 13),
                             )
-                           : 
+                          :
                           // ExpandItems(
                           //     selectedItem: selectedItem,
                           //     name: name,
@@ -129,7 +129,7 @@ class MyDrawer extends StatelessWidget {
             onTap: _launchURL,
             child: MyRichTextTwo(
               mainText: "Developed by ",
-              subText: "BISTECH GHANA",
+              subText: "Asmiksoft",
               mainStyle: TextStyle(color: lightGrey, fontSize: 14),
               subStyle: const TextStyle(
                   color: Color.fromARGB(182, 75, 184, 187), fontSize: 14),

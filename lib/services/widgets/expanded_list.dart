@@ -65,17 +65,10 @@ class ExpandItems extends StatelessWidget {
     return ExpansionTile(
       tilePadding: const EdgeInsets.all(0),
       title:
-          // Utils.activeMenus.contains(subMenus.i) subMenus.contains('$name-$selectedItem')
-          //     ? title.toLabel(color: activeTab,fontsize: 16)
-          //:
+        
           title.toLabel(fontsize: 15),
       leading:
-          //  subMenus.contains('$name-$selectedItem')
-          //     ? Padding(
-          //         padding: const EdgeInsets.only(left: 15.0),
-          //         child: Icon(leading, color: activeTab),
-          //       )
-          //     :
+         
           Padding(
         padding: const EdgeInsets.only(left: 15.0),
         child: Icon(leading),
@@ -85,7 +78,6 @@ class ExpandItems extends StatelessWidget {
           SubItem(
             subMenu: subMenus[i],
             drawerContext:drawerContext
-            // selected: selectedItem
           )
       ],
     );

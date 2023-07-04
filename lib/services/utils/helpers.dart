@@ -24,8 +24,8 @@ class Utils {
   static String branchName = '';
   static List<String> access = [];
   static List<String> activeMenus = [];
-   static  List<SearchableModel> drawerItems = [];
-
+  static List<SearchableModel> drawerItems = [];
+  static TabController? tabController;
 
   static var iv = enc.IV.fromLength(16);
   static var key = enc.Key.fromLength(32);

@@ -21,33 +21,33 @@ class MyDrawer extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return  Drawer(
-          elevation: 10.0,
-          child: Column(
-            children: [
-              DrawerHeader(
-                curve: Curves.easeIn,
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return Drawer(
+      elevation: 10.0,
+      child: Column(
+        children: [
+          DrawerHeader(
+            curve: Curves.easeIn,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          "assets/icons/logo.png",
-                          height: 40,
-                        ).padding3,
-                        appName.toLabel(
-                            bold: true,
-                            fontsize: 30,
-                            color: const Color.fromARGB(182, 75, 184, 187))
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    "Welcome ${Utils.userName.capitalizeFirst}"
-                        .toLabel(fontsize: 15),
+                    Image.asset(
+                      "assets/icons/logo.png",
+                      height: 40,
+                    ).padding3,
+                    appName.toLabel(
+                        bold: true,
+                        fontsize: 30,
+                        color: const Color.fromARGB(182, 75, 184, 187))
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                "Welcome ${Utils.userName.capitalizeFirst}"
+                    .toLabel(fontsize: 15),
                 const SizedBox(
                   height: 10,
                 ),
@@ -75,8 +75,8 @@ class MyDrawer extends GetView<HomeController> {
                 }
               } else {
                 if (Utils.activeMenus.contains(val.id)) {
-                  int index = controller.tabs.indexOf(val);
-                  controller.tabController!.animateTo(index);
+                  Utils.tabController!
+                      .animateTo(Utils.activeMenus.indexOf(val.id) + 1);
                 }
               }
             },
@@ -132,7 +132,15 @@ class MyDrawer extends GetView<HomeController> {
                                   if (Responsive.isMobile(context)) {
                                     closeDrawer(context);
                                   }
-                                } 
+                                } else {
+                                  if (Utils.activeMenus.contains(
+                                      MenuHeader.data[index].menus[i].id)) {
+                                    Utils.tabController!.animateTo(
+                                        Utils.activeMenus.indexOf(MenuHeader
+                                                .data[index].menus[i].id) +
+                                            1);
+                                  }
+                                }
                               },
                               title: MenuHeader
                                   .data[index].menus[i].title.capitalizeFirst!
@@ -171,7 +179,7 @@ class MyDrawer extends GetView<HomeController> {
                     .hPadding9,
               ),
             ],
-          )  .hPadding9,
+          ).hPadding9,
           InkWell(
             onTap: _launchURL,
             child: MyRichTextTwo(

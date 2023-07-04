@@ -23,7 +23,7 @@ class MobileHome extends GetView<HomeController> {
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicatorWeight: 5,
                 labelPadding: const EdgeInsets.only(left: 16.0),
-                controller: controller.tabController,
+                controller: Utils.tabController,
                 tabs: controller.tabs.map((tab) {
                   return Tab(
                     child: tab.id != '2322'
@@ -55,7 +55,7 @@ class MobileHome extends GetView<HomeController> {
               )),
           drawer: const MyDrawer(),
           body: TabBarView(
-            controller: controller.tabController,
+            controller: Utils.tabController,
             children: controller.tabs.map((SearchableModel tab) {
               return tab.widget;
             }).toList(),

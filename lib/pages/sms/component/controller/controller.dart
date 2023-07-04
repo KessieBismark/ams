@@ -181,6 +181,7 @@ class SmsCon extends GetxController {
         "department": depText.text,
         "staff_id": empName.text,
       };
+
       var val = await Query.queryData(query);
       if (jsonDecode(val) == 'true') {
         isSave.value = false;

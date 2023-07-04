@@ -1,4 +1,5 @@
 import 'component/controller.dart';
+import 'component/mobile_emp.dart';
 import 'component/table.dart';
 import '../../services/widgets/extension.dart';
 import 'package:flutter/material.dart';
@@ -139,9 +140,9 @@ class Employee extends GetView<EmployeeCon> {
                                     ).hPadding9,
                                   Obx(() => MyRichText(
                                       load: controller.getData.value,
-                                       mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                      mainColor: Utils.isLightTheme.value
+                                          ? Colors.black
+                                          : light,
                                       subColor: Colors.red,
                                       mainText: "Employee Table ",
                                       subText:
@@ -175,9 +176,9 @@ class Employee extends GetView<EmployeeCon> {
                                 children: [
                                   Obx(() => MyRichText(
                                       load: controller.loadData.value,
-                                        mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                      mainColor: Utils.isLightTheme.value
+                                          ? Colors.black
+                                          : light,
                                       subColor: Colors.red,
                                       mainText: "Employee Table ",
                                       subText:
@@ -191,7 +192,8 @@ class Employee extends GetView<EmployeeCon> {
                                           if (Responsive.isMobile(context)) {
                                             controller.getMaxId();
                                             controller.on.value = true;
-                                            Get.toNamed('/empInput');
+                                            Get.to(() =>
+                                                const EmployeeMobileInput());
                                           } else {
                                             controller.on.value = true;
                                             controller.clearText();
@@ -250,7 +252,7 @@ class Employee extends GetView<EmployeeCon> {
                             if (Utils.access
                                 .contains(Utils.initials("employee", 0)))
                               SizedBox(
-                            height: myHeight(context, 1.28),
+                                  height: myHeight(context, 1.28),
                                   child: const EmployeeTable())
                           ],
                         ),

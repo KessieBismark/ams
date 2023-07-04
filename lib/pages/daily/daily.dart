@@ -118,9 +118,9 @@ class Attendance extends GetView<AttendanceCon> {
                                 ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                    mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absent Table "
@@ -184,9 +184,9 @@ class Attendance extends GetView<AttendanceCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                    mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absent Table "
@@ -263,7 +263,7 @@ class Attendance extends GetView<AttendanceCon> {
                         if (Utils.access
                             .contains(Utils.initials("Daily attendance", 0)))
                           SizedBox(
-                            height: myHeight(context, 1.28),
+                              height: myHeight(context, 1.28),
                               child: Obx(() => controller.isAbsent.value
                                   ? const AbsentTable()
                                   : const AttendanceTable()))
@@ -297,7 +297,7 @@ class Attendance extends GetView<AttendanceCon> {
                         label: "Select branch",
                         controller: controller.selBranch,
                         isLoading: controller.isB.value,
-                        validate:true,
+                        validate: true,
                         list: controller.bList,
                         onChange: (DropDownModel? data) {
                           controller.branch.text = data!.id.toString();
@@ -346,9 +346,10 @@ class Attendance extends GetView<AttendanceCon> {
 
                           // controller.dateText.text = picked.toString();
                           controller.dateText.text = Utils.dateOnly(picked);
-                          controller.setDate.value = true;
                           controller.dailyDate =
                               DateFormat.yMMMMd().format(picked);
+                          controller.setDate.value = false;
+                          controller.setDate.value = true;
                         }
                       },
                       child: ListTile(
@@ -373,7 +374,7 @@ class Attendance extends GetView<AttendanceCon> {
                         type: ButtonType.search)),
                     MButton(
                       onTap: () {
-                      //  controller.clearText();
+                        //  controller.clearText();
                         Get.back();
                       },
                       type: ButtonType.cancel,
@@ -404,7 +405,7 @@ class Attendance extends GetView<AttendanceCon> {
                       label: "Select branch",
                       controller: controller.selBranch,
                       isLoading: controller.isB.value,
-                      validate:true,
+                      validate: true,
                       list: controller.bList,
                       onChange: (DropDownModel? data) {
                         controller.branch.text = data!.id.toString();
@@ -446,8 +447,9 @@ class Attendance extends GetView<AttendanceCon> {
                       if (picked != null) {
                         controller.today = picked;
                         controller.dateText.text = Utils.dateOnly(picked);
-                        controller.setDate.value = true;
                         controller.rdate = DateFormat.yMMMMd().format(picked);
+                        controller.setDate.value = false;
+                        controller.setDate.value = true;
                       }
                     },
                     child: ListTile(
@@ -475,7 +477,7 @@ class Attendance extends GetView<AttendanceCon> {
                   ),
                   MButton(
                     onTap: () {
-                    //  controller.clearText();
+                      //  controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,

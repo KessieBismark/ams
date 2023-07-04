@@ -50,10 +50,8 @@ class SubItem extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    // final List list = title.split("-");
     return ListTile(
       title: Row(
-        // mainAxisAlignment: MainAxisAlignment.center,
 
         children: [
           const Icon(Entypo.dot),
@@ -62,7 +60,6 @@ class SubItem extends GetView<HomeController> {
                   overflow: TextOverflow.ellipsis, fontSize: 15))
         ],
       ).hPadding6,
-      // selected: list[1] == selected ? true : false,
       onTap: () {
         if (!Utils.activeMenus.contains(subMenu.id)) {
           Utils.activeMenus.add(subMenu.id);
@@ -74,7 +71,12 @@ class SubItem extends GetView<HomeController> {
           if (Responsive.isMobile(context)) {
             closeDrawer(drawerContext);
           }
-        } 
+        } else {
+          if (Utils.activeMenus.contains(subMenu.id)) {
+            Utils.tabController!
+                .animateTo(Utils.activeMenus.indexOf(subMenu.id) + 1);
+          }
+        }
       },
     );
   }
