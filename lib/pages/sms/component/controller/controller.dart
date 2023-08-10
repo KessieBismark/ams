@@ -125,9 +125,7 @@ class SmsCon extends GetxController {
 
   sendSms() {
     processSms().then((value) {
-      if (value) {
-        insert();
-      }
+      if (value) {}
     });
   }
 
@@ -136,12 +134,14 @@ class SmsCon extends GetxController {
     if (Sms.smsAPI.isNotEmpty && Sms.smsHeader.isNotEmpty) {
       if (isStaff.value) {
         isSave.value = true;
-        Sms().sendSms(allContact.join(','), meg.text.trim());
+        insert(allContact.join(','), Sms.smsAPI, Sms.smsHeader);
+        //Sms().sendSms(allContact.join(','), meg.text.trim());
         result = true;
       } else {
         if (Utils.isNumeric(receiver.text) && (receiver.text.length == 10)) {
           isSave.value = true;
-          Sms().sendSms(receiver.text.trim(), meg.text.trim());
+          insert(receiver.text.trim(), Sms.smsAPI, Sms.smsHeader);
+          // Sms().sendSms(receiver.text.trim(), meg.text.trim());
           result = true;
           isSave.value = false;
         } else {
@@ -168,7 +168,7 @@ class SmsCon extends GetxController {
     });
   }
 
-  insert() async {
+  insert(String contact, String api, String senderID) async {
     try {
       isSave.value = true;
 
@@ -180,8 +180,10 @@ class SmsCon extends GetxController {
         "branch": Utils.branchID == '0' ? branch.text : Utils.branchID,
         "department": depText.text,
         "staff_id": empName.text,
+        'contact': contact,
+        'api': api,
+        'senderID': senderID
       };
-
       var val = await Query.queryData(query);
       if (jsonDecode(val) == 'true') {
         isSave.value = false;

@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'AMS',
+        
         theme: lightTheme,
         initialBinding: AMSBinding(),
         darkTheme: darkTheme,

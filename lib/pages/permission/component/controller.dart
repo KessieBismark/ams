@@ -111,7 +111,7 @@ class PermissionCon extends GetxController {
         depText.text.isNotEmpty &&
         empName.text.isNotEmpty) {
       getData.value = true;
-      fetchSearch(branch.text, depText.text, empName.text).then((value) {
+      fetchSearch(depText.text, empName.text).then((value) {
         per = [];
         perDisplayData = [];
         per.addAll(value);
@@ -156,7 +156,7 @@ class PermissionCon extends GetxController {
         isAbsent.value = true;
       });
     } else {
-      Utils().showError(noInternet);
+      Utils().showError("Some entries are missing");
     }
   }
 
@@ -477,8 +477,7 @@ class PermissionCon extends GetxController {
     }
   }
 
-  Future<List<PermissionModel>> fetchSearch(
-      String branch, String dep, String staff) async {
+  Future<List<PermissionModel>> fetchSearch(String dep, String staff) async {
     var permission = <PermissionModel>[];
     try {
       var data = {

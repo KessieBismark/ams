@@ -64,7 +64,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
       tabs.remove(data);
     Utils.  tabController = TabController(length: tabs.length, vsync: this);
       if (tabs.isNotEmpty && tabLength.value != 0) {
-        print("animate: ${tabs.length - 1}");
       }
     } else {
       tabs.remove(data);
@@ -73,12 +72,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
      Utils.   tabController!.animateTo(tabs.length - 1);
       }
     }
-    // tabs.remove(data);
-    // tabLength.value--;
-    // tabController = TabController(length: tabs.length, vsync: this);
-    // if (tabs.isNotEmpty && tabLength.value != 0) {
-    //   tabController!.animateTo(tabs.length - 1);
-    // }
+
     Utils.activeMenus.remove(data.id);
     tabLength.value--;
     update();

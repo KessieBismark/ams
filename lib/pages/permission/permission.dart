@@ -120,9 +120,9 @@ class Permission extends GetView<PermissionCon> {
                               ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                   mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Absentee Table "
@@ -184,9 +184,9 @@ class Permission extends GetView<PermissionCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                   mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: controller.isAbsent.value
                                       ? "Attendance Table "
@@ -253,7 +253,7 @@ class Permission extends GetView<PermissionCon> {
                         if (Utils.access
                             .contains(Utils.initials("Permission", 0)))
                           SizedBox(
-                            height: myHeight(context, 1.28),
+                              height: myHeight(context, 1.28),
                               child: Obx(() => controller.isAbsent.value
                                   ? const AbsentTable()
                                   : const PermissionTable()))
@@ -731,8 +731,11 @@ class Permission extends GetView<PermissionCon> {
                     MButton(
                       onTap: () {
                         controller.isChecked.value = [];
-                        controller.getAbsent(controller.branch.text);
-
+                        controller.getAbsent(
+                          Utils.branchID == '0'
+                              ? controller.branch.text
+                              : Utils.branchID,
+                        );
                         Get.back();
                       },
                       title: "Search",

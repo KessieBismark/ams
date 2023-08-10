@@ -3,7 +3,6 @@ import '../../../services/widgets/extension.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../services/constants/color.dart';
 import '../../../../../services/widgets/delete_dailog.dart';
 import '../../../../../services/widgets/waiting.dart';
@@ -17,7 +16,6 @@ class EmployeeTable extends GetView<EmployeeCon> {
 
   @override
   Widget build(BuildContext context) {
-    //setColumnSizeRatios(1, 2);
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Obx(
@@ -330,6 +328,8 @@ class EmployeeTable extends GetView<EmployeeCon> {
                           controller.employeeRecords[index].bID!;
                       controller.depText.text =
                           controller.employeeRecords[index].dID!;
+                      controller.resigned = DateTime.parse(
+                          controller.employeeRecords[index].resigned);
                       controller.employeeRecords[index].active == 1
                           ? controller.on.value = true
                           : controller.on.value = false;
@@ -440,6 +440,9 @@ class EmployeeTable extends GetView<EmployeeCon> {
                                       .employeeRecords[index].residence!;
                                   controller.resignedText.text = controller
                                       .employeeRecords[index].resigned;
+                                  controller.resigned = DateTime.parse(
+                                      controller
+                                          .employeeRecords[index].resigned);
                                   controller.selDepartment = DropDownModel(
                                       id: controller
                                           .employeeRecords[index].staffID
