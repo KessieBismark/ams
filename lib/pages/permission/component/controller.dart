@@ -107,11 +107,10 @@ class PermissionCon extends GetxController {
   }
 
   void search() async {
-    if (branch.text.isNotEmpty &&
-        depText.text.isNotEmpty &&
-        empName.text.isNotEmpty) {
+    if (selDepartment.toString().isNotEmpty &&
+        selEmployee.toString().isNotEmpty) {
       getData.value = true;
-      fetchSearch(depText.text, empName.text).then((value) {
+      fetchSearch(selDepartment!.id, selEmployee!.id).then((value) {
         per = [];
         perDisplayData = [];
         per.addAll(value);
@@ -482,7 +481,7 @@ class PermissionCon extends GetxController {
     try {
       var data = {
         "action": "search_permission",
-        "branch": Utils.branchID == '0' ? branch : Utils.branchID,
+        "branch": Utils.branchID == '0' ? selBranch!.id : Utils.branchID,
         "cid": Utils.cid,
         "department": dep,
         "staff_id": staff,
@@ -490,6 +489,7 @@ class PermissionCon extends GetxController {
         "edate": eDate.toString(),
       };
       var result = await Query.queryData(data);
+
       var empJson = json.decode(result);
       if (empJson == 'false') {
       } else {

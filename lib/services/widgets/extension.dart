@@ -26,6 +26,18 @@ extension StringExtension on String {
       );
 }
 
+extension StringSelectExtension on String {
+  Widget toSelectLabel({double? fontsize, Color? color, bool bold = false}) =>
+      MSelectLabel(
+        // ignore: unnecessary_this
+        this.replaceAll("Exception: ", ""),
+        bold: bold,
+        fontSize: fontsize,
+        color: color,
+      );
+}
+
+
 extension AutoStringExtension on String {
   Widget toAutoLabel({double? fontsize, Color? color, bool bold = false}) =>
       MAutoText(

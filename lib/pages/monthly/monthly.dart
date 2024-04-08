@@ -99,8 +99,9 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                 Row(
                                   children: [
                                     MButton(
+                                      color: primaryColor,
                                       onTap: () {
-                                     //   controller.clearText();
+                                        //   controller.clearText();
                                         controller.getBranches();
                                         showDialog(context);
                                       },
@@ -112,7 +113,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                         controller.wkdBool.value = false;
                                         controller.inTime.value = false;
                                         controller.outTime.value = false;
-                                      //  controller.clearText();
+                                        //  controller.clearText();
                                         controller.getBranches();
                                         byTimeDialog(context);
                                       },
@@ -124,9 +125,9 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                 ),
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                    mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: "Record Table ",
                                   subText: controller.byPerson.value
@@ -201,9 +202,9 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                    mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: "Monthly Report Table ",
                                   subText: controller.byPerson.value
@@ -215,7 +216,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                   if (newValue == "By time") {
                                     if (Utils.access.contains(
                                         Utils.initials("monthly report", 1))) {
-                                     // controller.clearText();
+                                      // controller.clearText();
                                       controller.getBranches();
                                       byTimeDialog(context);
                                     } else {
@@ -225,7 +226,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                                   } else if (newValue == "By date") {
                                     if (Utils.access.contains(
                                         Utils.initials("monthly report", 1))) {
-                                     // controller.clearText();
+                                      // controller.clearText();
                                       controller.getBranches();
                                       showDialog(context);
                                     } else {
@@ -425,7 +426,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                   ),
                   MButton(
                     onTap: () {
-                     // controller.clearText();
+                      // controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,
@@ -470,7 +471,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                   label: "Select department",
                   controller: controller.selDepartment,
                   isLoading: controller.depLoading.value,
-                  validate:true,
+                  validate: true,
                   list: controller.departmentList,
                   onChange: (DropDownModel? data) {
                     controller.depText.text = data!.id.toString();
@@ -591,7 +592,7 @@ class MonthlyReport extends GetView<MonthlyReportCon> {
                   ),
                   MButton(
                     onTap: () {
-                    //  controller.clearText();
+                      //  controller.clearText();
                       Get.back();
                     },
                     type: ButtonType.cancel,

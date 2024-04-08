@@ -93,7 +93,7 @@ class HolidayCon extends GetxController {
           "date": dateText.text,
           "des": des.text,
           "cid": Utils.cid,
-          "branch": Utils.branchID == '0' ? branch.text : Utils.branchID
+          "branch": Utils.branchID == '0' ? selBranch!.id : Utils.branchID
         };
         var val = await Query.queryData(data);
         if (jsonDecode(val) == 'true') {
@@ -144,39 +144,38 @@ class HolidayCon extends GetxController {
   void insert() async {
     if (formKey.currentState!.validate()) {
       if (dateText.text.isNotEmpty) {
-        if (Utils.branchID == '0' && branch.text.isNotEmpty) {
-                loading.value = true;
+        //  if (Utils.branchID == '0' && branch.text.isNotEmpty) {
+        loading.value = true;
 
-          try {
-            var data = {
-              "action": "add_holiday",
-              "date": dateText.text,
-              "des": des.text,
-              "cid": Utils.cid,
-              "branch": Utils.branchID == '0' ? branch.text : Utils.branchID
-            };
-            var val = await Query.queryData(data);
-            if (jsonDecode(val) == 'true') {
-              loading.value = false;
-              reload();
-            } else if (jsonDecode(val) == 'duplicate') {
-              loading.value = false;
-              Utils()
-                  .showError("${dateText.text} already exist in the database");
-            } else {
-              loading.value = false;
-              Utils()
-                  .showError("Something went wrong. Check internet connection");
-            }
-          } catch (e) {
+        try {
+          var data = {
+            "action": "add_holiday",
+            "date": dateText.text,
+            "des": des.text,
+            "cid": Utils.cid,
+            "branch": Utils.branchID == '0' ? selBranch!.id : Utils.branchID
+          };
+          var val = await Query.queryData(data);
+          if (jsonDecode(val) == 'true') {
             loading.value = false;
-            print.call(e);
-            Utils().showError(noInternet);
+            reload();
+          } else if (jsonDecode(val) == 'duplicate') {
+            loading.value = false;
+            Utils().showError("${dateText.text} already exist in the database");
+          } else {
+            loading.value = false;
+            Utils()
+                .showError("Something went wrong. Check internet connection");
           }
-        } else {
-          Utils().showError("Please select a branch");
+        } catch (e) {
+          loading.value = false;
+          print.call(e);
+          Utils().showError(noInternet);
         }
-      }else{
+        // } else {
+        //   Utils().showError("Please select a branch");
+        // }
+      } else {
         Utils().showError("Date is required");
       }
     }

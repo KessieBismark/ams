@@ -13,7 +13,7 @@ class Home extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return  Obx(
+    return Obx(
       () => DefaultTabController(
         length: controller.tabLength.value,
         child: Scaffold(

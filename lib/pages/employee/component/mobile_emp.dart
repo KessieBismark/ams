@@ -11,6 +11,8 @@ import '../../../services/widgets/button.dart';
 import '../../../services/widgets/dropdown.dart';
 import '../../../services/widgets/textbox.dart';
 import '../../../services/widgets/waiting.dart';
+import 'user_image.dart';
+import 'widgets.dart';
 
 class EmployeeMobileInput extends GetView<EmployeeCon> {
   const EmployeeMobileInput({super.key});
@@ -73,6 +75,21 @@ class EmployeeMobileInput extends GetView<EmployeeCon> {
                 controller: controller.middleNameText,
               ).padding9,
               MEdit(
+                hint: "Email",
+                controller: controller.eNameTExt,
+                inputType: TextInputType.emailAddress,
+              ).padding9,
+              Obx(() => DropDownText2(
+                  hint: "Select Position",
+                  label: "Select Position",
+                  controller: controller.selPosition,
+                  isLoading: controller.pLoad.value,
+                  validate: true,
+                  list: controller.positionList,
+                  onChange: (DropDownModel? data) {
+                    controller.selPosition = data;
+                  }).padding9),
+              MEdit(
                 hint: "Social Security #",
                 controller: controller.ssnitText,
               ).padding9,
@@ -112,15 +129,52 @@ class EmployeeMobileInput extends GetView<EmployeeCon> {
               MEdit(
                 hint: "Contact",
                 controller: controller.contactTExt,
+                inputType: TextInputType.number,
+              ).padding9,
+              MEdit(
+                hint: "National ID",
+                controller: controller.nidExt,
+              ).padding9,
+              MEdit(
+                hint: "Emergency contact's name",
+                controller: controller.eNameTExt,
               ).padding9,
               MEdit(
                 hint: "Emergency Contact",
                 controller: controller.eContactTExt,
+                inputType: TextInputType.number,
               ).padding9,
               MEdit(
                 hint: "Residence",
                 controller: controller.residenceText,
               ).padding9,
+              Obx(() => controller.imageUrl.value.isNotEmpty
+                  ? MButton(
+                      onTap: () {
+                        if (GetPlatform.isMobile) {
+                          UserImage(
+                            controller: controller,
+                            name: controller.surNameText.text,
+                            image: controller.imgBytes,
+                          );
+                        } else {
+                          viewImageDesktop(
+                              controller: controller,
+                              name: controller.surNameText.text,
+                              image: controller.imgBytes,
+                              context: context);
+                        }
+                      },
+                      color: secondary,
+                      title: "View File",
+                    ).padding9
+                  : MButton(
+                      onTap: () {
+                        imageSource(con: controller);
+                      },
+                      color: secondary,
+                      title: "Upload Image",
+                    ).padding9),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -301,6 +355,21 @@ class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
                 controller: controller.middleNameText,
               ).padding9,
               MEdit(
+                hint: "Email",
+                controller: controller.eNameTExt,
+                inputType: TextInputType.emailAddress,
+              ).padding9,
+              Obx(() => DropDownText2(
+                  hint: "Select Position",
+                  label: "Select Position",
+                  controller: controller.selPosition,
+                  isLoading: controller.pLoad.value,
+                  validate: true,
+                  list: controller.positionList,
+                  onChange: (DropDownModel? data) {
+                    controller.selPosition = data;
+                  }).padding9),
+              MEdit(
                 hint: "Social Security #",
                 controller: controller.ssnitText,
               ).padding9,
@@ -340,15 +409,52 @@ class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
               MEdit(
                 hint: "Contact",
                 controller: controller.contactTExt,
+                inputType: TextInputType.number,
+              ).padding9,
+              MEdit(
+                hint: "National ID",
+                controller: controller.nidExt,
+              ).padding9,
+              MEdit(
+                hint: "Emergency contact's name",
+                controller: controller.eNameTExt,
               ).padding9,
               MEdit(
                 hint: "Emergency Contact",
                 controller: controller.eContactTExt,
+                inputType: TextInputType.number,
               ).padding9,
               MEdit(
                 hint: "Residence",
                 controller: controller.residenceText,
               ).padding9,
+              Obx(() => controller.imageUrl.value.isNotEmpty
+                  ? MButton(
+                      onTap: () {
+                        if (GetPlatform.isMobile) {
+                          UserImage(
+                            controller: controller,
+                            name: controller.surNameText.text,
+                            image: controller.imgBytes,
+                          );
+                        } else {
+                          viewImageDesktop(
+                              controller: controller,
+                              name: controller.surNameText.text,
+                              image: controller.imgBytes,
+                              context: context);
+                        }
+                      },
+                      color: secondary,
+                      title: "View File",
+                    ).padding9
+                  : MButton(
+                      onTap: () {
+                        imageSource(con: controller);
+                      },
+                      color: secondary,
+                      title: "Upload Image",
+                    ).padding9),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -1,15 +1,17 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../../services/constants/constant.dart';
 import '../../../../services/utils/helpers.dart';
 import '../../../../services/utils/query.dart';
 import '../model.dart';
 
-class BranchesCon extends GetxController {
+class PositionCon extends GetxController {
   final bformKey = GlobalKey<FormState>();
-  List<BranchModel> b = <BranchModel>[];
-  List<BranchModel> bhList = <BranchModel>[];
+  List<PositionModel> b = <PositionModel>[];
+  List<PositionModel> bhList = <PositionModel>[];
   final name = TextEditingController();
   var loading = false.obs;
   var isSave = false.obs;
@@ -22,7 +24,7 @@ class BranchesCon extends GetxController {
   @override
   void onInit() {
     super.onInit();
-   // Utils.checkAccess();
+    // Utils.checkAccess();
     reload();
   }
 
@@ -47,11 +49,10 @@ class BranchesCon extends GetxController {
       try {
         isSave.value = true;
         var query = {
-          "action": "add_branches",
-          "name": name.text.trim().capitalizeFirst,
+          "action": "add_position",
+          "name": name.text.trim().capitalize,
         };
         var val = await Query.queryData(query);
-
         if (jsonDecode(val) == 'true') {
           isSave.value = false;
           reload();
@@ -73,7 +74,7 @@ class BranchesCon extends GetxController {
     try {
       isSave.value = true;
       var query = {
-        "action": "delete_branches",
+        "action": "delete_position",
         "id": id,
       };
       var val = await Query.queryData(query);
@@ -100,7 +101,7 @@ class BranchesCon extends GetxController {
       try {
         isSave.value = true;
         var query = {
-          "action": "update_branches",
+          "action": "update_position",
           "id": id,
           "name": name.text.trim().capitalizeFirst,
         };
@@ -120,32 +121,16 @@ class BranchesCon extends GetxController {
     }
   }
 
-  Future<List<BranchModel>> fetchServiceCategory() async {
-    var record = <BranchModel>[];
+  Future<List<PositionModel>> fetchServiceCategory() async {
+    var record = <PositionModel>[];
     try {
       var data = {
-        "action": "view_branches",
+        "action": "view_position",
       };
       var result = await Query.queryData(data);
       var res = json.decode(result);
       for (var res in res) {
-        record.add(BranchModel.fromJson(res));
-      }
-      return record;
-    } catch (e) {
-      print.call(e);
-      return record;
-    }
-  }
-
-  Future<List<BranchModel>> fetchBranchID(String name) async {
-    var record = <BranchModel>[];
-    try {
-      var data = {"action": "view_branch_id", "name": name};
-      var result = await Query.queryData(data);
-      var res = json.decode(result);
-      for (var res in res) {
-        record.add(BranchModel.fromJson(res));
+        record.add(PositionModel.fromJson(res));
       }
       return record;
     } catch (e) {

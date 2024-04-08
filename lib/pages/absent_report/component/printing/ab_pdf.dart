@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -29,9 +28,8 @@ class AbscentPrint extends StatelessWidget {
 
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
-  final image = pw.MemoryImage(
-      File('assets/icons/logo.png').readAsBytesSync(),
-    );
+    final image = await imageFromAssetBundle('assets/icons/logo.png');
+
     pdf.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4.landscape,

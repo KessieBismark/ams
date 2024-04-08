@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import '../../../../services/widgets/extension.dart';
@@ -30,10 +29,10 @@ class AttendancePrint extends StatelessWidget {
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     int number = 0;
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
-    final image = pw.MemoryImage(
-      File('assets/icons/logo.png').readAsBytesSync(),
-    );
-// await imageFromAssetBundle('assets/icons/logo.png');
+    // final image = pw.MemoryImage(
+    //   File('assets/icons/logo.png').readAsBytesSync(),
+    // );
+    final image = await imageFromAssetBundle('assets/icons/logo.png');
 
     pdf.addPage(
       pw.MultiPage(
@@ -111,7 +110,7 @@ class AttendancePrint extends StatelessWidget {
       children: [
         pw.SizedBox(
           height: 35,
-       //   width: 10,
+          //   width: 10,
           child: pw.Image(
             image,
           ),

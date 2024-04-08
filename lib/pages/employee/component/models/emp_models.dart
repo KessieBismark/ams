@@ -14,12 +14,19 @@ class EmpListModel {
   final String? bID;
   final String? dID;
   final String? bank;
+  final String? picture;
+
   final int hour;
   final String? hiredDate;
   final int active;
   final String resigned;
   final String branch;
   final String? finger;
+  final String? pid;
+  final String? position;
+  final String? emergencyName;
+  final String? email;
+  final String? nid;
 
   EmpListModel(
       {required this.staffID,
@@ -29,8 +36,14 @@ class EmpListModel {
       this.dob,
       required this.department,
       this.gender,
+      this.nid,
       this.ssnit,
+      this.pid,
+      this.position,
+      this.emergencyName,
+      this.email,
       this.accountNo,
+      this.picture,
       this.bank,
       this.bID,
       this.dID,
@@ -49,6 +62,7 @@ class EmpListModel {
         staffID: int.parse(json['Staff_ID']),
         surname: json['Surname'],
         firstname: json['first_name'] ?? '',
+        picture: json['picture'] ?? '',
         middlename: json['Middle_name'] ?? '',
         department: json['Department'],
         dob: json['DOB'] ?? '',
@@ -58,6 +72,11 @@ class EmpListModel {
         hour: int.parse(json['Working_Hours'] ?? 0),
         gender: json['Gender'] ?? '',
         contact: json['Contact'] ?? '',
+        pid: json['pid'] ?? '',
+        position: json['position'] ?? '',
+        nid: json['national_id'] ?? '',
+        emergencyName: json['emergency_name'] ?? '',
+        email: json['email'] ?? '',
         finger: json['finger'] ?? '',
         bID: json['bid'] ?? '',
         dID: json['did'] ?? '',

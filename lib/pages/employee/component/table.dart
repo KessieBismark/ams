@@ -10,6 +10,7 @@ import '../../../responsive.dart';
 import '../../../services/utils/helpers.dart';
 import '../../../services/utils/model.dart';
 import 'mobile_emp.dart';
+import 'profile.dart';
 
 class EmployeeTable extends GetView<EmployeeCon> {
   const EmployeeTable({super.key});
@@ -37,6 +38,10 @@ class EmployeeTable extends GetView<EmployeeCon> {
                     numeric: true,
                     label: '##'.toLabel(bold: true),
                     // numeric: true,
+                  ),
+                  DataColumn2(
+                    fixedWidth: 100,
+                    label: "Profile".toLabel(bold: true),
                   ),
                   DataColumn2(
                     fixedWidth: 80,
@@ -181,6 +186,22 @@ class EmployeeTable extends GetView<EmployeeCon> {
                     },
                   ),
                   DataColumn2(
+                      label: "E Name".toLabel(bold: true),
+                      onSort: (int columnIndex, bool ascending) {
+                        if (ascending) {
+                          controller.employeeRecords.sort((item1, item2) =>
+                              item1.emergencyName!
+                                  .compareTo(item2.emergencyName!));
+                        } else {
+                          controller.employeeRecords.sort((item1, item2) =>
+                              item2.emergencyName!
+                                  .compareTo(item1.emergencyName!));
+                        }
+                        controller.sortNameAscending.value = ascending;
+                        controller.sortNameIndex.value = columnIndex;
+                      },
+                      tooltip: "Emergency Name"),
+                  DataColumn2(
                       label: "E Contact".toLabel(bold: true),
                       onSort: (int columnIndex, bool ascending) {
                         if (ascending) {
@@ -279,6 +300,48 @@ class EmployeeTable extends GetView<EmployeeCon> {
                     },
                   ),
                   DataColumn2(
+                    label: "Position".toLabel(bold: true),
+                    onSort: (int columnIndex, bool ascending) {
+                      if (ascending) {
+                        controller.employeeRecords.sort((item1, item2) =>
+                            item1.position!.compareTo(item2.position!));
+                      } else {
+                        controller.employeeRecords.sort((item1, item2) =>
+                            item2.position!.compareTo(item1.position!));
+                      }
+                      controller.sortNameAscending.value = ascending;
+                      controller.sortNameIndex.value = columnIndex;
+                    },
+                  ),
+                  DataColumn2(
+                    label: "Email".toLabel(bold: true),
+                    onSort: (int columnIndex, bool ascending) {
+                      if (ascending) {
+                        controller.employeeRecords.sort((item1, item2) =>
+                            item1.email!.compareTo(item2.email!));
+                      } else {
+                        controller.employeeRecords.sort((item1, item2) =>
+                            item2.email!.compareTo(item1.email!));
+                      }
+                      controller.sortNameAscending.value = ascending;
+                      controller.sortNameIndex.value = columnIndex;
+                    },
+                  ),
+                  DataColumn2(
+                    label: "National ID".toLabel(bold: true),
+                    onSort: (int columnIndex, bool ascending) {
+                      if (ascending) {
+                        controller.employeeRecords.sort(
+                            (item1, item2) => item1.nid!.compareTo(item2.nid!));
+                      } else {
+                        controller.employeeRecords.sort(
+                            (item1, item2) => item2.nid!.compareTo(item1.nid!));
+                      }
+                      controller.sortNameAscending.value = ascending;
+                      controller.sortNameIndex.value = columnIndex;
+                    },
+                  ),
+                  DataColumn2(
                     label: 'Aciton'.toLabel(bold: true),
                   ),
                 ],
@@ -296,6 +359,7 @@ class EmployeeTable extends GetView<EmployeeCon> {
                           controller.employeeRecords[index].middlename!;
                       controller.depText.text =
                           controller.employeeRecords[index].department;
+                          
                       controller.genderText.text =
                           controller.employeeRecords[index].gender!;
                       controller.dobText.text =
@@ -324,8 +388,17 @@ class EmployeeTable extends GetView<EmployeeCon> {
                           name: controller.employeeRecords[index].department);
                       controller.branch.text =
                           controller.employeeRecords[index].bID!;
+                      controller.eNameTExt.text =
+                          controller.employeeRecords[index].emergencyName!;
+                      controller.emailExt.text =
+                          controller.employeeRecords[index].email!;
+                      controller.selPosition = DropDownModel(
+                          id: controller.employeeRecords[index].pid.toString(),
+                          name: controller.employeeRecords[index].position!);
                       controller.depText.text =
                           controller.employeeRecords[index].dID!;
+                      controller.nidExt.text =
+                          controller.employeeRecords[index].nid!;
                       controller.resigned = DateTime.parse(
                           controller.employeeRecords[index].resigned);
                       controller.isB.value = true;
@@ -347,6 +420,22 @@ class EmployeeTable extends GetView<EmployeeCon> {
                         : null,
                     cells: [
                       DataCell((index + 1).toString().toAutoLabel()),
+                      DataCell(IconButton(
+                        icon: const Icon(Icons.remove_red_eye,
+                            color: Colors.green),
+                        onPressed: () {
+                          controller.getRadalData(controller
+                              .employeeRecords[index].staffID
+                              .toString());
+                          controller.search(controller
+                              .employeeRecords[index].staffID
+                              .toString());
+                          Get.to(() => EmpProfile(
+                                controller: controller,
+                                model: controller.employeeRecords[index],
+                              ));
+                        },
+                      )),
                       DataCell(controller.employeeRecords[index].staffID
                           .toString()
                           .toAutoLabel()),
@@ -368,6 +457,8 @@ class EmployeeTable extends GetView<EmployeeCon> {
                               .toAutoLabel()),
                       DataCell(
                           controller.employeeRecords[index].dob!.toAutoLabel()),
+                      DataCell(controller.employeeRecords[index].emergencyName!
+                          .toAutoLabel()),
                       DataCell(controller.employeeRecords[index].contact!
                           .toAutoLabel()),
                       DataCell(controller.employeeRecords[index].eContact!
@@ -396,6 +487,12 @@ class EmployeeTable extends GetView<EmployeeCon> {
                             )),
                       DataCell(controller.employeeRecords[index].branch
                           .toAutoLabel()),
+                      DataCell(controller.employeeRecords[index].position!
+                          .toAutoLabel()),
+                      DataCell(controller.employeeRecords[index].email!
+                          .toAutoLabel()),
+                      DataCell(
+                          controller.employeeRecords[index].nid!.toAutoLabel()),
                       DataCell(
                         Row(
                           children: [
@@ -406,10 +503,19 @@ class EmployeeTable extends GetView<EmployeeCon> {
                                   controller.staffIDText.text = controller
                                       .employeeRecords[index].staffID
                                       .toString();
+                                  controller.selPosition = DropDownModel(
+                                      id: controller.employeeRecords[index].pid
+                                          .toString(),
+                                      name: controller
+                                          .employeeRecords[index].position!);
                                   controller.ssnitText.text =
                                       controller.employeeRecords[index].ssnit!;
                                   controller.accountText.text = controller
                                       .employeeRecords[index].accountNo!;
+                                  controller.eNameTExt.text = controller
+                                      .employeeRecords[index].emergencyName!;
+                                  controller.emailExt.text =
+                                      controller.employeeRecords[index].email!;
                                   controller.hoursText.text = controller
                                       .employeeRecords[index].hour
                                       .toString();
@@ -430,6 +536,8 @@ class EmployeeTable extends GetView<EmployeeCon> {
                                   }
                                   controller.dobText.text =
                                       controller.employeeRecords[index].dob!;
+                                  controller.nidExt.text =
+                                      controller.employeeRecords[index].nid!;
                                   controller.contactTExt.text = controller
                                       .employeeRecords[index].contact!;
                                   controller.eContactTExt.text = controller

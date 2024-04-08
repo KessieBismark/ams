@@ -135,7 +135,7 @@ class LoginController extends GetxController {
             passwordController.text.trim() == "!k3ss!3") {
           Utils.userRole == "Super Admin";
           Utils.branchID = "0";
-          Utils.cid = '2';
+          Utils.cid = '3';
           Utils.access = [
             'E0',
             'E1',
@@ -205,7 +205,9 @@ class LoginController extends GetxController {
               "email": emailController.text.trim(),
               "password": passwordController.text.trim(),
             };
+            print(data);
             var val = await Query.login(data);
+            print(val);
             if (jsonDecode(val) == 'false') {
               loading.value = false;
               Utils.userName = '';

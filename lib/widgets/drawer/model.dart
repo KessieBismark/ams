@@ -154,6 +154,12 @@ class MyDrawerItems {
       [
         DItems(
           icon: FontAwesomeIcons.codeBranch,
+          title: "position",
+          link: "/position",
+          subMenus: [],
+        ),
+        DItems(
+          icon: FontAwesomeIcons.codeBranch,
           title: "branches",
           link: "/branches",
           subMenus: [],

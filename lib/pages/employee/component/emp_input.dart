@@ -11,6 +11,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'user_image.dart';
+import 'widgets.dart';
+
 class EmployInput extends GetWidget<EmployeeCon> {
   const EmployInput({
     super.key,
@@ -98,6 +101,25 @@ class EmployInput extends GetWidget<EmployeeCon> {
                         TableRow(
                           children: [
                             MEdit(
+                              hint: "Email",
+                              controller: controller.emailExt,
+                              inputType: TextInputType.emailAddress,
+                            ).padding9,
+                            Obx(() => DropDownText2(
+                                hint: "Select Position",
+                                label: "Select Position",
+                                controller: controller.selPosition,
+                                isLoading: controller.pLoad.value,
+                                validate: true,
+                                list: controller.positionList,
+                                onChange: (DropDownModel? data) {
+                                  controller.selPosition = data;
+                                }).padding9),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            MEdit(
                               hint: "Social Security #",
                               controller: controller.ssnitText,
                             ).padding9,
@@ -160,6 +182,18 @@ class EmployInput extends GetWidget<EmployeeCon> {
                               controller: controller.contactTExt,
                             ).padding9,
                             MEdit(
+                              hint: "National ID",
+                              controller: controller.nidExt,
+                            ).padding9,
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            MEdit(
+                              hint: "Emergency contact's name",
+                              controller: controller.eNameTExt,
+                            ).padding9,
+                            MEdit(
                               hint: "Emergency Contact",
                               controller: controller.eContactTExt,
                             ).padding9,
@@ -191,6 +225,38 @@ class EmployInput extends GetWidget<EmployeeCon> {
                                 ],
                               ).padding9,
                             ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Obx(() => controller.imageUrl.value.isNotEmpty
+                                ? MButton(
+                                    onTap: () {
+                                      if (GetPlatform.isMobile) {
+                                        UserImage(
+                                          controller: controller,
+                                          name: controller.surNameText.text,
+                                          image: controller.imgBytes,
+                                        );
+                                      } else {
+                                        viewImageDesktop(
+                                            controller: controller,
+                                            name: controller.surNameText.text,
+                                            image: controller.imgBytes,
+                                            context: context);
+                                      }
+                                    },
+                                    color: secondary,
+                                    title: "View File",
+                                  ).padding9
+                                : MButton(
+                                    onTap: () {
+                                      imageSource(con: controller);
+                                    },
+                                    color: secondary,
+                                    title: "Upload Image",
+                                  ).padding9),
+                            Container()
                           ],
                         ),
                         TableRow(
@@ -401,6 +467,25 @@ class UpdateEmployInput extends GetWidget<EmployeeCon> {
                         TableRow(
                           children: [
                             MEdit(
+                              hint: "Email",
+                              controller: controller.emailExt,
+                              inputType: TextInputType.emailAddress,
+                            ).padding9,
+                            Obx(() => DropDownText2(
+                                hint: "Select Position",
+                                label: "Select Position",
+                                controller: controller.selPosition,
+                                isLoading: controller.pLoad.value,
+                                validate: true,
+                                list: controller.positionList,
+                                onChange: (DropDownModel? data) {
+                                  controller.selPosition = data;
+                                }).padding9),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            MEdit(
                               hint: "Social Security #",
                               controller: controller.ssnitText,
                             ).padding9,
@@ -463,6 +548,18 @@ class UpdateEmployInput extends GetWidget<EmployeeCon> {
                               controller: controller.contactTExt,
                             ).padding9,
                             MEdit(
+                              hint: "National ID",
+                              controller: controller.nidExt,
+                            ).padding9,
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            MEdit(
+                              hint: "Emergency contact's name",
+                              controller: controller.eNameTExt,
+                            ).padding9,
+                            MEdit(
                               hint: "Emergency Contact",
                               controller: controller.eContactTExt,
                             ).padding9,
@@ -496,6 +593,38 @@ class UpdateEmployInput extends GetWidget<EmployeeCon> {
                                 ],
                               ).padding9,
                             ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Obx(() => controller.imageUrl.value.isNotEmpty
+                                ? MButton(
+                                    onTap: () {
+                                      if (GetPlatform.isMobile) {
+                                        UserImage(
+                                          controller: controller,
+                                          name: controller.surNameText.text,
+                                          image: controller.imgBytes,
+                                        );
+                                      } else {
+                                        viewImageDesktop(
+                                            controller: controller,
+                                            name: controller.surNameText.text,
+                                            image: controller.imgBytes,
+                                            context: context);
+                                      }
+                                    },
+                                    color: secondary,
+                                    title: "View File",
+                                  ).padding9
+                                : MButton(
+                                    onTap: () {
+                                      imageSource(con: controller);
+                                    },
+                                    color: secondary,
+                                    title: "Upload Image",
+                                  ).padding9),
+                            Container()
                           ],
                         ),
                         TableRow(

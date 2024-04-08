@@ -27,6 +27,33 @@ class MLabel extends StatelessWidget {
     );
   }
 }
+class MSelectLabel extends StatelessWidget {
+  final String title;
+  final double? fontSize;
+  final Color? color;
+  final bool bold;
+  const MSelectLabel(
+    this.title, {
+    this.fontSize,
+    this.color,
+    this.bold = false,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SelectableText(
+      title,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+        overflow:TextOverflow.ellipsis
+      ),
+    );
+  }
+}
+
 
 class MAutoText extends StatelessWidget {
   final String title;

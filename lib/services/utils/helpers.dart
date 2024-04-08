@@ -3,9 +3,10 @@ import 'dart:math';
 import 'package:currency_formatter/currency_formatter.dart';
 import 'package:encrypt/encrypt.dart' as enc;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
+import 'package:image/image.dart' as img;
 import '../../pages/layout/component/model/side_model.dart';
 import '../../pages/login/login.dart';
 import '../config/binding.dart';
@@ -116,6 +117,32 @@ class Utils {
     return formatter.format(number);
   }
 
+  Future<List<int>> compressFile(List<int> fileBytes, String fileType) async {
+    try {
+      if (fileType == 'image') {
+        // Load the image using the image package
+        final pic = img.decodeImage(Uint8List.fromList(fileBytes));
+
+        // Resize the image (adjust the dimensions as needed)
+        final resizedImage = img.copyResize(pic!, width: 800);
+
+        // Encode the image to JPEG format with a specific quality (adjust as needed)
+        final compressedImageData = img.encodeJpg(resizedImage, quality: 85);
+
+        return compressedImageData;
+      } else if (fileType == 'pdf') {
+        return fileBytes; // Placeholder, replace with actual PDF compression logic
+      } else if (fileType == 'doc' || fileType == 'txt') {
+        return fileBytes; // Placeholder, replace with actual compression logic
+      } else {
+        // If the file type is not supported, return the original file bytes
+        return fileBytes;
+      }
+    } catch (e) {
+      // If compression fails, return the original file bytes
+      return fileBytes;
+    }
+  }
   static int getSundays(DateTime from, DateTime to) {
     int sunday = 0;
     if (from.weekday == DateTime.monday) {
