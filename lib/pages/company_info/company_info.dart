@@ -12,7 +12,7 @@ import '../../services/widgets/textbox.dart';
 import 'component/controller/controller.dart';
 
 class CompanyInfo extends GetView<CompanyInfoCon> {
-  const CompanyInfo({Key? key}) : super(key: key);
+  const CompanyInfo({super.key});
 
   @override
   Widget build(BuildContext context) {

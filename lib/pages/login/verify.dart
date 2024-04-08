@@ -12,7 +12,7 @@ import 'controllers/login_controller.dart';
 class SignIn extends Intent {}
 
 class Verify extends StatelessWidget {
-  const Verify({Key? key}) : super(key: key);
+  const Verify({super.key});
 
   @override
   Widget build(BuildContext context) {

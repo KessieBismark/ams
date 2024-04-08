@@ -52,13 +52,13 @@ class ExpandItems extends StatelessWidget {
   //final dItem;
 
   const ExpandItems({
-    Key? key,
+    super.key,
     required this.leading,
     required this.drawerContext,
     required this.title,
     required this.subMenus,
     //  this.selectedItem,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ UsersController user = Get.find();
 final con = Get.put(CompanyController());
 
 class CompanyRole extends StatelessWidget {
-  const CompanyRole({Key? key}) : super(key: key);
+  const CompanyRole({super.key});
 
   @override
   Widget build(BuildContext context) {

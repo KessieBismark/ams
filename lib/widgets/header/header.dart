@@ -10,8 +10,8 @@ class Header extends StatelessWidget {
     required this.pageName,
     this.searchBar,
     //  required this.search,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Widget? searchBar;
   final String pageName;
   @override
@@ -61,8 +61,8 @@ class Header extends StatelessWidget {
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

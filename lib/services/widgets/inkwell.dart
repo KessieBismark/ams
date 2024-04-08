@@ -9,12 +9,12 @@ class MInkWell extends StatelessWidget {
   final Color? focusColor;
   final VoidCallback? onTap;
   const MInkWell({
-    Key? key,
+    super.key,
     required this.widget,
     this.hoverColor,
     this.onTap,
     required this.focusColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +33,12 @@ class MInKWellHover extends StatelessWidget {
   final Color? hoverColor;
 
   const MInKWellHover({
-    Key? key,
+    super.key,
     required this.onTap,
     //   this.hover,
     this.hoverColor,
     required this.child,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return InkWell(

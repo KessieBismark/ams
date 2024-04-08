@@ -360,7 +360,6 @@ class MonthlyReportCon extends GetxController {
 
       var result = await Query.queryData(data);
       var empJson = json.decode(result);
-      print(data);
       if (empJson == 'false') {
       } else {
         for (var empJson in empJson) {

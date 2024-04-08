@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class MIconButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Icon icon;
-  const MIconButton({Key? key, required this.onPressed, required this.icon})
-      : super(key: key);
+  const MIconButton({super.key, required this.onPressed, required this.icon});
 
   @override
   Widget build(BuildContext context) {

@@ -9,27 +9,26 @@ class DrawerItem extends StatelessWidget {
   final VoidCallback? onTap;
   final Color? selectedColor;
   const DrawerItem(
-      {Key? key,
+      {super.key,
       this.leading,
       required this.title,
       this.subtitle,
       this.trialing,
       this.selected = false,
       this.selectedColor,
-      this.onTap})
-      : super(key: key);
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      horizontalTitleGap: 0.0,
+      // horizontalTitleGap: 0.0,
       leading: leading,
       title: title,
       subtitle: subtitle,
       trailing: trialing,
       selected: selected,
-     // selectedColor: lightGrey,
-      onTap:  onTap,
+      // selectedColor: lightGrey,
+      onTap: onTap,
     );
   }
 }

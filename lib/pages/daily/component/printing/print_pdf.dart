@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import '../../../../services/widgets/extension.dart';
@@ -12,8 +13,7 @@ import '../model/daily_model.dart';
 
 class AttendancePrint extends StatelessWidget {
   const AttendancePrint(
-      {Key? key, required this.attendanceList, required this.title})
-      : super(key: key);
+      {super.key, required this.attendanceList, required this.title});
   final List<DailyModel> attendanceList;
   final String title;
 
@@ -30,21 +30,16 @@ class AttendancePrint extends StatelessWidget {
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     int number = 0;
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
-    final image = await imageFromAssetBundle('assets/icons/logo.png');
+    final image = pw.MemoryImage(
+      File('assets/icons/logo.png').readAsBytesSync(),
+    );
+// await imageFromAssetBundle('assets/icons/logo.png');
 
     pdf.addPage(
-      
       pw.MultiPage(
-                pageFormat: PdfPageFormat.a4.portrait,
-
+        pageFormat: PdfPageFormat.a4.portrait,
         margin: const pw.EdgeInsets.all(30),
         build: (context) => [
-          // pw.Center(
-          //   child: pw.SizedBox(
-          //       child: pw.Text(companyName,
-          //           style: pw.TextStyle(
-          //               fontWeight: pw.FontWeight.bold, fontSize: 16))),
-          // ),
           printHeader(image),
           pw.SizedBox(height: 10),
           pw.Row(children: [
@@ -59,22 +54,22 @@ class AttendancePrint extends StatelessWidget {
           ]),
           pw.TableHelper.fromTextArray(
               columnWidths: const {
-                0: pw.FlexColumnWidth(1.5),
+                0: pw.FlexColumnWidth(2),
                 1: pw.FlexColumnWidth(8),
                 2: pw.FlexColumnWidth(6),
                 3: pw.FlexColumnWidth(4),
                 4: pw.FlexColumnWidth(4),
                 5: pw.FlexColumnWidth(4),
                 6: pw.FlexColumnWidth(4),
-                7: pw.FlexColumnWidth(3),
+                7: pw.FlexColumnWidth(2.5),
                 8: pw.FlexColumnWidth(5),
               },
               context: context,
               cellStyle: const pw.TextStyle(
                 fontSize: pdfFont,
               ),
-              headerStyle: pw.TextStyle(
-                  fontSize: 8, fontWeight: pw.FontWeight.bold),
+              headerStyle:
+                  pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold),
               headerDecoration:
                   const pw.BoxDecoration(color: PdfColors.grey300),
               data: <List<String>>[
@@ -114,13 +109,11 @@ class AttendancePrint extends StatelessWidget {
     return pw.Row(
       mainAxisAlignment: pw.MainAxisAlignment.center,
       children: [
-        pw.Align(
-          alignment: pw.Alignment.topLeft,
-          child: pw.SizedBox(
-            height: 35,
-            child: pw.Image(
-              image,
-            ),
+        pw.SizedBox(
+          height: 35,
+       //   width: 10,
+          child: pw.Image(
+            image,
           ),
         ),
         pw.Center(

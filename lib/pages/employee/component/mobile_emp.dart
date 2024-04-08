@@ -13,7 +13,7 @@ import '../../../services/widgets/textbox.dart';
 import '../../../services/widgets/waiting.dart';
 
 class EmployeeMobileInput extends GetView<EmployeeCon> {
-  const EmployeeMobileInput({Key? key}) : super(key: key);
+  const EmployeeMobileInput({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +93,7 @@ class EmployeeMobileInput extends GetView<EmployeeCon> {
                       validate: true,
                       list: controller.bList,
                       onChange: (DropDownModel? data) {
+                        controller.selBranch = data;
                         controller.branch.text = data!.id.toString();
                         controller.getDepartment(data.id.toString());
                       }).padding9)
@@ -155,8 +156,7 @@ class EmployeeMobileInput extends GetView<EmployeeCon> {
                     onTap: () async {
                       final DateTime? picked = await showDatePicker(
                         context: context,
-                        initialDate:
-                            controller.selectedDob, // RRefer step 1
+                        initialDate: controller.selectedDob, // RRefer step 1
                         firstDate: controller.idate,
                         lastDate: DateTime.now(),
                       );
@@ -210,14 +210,13 @@ class EmployeeMobileInput extends GetView<EmployeeCon> {
               Row(
                 children: [
                   Obx(() => Text('Active: ${controller.on}')),
-                      Obx(
-                () => Switch(
-                    onChanged: (val) => controller.toggle(),
-                    value: controller.on.value),
-              ),
+                  Obx(
+                    () => Switch(
+                        onChanged: (val) => controller.toggle(),
+                        value: controller.on.value),
+                  ),
                 ],
               ).padding9,
-          
               Obx(() => InkWell(
                     onTap: () async {
                       final DateTime? picked = await showDatePicker(
@@ -265,7 +264,7 @@ class EmployeeMobileInput extends GetView<EmployeeCon> {
 }
 
 class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
-  const UpdateEmployeeMobileInput({Key? key}) : super(key: key);
+  const UpdateEmployeeMobileInput({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -322,6 +321,7 @@ class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
                       validate: true,
                       list: controller.bList,
                       onChange: (DropDownModel? data) {
+                        controller.selBranch = data;
                         controller.branch.text = data!.id.toString();
                         controller.getDepartment(data.id.toString());
                       }).padding9)
@@ -455,7 +455,6 @@ class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
                   )
                 ],
               ).padding9,
-
               SizedBox(
                 width: myWidth(context, 1.1),
                 child: Obx(() => InkWell(
@@ -486,17 +485,17 @@ class UpdateEmployeeMobileInput extends GetView<EmployeeCon> {
                       ).vPadding3,
                     )),
               ),
-                  Row(
-                    children: [
-                      Obx(() => !controller.loadData.value
-                          ? MButton(
-                              onTap: () => controller.updateEmployInput(),
-                              type: ButtonType.save,
-                            ).padding9
-                          : const MWaiting().padding9),
-                      const Spacer()
-                    ],
-                  )
+              Row(
+                children: [
+                  Obx(() => !controller.loadData.value
+                      ? MButton(
+                          onTap: () => controller.updateEmployInput(),
+                          type: ButtonType.save,
+                        ).padding9
+                      : const MWaiting().padding9),
+                  const Spacer()
+                ],
+              )
             ],
           ),
         ).padding9,

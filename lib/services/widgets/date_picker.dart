@@ -8,8 +8,7 @@ class DateRangePicker extends StatelessWidget {
   final Function(DateTimeRange?)? dateRange;
   final String? selectedDate;
   const DateRangePicker(
-      {Key? key, required this.firstDate, this.dateRange, this.selectedDate})
-      : super(key: key);
+      {super.key, required this.firstDate, this.dateRange, this.selectedDate});
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +59,7 @@ class DateTimePicker extends StatelessWidget {
   final String date;
   final VoidCallback ontap;
   const DateTimePicker(
-      {Key? key, required this.date, required this.ontap})
-      : super(key: key);
+      {super.key, required this.date, required this.ontap});
 
   @override
   Widget build(BuildContext context) {

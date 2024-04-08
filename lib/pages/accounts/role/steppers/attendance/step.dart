@@ -11,7 +11,7 @@ UsersController user = Get.find();
 final con = Get.put(AttendController());
 
 class Attend extends StatelessWidget {
-  const Attend({Key? key}) : super(key: key);
+  const Attend({super.key});
 
   @override
   Widget build(BuildContext context) {

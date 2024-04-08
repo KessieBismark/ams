@@ -13,8 +13,8 @@ import 'package:get/get.dart';
 
 class EmployInput extends GetWidget<EmployeeCon> {
   const EmployInput({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class EmployInput extends GetWidget<EmployeeCon> {
       alignment: Alignment.center,
       child: Container(
         width: 550,
-      color: Utils.isLightTheme.value ? light : dark,
+        color: Utils.isLightTheme.value ? light : dark,
         child: PhysicalModel(
           color: Utils.isLightTheme.value ? light : dark,
           elevation: 30,
@@ -58,7 +58,7 @@ class EmployInput extends GetWidget<EmployeeCon> {
                                       ).padding9,
                                     )),
                                 SizedBox(
-                                  width: 65,
+                                  width: 70,
                                   child: Obx(() => Row(
                                         children: [
                                           Checkbox(
@@ -131,6 +131,7 @@ class EmployInput extends GetWidget<EmployeeCon> {
                                     validate: true,
                                     list: controller.bList,
                                     onChange: (DropDownModel? data) {
+                                      controller.selBranch = data;
                                       controller.branch.text =
                                           data!.id.toString();
                                       controller
@@ -339,15 +340,15 @@ class EmployInput extends GetWidget<EmployeeCon> {
 
 class UpdateEmployInput extends GetWidget<EmployeeCon> {
   const UpdateEmployInput({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
       child: Container(
         width: 550,
-         color: Utils.isLightTheme.value ? light : dark,
+        color: Utils.isLightTheme.value ? light : dark,
         child: PhysicalModel(
           color: Utils.isLightTheme.value ? light : dark,
           elevation: 30,
@@ -433,6 +434,7 @@ class UpdateEmployInput extends GetWidget<EmployeeCon> {
                                     validate: true,
                                     list: controller.bList,
                                     onChange: (DropDownModel? data) {
+                                      controller.selBranch = data;
                                       controller.branch.text =
                                           data!.id.toString();
                                       controller

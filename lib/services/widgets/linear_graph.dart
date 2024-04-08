@@ -10,10 +10,10 @@ class SyncCartesianChart extends StatelessWidget {
   final ChartAxis xAxis;
   final ChartAxis yAxis;
   final TooltipBehavior tooltipBehavior;
-  final List<ChartSeries> series;
+  final List<CartesianSeries> series;
   final Color? titleColor;
   const SyncCartesianChart({
-    Key? key,
+    super.key,
     required this.height,
     required this.width,
     required this.title,
@@ -22,7 +22,7 @@ class SyncCartesianChart extends StatelessWidget {
     required this.xAxis,
     required this.yAxis,
     required this.tooltipBehavior,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

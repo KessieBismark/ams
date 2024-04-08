@@ -11,7 +11,7 @@ import 'steppers/report/steps.dart';
 import 'steppers/sms/step.dart';
 
 class Role extends GetView<RoleController> {
-  const Role({Key? key}) : super(key: key);
+  const Role({super.key});
 
   @override
   Widget build(BuildContext context) {

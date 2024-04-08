@@ -15,15 +15,14 @@ class DropDownText extends StatelessWidget {
   final Function(String?)? onChange;
 
   const DropDownText(
-      {Key? key,
+      {super.key,
       required this.hint,
       required this.label,
       required this.controller,
       this.isLoading = false,
       this.validate,
       this.onChange,
-      required this.list})
-      : super(key: key);
+      required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -65,15 +64,14 @@ class DropDownText2 extends StatelessWidget {
   final Function(DropDownModel?)? onChange;
 
   const DropDownText2(
-      {Key? key,
+      {super.key,
       required this.hint,
       required this.label,
       this.controller,
       this.isLoading = false,
       this.validate = false,
       this.onChange,
-      required this.list})
-      : super(key: key);
+      required this.list});
 
   @override
   Widget build(BuildContext context) {

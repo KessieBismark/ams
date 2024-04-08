@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -12,8 +13,7 @@ import '../model/mreport_model.dart';
 
 class PersonPrint extends StatelessWidget {
   const PersonPrint(
-      {Key? key, required this.attendanceList, required this.title})
-      : super(key: key);
+      {super.key, required this.attendanceList, required this.title});
   final List<MReportModel> attendanceList;
   final String title;
 
@@ -29,8 +29,9 @@ class PersonPrint extends StatelessWidget {
 
   Future<Uint8List>  _generatePdf(PdfPageFormat format, String title) async {
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
-    final image = await imageFromAssetBundle('assets/icons/logo.png');
-
+  final image = pw.MemoryImage(
+      File('assets/icons/logo.png').readAsBytesSync(),
+    );
     pdf.addPage(
       pw.MultiPage(
         build: (context) => [

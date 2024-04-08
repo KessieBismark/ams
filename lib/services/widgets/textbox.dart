@@ -24,8 +24,8 @@ class MEdit extends StatelessWidget {
     this.maxLines = 1,
     this.controller,
     this.inputType,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

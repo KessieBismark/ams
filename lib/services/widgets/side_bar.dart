@@ -15,8 +15,8 @@ class MSideBarItem extends StatelessWidget {
     required this.icon,
     this.value = 0,
     this.selected = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

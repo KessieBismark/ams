@@ -13,7 +13,7 @@ import 'model.dart';
 class MyDrawer extends StatelessWidget {
   final String? selectedItem;
   final String? name;
-  const MyDrawer({Key? key, this.selectedItem, this.name}) : super(key: key);
+  const MyDrawer({super.key, this.selectedItem, this.name});
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,7 @@ import '../../../../../../services/widgets/waiting.dart';
 import 'controller/controller.dart';
 
 class AbsentTable extends GetView<AttendanceCon> {
-  const AbsentTable({Key? key}) : super(key: key);
+  const AbsentTable({super.key});
 
   @override
   Widget build(BuildContext context) {

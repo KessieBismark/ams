@@ -8,7 +8,7 @@ import '../../../services/widgets/extension.dart';
 import 'controller/controller.dart';
 
 class OvertimeTable extends GetView<OvertimeCon> {
-  const OvertimeTable({Key? key}) : super(key: key);
+  const OvertimeTable({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -16,7 +16,7 @@ import '../controllers/users_controller.dart';
 import '../model/users_model.dart';
 
 class UserTable extends GetWidget<UsersController> {
-  const UserTable({Key? key}) : super(key: key);
+  const UserTable({super.key});
 
   @override
   Widget build(BuildContext context) {

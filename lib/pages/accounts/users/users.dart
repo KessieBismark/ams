@@ -12,7 +12,7 @@ import 'component/controllers/users_controller.dart';
 import 'component/widget/users_table.dart';
 
 class Users extends GetView<UsersController> {
-  const Users({Key? key}) : super(key: key);
+  const Users({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -92,7 +92,8 @@ class MyDrawerItems {
           title: "Attendance",
           link: "/attendance",
           subMenus: [],
-        ),  DItems(
+        ),
+        DItems(
           icon: Icons.lunch_dining,
           title: "Lunch Break",
           link: "/lunch",

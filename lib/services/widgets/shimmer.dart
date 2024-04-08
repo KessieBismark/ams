@@ -9,8 +9,7 @@ class ShimmerInfoCard extends StatelessWidget {
   final double width;
   final Widget widget;
 
-  const ShimmerInfoCard({Key? key, required this.height, required this.width, required this.widget})
-      : super(key: key);
+  const ShimmerInfoCard({super.key, required this.height, required this.width, required this.widget});
 
   @override
   Widget build(BuildContext context) {

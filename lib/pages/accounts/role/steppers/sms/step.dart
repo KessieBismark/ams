@@ -10,7 +10,7 @@ UsersController user = Get.find();
 final con = Get.put(SmsController());
 
 class SmsRole extends StatelessWidget {
-  const SmsRole({Key? key}) : super(key: key);
+  const SmsRole({super.key});
 
   @override
   Widget build(BuildContext context) {

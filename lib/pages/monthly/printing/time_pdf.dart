@@ -11,8 +11,7 @@ import '../../../services/widgets/extension.dart';
 import '../model/mreport_model.dart';
 
 class TimePrint extends StatelessWidget {
-  const TimePrint({Key? key, required this.attendanceList, required this.title})
-      : super(key: key);
+  const TimePrint({super.key, required this.attendanceList, required this.title});
   final List<MModel> attendanceList;
   final String title;
 

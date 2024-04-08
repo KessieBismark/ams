@@ -10,14 +10,13 @@ class SyncPieChart extends StatelessWidget {
 
   final Color? titleColor;
   const SyncPieChart(
-      {Key? key,
+      {super.key,
       required this.height,
       required this.width,
       required this.title,
       this.titleColor,
       required this.series,
-      required this.tooltipBehavior})
-      : super(key: key);
+      required this.tooltipBehavior});
 
   @override
   Widget build(BuildContext context) {

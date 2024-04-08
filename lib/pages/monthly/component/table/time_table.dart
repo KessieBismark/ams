@@ -7,7 +7,7 @@ import '../../../../services/widgets/extension.dart';
 import '../controller.dart';
 
 class MTimeTable extends GetView<MonthlyReportCon> {
-  const MTimeTable({Key? key}) : super(key: key);
+  const MTimeTable({super.key});
 
   @override
   Widget build(BuildContext context) {

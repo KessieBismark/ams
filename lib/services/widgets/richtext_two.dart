@@ -11,15 +11,14 @@ class MyRichTextTwo extends StatelessWidget {
   final String subText;
   final bool? load;
   const MyRichTextTwo(
-      {Key? key,
+      {super.key,
       // required this.mainColor,
       // required this.subColor,
       this.mainStyle,
       this.subStyle,
       required this.mainText,
       required this.subText,
-      this.load})
-      : super(key: key);
+      this.load});
 
   @override
   Widget build(BuildContext context) => RichText(

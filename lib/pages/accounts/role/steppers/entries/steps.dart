@@ -11,7 +11,7 @@ UsersController user = Get.find();
 final con = Get.put(EntriesController());
 
 class Entries extends StatelessWidget {
-  const Entries({Key? key}) : super(key: key);
+  const Entries({super.key});
 
   @override
   Widget build(BuildContext context) {

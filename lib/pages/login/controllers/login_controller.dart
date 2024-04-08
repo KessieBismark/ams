@@ -17,6 +17,7 @@ import '../../../widgets/home.dart';
 import '../../company/company.dart';
 import '../login.dart';
 import '../model.dart';
+import 'package:http/http.dart' as http;
 
 class LoginController extends GetxController {
   List<LogicalKeyboardKey> keys = [];
@@ -41,6 +42,7 @@ class LoginController extends GetxController {
   void onInit() {
     // Utils.uid.value = '';
     // Simulating obtaining the user name from some local storage
+
     loginFocusNode.requestFocus();
     if (box.read("userEmail") != null) {
       emailController.text = box.read("userEmail").toString();
@@ -51,6 +53,33 @@ class LoginController extends GetxController {
 
   fetchApi() {
     getCompany().then((value) => value ? getAPI() : null);
+  }
+
+  Future<void> loadData() async {
+    try {
+      String accessToken = 'k31sdkaeypx8f29b6m1wysvxn';
+      String filePath = '/path/to/your/data.json';
+
+      String dropboxApiUrl = 'https://content.dropboxapi.com/2/files/download';
+      String apiUrl = '$dropboxApiUrl$filePath';
+
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {
+          'Authorization': 'Bearer $accessToken',
+          'Content-Type': 'application/octet-stream',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final content = jsonDecode(utf8.decode(response.bodyBytes));
+        print('Content: $content');
+      } else {
+        print('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error loading data: $e');
+    }
   }
 
   @override
@@ -174,7 +203,7 @@ class LoginController extends GetxController {
             var data = {
               "action": "login",
               "email": emailController.text.trim(),
-              "password": Utils.encryptMyData(passwordController.text.trim()),
+              "password": passwordController.text.trim(),
             };
             var val = await Query.login(data);
             if (jsonDecode(val) == 'false') {
@@ -223,7 +252,6 @@ class LoginController extends GetxController {
   getAPI() async {
     try {
       var query = {"action": "view_api", "cid": Utils.cid};
-      print(query);
       var val = await Query.queryData(query);
       if (jsonDecode(val) == 'false') {
         Sms.smsAPI = "";
@@ -249,7 +277,7 @@ class LoginController extends GetxController {
           var data = {
             "action": "verify",
             "name": name.text.capitalizeFirst,
-            "password": Utils.encryptMyData(passwordController.text),
+            "password": passwordController.text,
             "email": mail,
           };
           var val = await Query.queryData(data);
@@ -282,9 +310,9 @@ class LoginController extends GetxController {
         try {
           var data = {
             "action": "change_password",
-            "password": Utils.encryptMyData(passwordController.text),
+            "password": passwordController.text,
             "email": mail,
-            "code": Utils.encryptMyData(reset.text),
+            "code": reset.text,
           };
           print.call(data);
           var val = await Query.queryData(data);
@@ -344,7 +372,7 @@ class LoginController extends GetxController {
           String uname = cList[0]['name'];
           var data = {
             "action": "forgot",
-            "reset": Utils.encryptMyData(myRand),
+            "reset": myRand,
             "rcode": myRand,
             "name": uname,
             "email": mail,
@@ -381,11 +409,7 @@ class LoginController extends GetxController {
   Future<bool> checkUser(String user, String password) async {
     try {
       box.write("userEmail", user);
-      var data = {
-        "action": "login",
-        "username": user,
-        "password": Utils.encryptMyData(password)
-      };
+      var data = {"action": "login", "username": user, "password": password};
       var val = await Query.login(data);
       bool result;
       if (jsonDecode(val) != 'false') {

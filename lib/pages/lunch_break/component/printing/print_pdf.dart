@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -12,8 +13,7 @@ import '../model/daily_model.dart';
 
 class LunchPrint extends StatelessWidget {
   const LunchPrint(
-      {Key? key, required this.attendanceList, required this.title})
-      : super(key: key);
+      {super.key, required this.attendanceList, required this.title});
   final List<LunchModel> attendanceList;
   final String title;
 
@@ -30,8 +30,9 @@ class LunchPrint extends StatelessWidget {
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     int number = 0;
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
-    final image = await imageFromAssetBundle('assets/icons/logo.png');
-
+  final image = pw.MemoryImage(
+      File('assets/icons/logo.png').readAsBytesSync(),
+    );
     pdf.addPage(
       pw.MultiPage(
         build: (context) => [

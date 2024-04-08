@@ -42,11 +42,11 @@ class SubItem extends GetView<HomeController> {
   final String? selected;
   final BuildContext drawerContext;
   const SubItem({
-    Key? key,
+    super.key,
     required this.subMenu,
     this.selected,
     required this.drawerContext,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

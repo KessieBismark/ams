@@ -12,7 +12,7 @@ import '../../../services/utils/model.dart';
 import 'mobile_emp.dart';
 
 class EmployeeTable extends GetView<EmployeeCon> {
-  const EmployeeTable({Key? key}) : super(key: key);
+  const EmployeeTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -317,12 +317,10 @@ class EmployeeTable extends GetView<EmployeeCon> {
                       controller.resigned = DateTime(2030);
 
                       controller.selBranch = DropDownModel(
-                          id: controller.employeeRecords[index].staffID
-                              .toString(),
+                          id: controller.employeeRecords[index].bID.toString(),
                           name: controller.employeeRecords[index].branch);
                       controller.selDepartment = DropDownModel(
-                          id: controller.employeeRecords[index].staffID
-                              .toString(),
+                          id: controller.employeeRecords[index].dID.toString(),
                           name: controller.employeeRecords[index].department);
                       controller.branch.text =
                           controller.employeeRecords[index].bID!;
@@ -330,6 +328,8 @@ class EmployeeTable extends GetView<EmployeeCon> {
                           controller.employeeRecords[index].dID!;
                       controller.resigned = DateTime.parse(
                           controller.employeeRecords[index].resigned);
+                      controller.isB.value = true;
+                      controller.isB.value = false;
                       controller.employeeRecords[index].active == 1
                           ? controller.on.value = true
                           : controller.on.value = false;

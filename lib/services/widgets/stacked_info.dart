@@ -13,7 +13,7 @@ class StackedInfoCard extends StatelessWidget {
   final double containerHeight;
   final Color iconBackColor;
   const StackedInfoCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.icon,
@@ -22,7 +22,7 @@ class StackedInfoCard extends StatelessWidget {
     required this.boxHeight,
     required this.containerWidth,
     required this.containerHeight,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

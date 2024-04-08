@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import '../../../../services/widgets/extension.dart';
@@ -11,8 +12,7 @@ import '../model/absentee_model.dart';
 
 class DailyAbsentPrint extends StatelessWidget {
   const DailyAbsentPrint(
-      {Key? key, required this.attendanceList, required this.title})
-      : super(key: key);
+      {super.key, required this.attendanceList, required this.title});
   final List<AbsentModel> attendanceList;
   final String title;
 
@@ -28,8 +28,9 @@ class DailyAbsentPrint extends StatelessWidget {
 
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
-    final image = await imageFromAssetBundle('assets/icons/logo.png');
-
+  final image = pw.MemoryImage(
+      File('assets/icons/logo.png').readAsBytesSync(),
+    );
     pdf.addPage(
       pw.MultiPage(
         build: (context) => [

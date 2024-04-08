@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/color.dart';
+import '../utils/helpers.dart';
 import 'extension.dart';
 import 'waiting.dart';
 
@@ -16,15 +17,14 @@ class MButton extends StatelessWidget {
   final EdgeInsets? padding;
 
   const MButton(
-      {Key? key,
+      {super.key,
       this.title,
       required this.onTap,
       this.icon,
       this.isLoading = false,
       this.type,
       this.color,
-      this.padding})
-      : super(key: key);
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +56,9 @@ class MButton extends StatelessWidget {
                     children: [
                       icon ??
                           Icon(
+                              color: Utils.isLightTheme.value
+                                  ? Colors.black
+                                  : light,
                               type == ButtonType.save
                                   ? Icons.save
                                   : type == ButtonType.cancel
@@ -72,18 +75,41 @@ class MButton extends StatelessWidget {
                         width: 5,
                       ),
                       title != null
-                          ? title!.toLabel()
+                          ? title!.toLabel(
+                              color: Utils.isLightTheme.value
+                                  ? Colors.black
+                                  : light)
                           : type == ButtonType.save
-                              ? 'Save'.toLabel()
+                              ? 'Save'.toLabel(
+                                  color: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light)
                               : type == ButtonType.cancel
-                                  ? 'Cancel'.toLabel()
+                                  ? 'Cancel'.toLabel(
+                                      color: Utils.isLightTheme.value
+                                          ? Colors.black
+                                          : light)
                                   : type == ButtonType.delete
-                                      ? 'Delete'.toLabel()
+                                      ? 'Delete'.toLabel(
+                                          color: Utils.isLightTheme.value
+                                              ? Colors.black
+                                              : light)
                                       : type == ButtonType.add
-                                          ? 'New'.toLabel()
+                                          ? 'New'.toLabel(
+                                              color: Utils.isLightTheme.value
+                                                  ? Colors.black
+                                                  : light)
                                           : type == ButtonType.search
-                                              ? 'Search'.toLabel()
-                                              : (title)!.toLabel(),
+                                              ? 'Search'.toLabel(
+                                                  color:
+                                                      Utils.isLightTheme.value
+                                                          ? Colors.black
+                                                          : light)
+                                              : (title)!.toLabel(
+                                                  color:
+                                                      Utils.isLightTheme.value
+                                                          ? Colors.black
+                                                          : light),
                     ],
                   )
                 : icon != null
@@ -94,10 +120,14 @@ class MButton extends StatelessWidget {
                           const SizedBox(
                             width: 5,
                           ),
-                          (title)!.toLabel()
+                          (title)!.toLabel(
+                              color: Utils.isLightTheme.value
+                                  ? Colors.black
+                                  : light)
                         ],
                       )
-                    : (title)!.toLabel(),
+                    : (title)!.toLabel(
+                        color: Utils.isLightTheme.value ? Colors.black : light),
           );
   }
 }
@@ -108,12 +138,11 @@ class MTextButton extends StatelessWidget {
   final Color? color;
   final bool? active;
   const MTextButton(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.onTap,
       this.color,
-      this.active = false})
-      : super(key: key);
+      this.active = false});
 
   @override
   Widget build(BuildContext context) {

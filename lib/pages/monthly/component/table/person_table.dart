@@ -7,7 +7,7 @@ import '../../../../services/widgets/extension.dart';
 import '../controller.dart';
 
 class PersonTable extends GetView<MonthlyReportCon> {
-  const PersonTable({Key? key}) : super(key: key);
+  const PersonTable({super.key});
 
   @override
   Widget build(BuildContext context) {

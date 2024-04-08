@@ -11,12 +11,11 @@ class InfoCardSmall extends StatelessWidget {
   final VoidCallback onTap;
 
   const InfoCardSmall(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.value,
       this.isActive = false,
-      required this.onTap})
-      : super(key: key);
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {

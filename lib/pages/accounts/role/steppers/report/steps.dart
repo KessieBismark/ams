@@ -10,7 +10,7 @@ UsersController user = Get.find();
 final con = Get.put(ReportController());
 
 class Report extends StatelessWidget {
-  const Report({Key? key}) : super(key: key);
+  const Report({super.key});
 
   @override
   Widget build(BuildContext context) {

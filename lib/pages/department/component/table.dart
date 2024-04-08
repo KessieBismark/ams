@@ -14,7 +14,7 @@ import '../../../services/widgets/extension.dart';
 import 'controller/controller.dart';
 
 class DepartmentTable extends GetView<DepartmentCon> {
-  const DepartmentTable({Key? key}) : super(key: key);
+  const DepartmentTable({super.key});
 
   @override
   Widget build(BuildContext context) {

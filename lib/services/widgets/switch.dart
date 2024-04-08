@@ -8,12 +8,11 @@ class MySwitch extends StatelessWidget {
   final Alignment alignment;
   final Function(bool)? onChange;
   const MySwitch(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.onChange,
       required this.value,
-      required this.alignment})
-      : super(key: key);
+      required this.alignment});
 
   @override
   Widget build(BuildContext context) {

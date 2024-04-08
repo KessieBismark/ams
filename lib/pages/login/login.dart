@@ -13,7 +13,7 @@ import '../../services/widgets/waiting.dart';
 import 'controllers/login_controller.dart';
 
 class Login extends GetView<LoginController> {
-  const Login({Key? key}) : super(key: key);
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {

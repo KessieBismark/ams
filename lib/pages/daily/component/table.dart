@@ -7,7 +7,7 @@ import '../../../services/widgets/extension.dart';
 import 'controller/controller.dart';
 
 class AttendanceTable extends GetView<AttendanceCon> {
-  const AttendanceTable({Key? key}) : super(key: key);
+  const AttendanceTable({super.key});
 
   @override
   Widget build(BuildContext context) {

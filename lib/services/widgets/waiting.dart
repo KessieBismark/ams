@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'extension.dart';
 
 class MWaiting extends StatelessWidget {
-  const MWaiting({Key? key}) : super(key: key);
+  const MWaiting({super.key});
 
   @override
   Widget build(BuildContext context) {

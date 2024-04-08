@@ -10,8 +10,7 @@ class Delete extends StatelessWidget {
   final String deleteName;
   final VoidCallback ontap;
 
-  const Delete({Key? key, required this.deleteName, required this.ontap})
-      : super(key: key);
+  const Delete({super.key, required this.deleteName, required this.ontap});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,7 @@ class Delete extends StatelessWidget {
 
 class MError extends StatelessWidget {
   final Exception exception;
-  const MError({Key? key, required this.exception}) : super(key: key);
+  const MError({super.key, required this.exception});
 
   @override
   Widget build(BuildContext context) {

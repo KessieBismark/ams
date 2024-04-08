@@ -102,7 +102,7 @@ class EmployeeCon extends GetxController {
     resigned = DateTime.parse('9994-01-01');
     isHire.value = true;
     isResign.value = true;
-
+    resignedText.text = "2079-12-12";
     reload();
     Utils.branchID == '0' ? null : getDepartment(Utils.branchID);
     super.onInit();
@@ -287,7 +287,7 @@ class EmployeeCon extends GetxController {
             "surname": surNameText.text.trim().toUpperCase(),
             "firstname": firstNameText.text.trim().capitalize,
             "middlename": middleNameText.text.trim().capitalize,
-            "department": depText.text,
+            "department": selDepartment!.id,
             "ssnit": ssnitText.text.trim(),
             "account": accountText.text.trim(),
             "bank": bankText.text.trim(),
@@ -299,9 +299,11 @@ class EmployeeCon extends GetxController {
             "econtact": eContactTExt.text,
             "gender": genderText.text,
             "active": on.value ? "1" : "0",
-            "resigned": resignedText.text,
+            "resigned": DateTime.parse(resignedText.text).isAfter(resigned)
+                ? resignedText.text
+                : resigned.toString(),
             "cid": Utils.cid,
-            "branch": Utils.branchID == '0' ? branch.text : Utils.branchID
+            "branch": Utils.branchID == '0' ? selBranch!.id : Utils.branchID
           };
           var val = await Query.queryData(data);
           if (jsonDecode(val) == 'true') {
@@ -340,7 +342,7 @@ class EmployeeCon extends GetxController {
             "surname": surNameText.text.trim().toUpperCase(),
             "firstname": firstNameText.text.trim().capitalize,
             "middlename": middleNameText.text.trim().capitalize,
-            "department": depText.text,
+            "department": selDepartment!.id, // depText.text,
             "ssnit": ssnitText.text.trim(),
             "account": accountText.text.trim(),
             "bank": bankText.text.trim(),
@@ -354,7 +356,7 @@ class EmployeeCon extends GetxController {
             "active": on.value ? "1" : "0",
             "resigned": resignedText.text,
             "cid": Utils.cid,
-            "branch": Utils.branchID == '0' ? branch.text : Utils.branchID
+            "branch": Utils.branchID == '0' ? selBranch!.id : Utils.branchID
           };
           var val = await Query.queryData(data);
           if (jsonDecode(val) == 'true') {

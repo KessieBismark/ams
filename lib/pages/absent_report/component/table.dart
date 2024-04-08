@@ -11,7 +11,7 @@ import '../../../services/widgets/dialogs.dart';
 import '../../../services/widgets/textbox.dart';
 
 class AbrTable extends GetView<AbsentReportCon> {
-  const AbrTable({Key? key}) : super(key: key);
+  const AbrTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +143,8 @@ class AbrTable extends GetView<AbsentReportCon> {
                     DataCell(
                         controller.dataList[index].department.toAutoLabel()),
                     DataCell(controller.dataList[index].branch.toAutoLabel()),
-                    DataCell(controller.dataList[index].abDays.toAutoLabel()),
+                    DataCell(Utils.sortData(controller.dataList[index].abDays)
+                        .toAutoLabel()),
                     DataCell(
                         controller.dataList[index].permission.toAutoLabel()),
                     DataCell(controller

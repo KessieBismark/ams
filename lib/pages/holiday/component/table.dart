@@ -16,7 +16,7 @@ import '../../../services/widgets/dropdown.dart';
 import 'controller/controller.dart';
 
 class HolidayTable extends GetView<HolidayCon> {
-  const HolidayTable({Key? key}) : super(key: key);
+  const HolidayTable({super.key});
 
   @override
   Widget build(BuildContext context) {

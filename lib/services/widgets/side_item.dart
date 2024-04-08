@@ -5,13 +5,12 @@ import '../constants/color.dart';
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile(
-      {Key? key,
+      {super.key,
       // For selecting those three line once press "Command+D"
       required this.title,
       required this.icon,
       required this.press,
-      this.active = false})
-      : super(key: key);
+      this.active = false});
 
   final String title;
   final VoidCallback press;

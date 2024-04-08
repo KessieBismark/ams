@@ -1,13 +1,12 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../services/widgets/waiting.dart';
 import '../../../services/widgets/extension.dart';
 import 'controller/controller.dart';
 
 class LunchTable extends GetView<LunchCon> {
-  const LunchTable({Key? key}) : super(key: key);
+  const LunchTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,20 +61,6 @@ class LunchTable extends GetView<LunchCon> {
                   },
                 ),
                 DataColumn2(
-                  label: "In Time".toLabel(bold: true),
-                  onSort: (int columnIndex, bool ascending) {
-                    if (ascending) {
-                      controller.dailyDisplayData.sort((item1, item2) =>
-                          item1.inTime.compareTo(item2.inTime));
-                    } else {
-                      controller.dailyDisplayData.sort((item1, item2) =>
-                          item2.inTime.compareTo(item1.inTime));
-                    }
-                    controller.sortNameAscending.value = ascending;
-                    controller.sortNameIndex.value = columnIndex;
-                  },
-                ),
-                DataColumn2(
                   label: "Out Time".toLabel(bold: true),
                   onSort: (int columnIndex, bool ascending) {
                     if (ascending) {
@@ -84,6 +69,20 @@ class LunchTable extends GetView<LunchCon> {
                     } else {
                       controller.dailyDisplayData.sort((item1, item2) =>
                           item2.outTime!.compareTo(item1.outTime!));
+                    }
+                    controller.sortNameAscending.value = ascending;
+                    controller.sortNameIndex.value = columnIndex;
+                  },
+                ),
+                DataColumn2(
+                  label: "In Time".toLabel(bold: true),
+                  onSort: (int columnIndex, bool ascending) {
+                    if (ascending) {
+                      controller.dailyDisplayData.sort((item1, item2) =>
+                          item1.inTime.compareTo(item2.inTime));
+                    } else {
+                      controller.dailyDisplayData.sort((item1, item2) =>
+                          item2.inTime.compareTo(item1.inTime));
                     }
                     controller.sortNameAscending.value = ascending;
                     controller.sortNameIndex.value = columnIndex;
@@ -103,7 +102,6 @@ class LunchTable extends GetView<LunchCon> {
                     controller.sortNameIndex.value = columnIndex;
                   },
                 ),
-           
                 DataColumn2(
                   label: "Branch".toLabel(bold: true),
                   onSort: (int columnIndex, bool ascending) {
@@ -147,13 +145,12 @@ class LunchTable extends GetView<LunchCon> {
                             .toAutoLabel()),
                     DataCell(controller.dailyDisplayData[index].department
                         .toAutoLabel()),
-                    DataCell((controller.dailyDisplayData[index].inTime)
-                        .toAutoLabel()),
                     DataCell((controller.dailyDisplayData[index].outTime!)
+                        .toAutoLabel()),
+                    DataCell((controller.dailyDisplayData[index].inTime)
                         .toAutoLabel()),
                     DataCell((controller.dailyDisplayData[index].overtime!)
                         .toAutoLabel()),
-                   
                     DataCell((controller.dailyDisplayData[index].branch)
                         .toAutoLabel()),
                     DataCell((controller.dailyDisplayData[index].date)

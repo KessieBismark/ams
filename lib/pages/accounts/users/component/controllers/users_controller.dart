@@ -112,7 +112,7 @@ class UsersController extends GetxController {
             "id": id,
             "email": email.text,
             "branch": isAdmin.value ? "0" : branch.text,
-            "password": Utils.encryptMyData(password.text),
+            "password":password.text,
             "cid": Utils.cid
           };
           var val = await Query.queryData(data);
@@ -249,7 +249,7 @@ class UsersController extends GetxController {
               "action": "add_user",
               "email": email.text.trim(),
               "vCode": myRand,
-              "code": Utils.encryptMyData(myRand),
+              "code": myRand,
               "role": role.text,
               "access": access,
               "contact": contact.text,

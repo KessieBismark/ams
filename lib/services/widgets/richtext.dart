@@ -8,13 +8,12 @@ class MyRichText extends StatelessWidget {
   final Color mainColor;
   final bool? load;
   const MyRichText(
-      {Key? key,
+      {super.key,
       required this.subColor,
       required this.mainText,
       required this.mainColor,
       required this.subText,
-      this.load})
-      : super(key: key);
+      this.load});
 
   @override
   Widget build(BuildContext context) => RichText(

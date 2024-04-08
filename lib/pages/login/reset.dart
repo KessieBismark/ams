@@ -12,7 +12,7 @@ import 'controllers/login_controller.dart';
 class SignIn extends Intent {}
 
 class Reset extends StatelessWidget {
-  const Reset({Key? key}) : super(key: key);
+  const Reset({super.key});
 
   @override
   Widget build(BuildContext context) {

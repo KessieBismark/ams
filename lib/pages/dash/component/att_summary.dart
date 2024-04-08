@@ -7,7 +7,7 @@ import '../../../services/widgets/waiting.dart';
 import 'controller.dart';
 
 class AttSummary extends GetView<DashCon> {
-  const AttSummary({Key? key}) : super(key: key);
+  const AttSummary({super.key});
 
   @override
   Widget build(BuildContext context) {

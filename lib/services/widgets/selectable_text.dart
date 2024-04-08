@@ -10,8 +10,8 @@ class SelectLabel extends StatelessWidget {
     this.fontSize,
     this.color,
     this.bold = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

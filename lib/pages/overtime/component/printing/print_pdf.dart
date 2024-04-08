@@ -12,8 +12,7 @@ import '../model/overtime_model.dart';
 
 class OvertimePrint extends StatelessWidget {
   const OvertimePrint(
-      {Key? key, required this.attendanceList, required this.title})
-      : super(key: key);
+      {super.key, required this.attendanceList, required this.title});
   final List<OvertimeModel> attendanceList;
   final String title;
 

@@ -8,7 +8,7 @@ import '../../../../../services/widgets/waiting.dart';
 import '../../../services/widgets/button.dart';
 
 class PermissionTable extends GetView<PermissionCon> {
-  const PermissionTable({Key? key}) : super(key: key);
+  const PermissionTable({super.key});
 
   @override
   Widget build(BuildContext context) {

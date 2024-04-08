@@ -210,20 +210,11 @@ class Utils {
     return m;
   }
 
-//encrypt
-  static String encryptMyData(String text) {
-    try {
-      if (text.isNotEmpty) {
-        final e = enc.Encrypter(enc.AES(key, mode: enc.AESMode.cbc));
-        final encryptedData = e.encrypt(text, iv: iv);
-        return encryptedData.base64;
-      } else {
-        return text;
-      }
-    } catch (e) {
-      print.call(e);
-      return text;
-    }
+  static String sortData(String data) {
+    List<String> dataList = data.split(",");
+    dataList.sort();
+
+    return dataList.join(',');
   }
 
   static userNameinitials(String val) {
@@ -384,7 +375,7 @@ class Utils {
   String formatPrice(dynamic price) =>
       CurrencyFormatter.format(price, cedisettings);
 
-  CurrencyFormatterSettings cedisettings = CurrencyFormatterSettings(
+  CurrencyFormat cedisettings = const CurrencyFormat(
     symbol: '¢',
     symbolSide: SymbolSide.left,
     thousandSeparator: ',',

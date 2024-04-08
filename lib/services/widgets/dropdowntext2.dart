@@ -13,14 +13,13 @@ class DrawerSearch extends StatelessWidget {
   final Function(SearchableModel?)? onChange;
 
   const DrawerSearch(
-      {Key? key,
+      {super.key,
       required this.hint,
       required this.label,
       required this.controller,
       this.validate,
       this.onChange,
-      required this.list})
-      : super(key: key);
+      required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +61,13 @@ class DropDownTextTwo extends StatelessWidget {
   final Function(String?)? onChange;
 
   const DropDownTextTwo(
-      {Key? key,
+      {super.key,
       required this.hint,
       required this.label,
       required this.controller,
       this.validate,
       this.onChange,
-      required this.list})
-      : super(key: key);
+      required this.list});
 
   @override
   Widget build(BuildContext context) {

@@ -16,15 +16,14 @@ class MultiSelectModel extends StatelessWidget {
   final Function(List<DropDownModel>)? onChange;
 
   const MultiSelectModel(
-      {Key? key,
+      {super.key,
       required this.hint,
       required this.label,
       required this.controller,
       this.isLoading = false,
       this.validate = false,
       this.onChange,
-      required this.list})
-      : super(key: key);
+      required this.list});
 
   @override
   Widget build(BuildContext context) {
