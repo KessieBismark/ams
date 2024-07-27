@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:isolate';
 import 'dart:typed_data';
 import 'package:ams/pages/employee/component/profile.dart';
 import 'package:ams/services/constants/server.dart';
@@ -81,7 +82,7 @@ class EmployeeCon extends GetxController {
   var isSave = false.obs;
   var isUpdate = false.obs;
   var isAuto = false.obs;
-    List<PermissionModel> per = <PermissionModel>[];
+  List<PermissionModel> per = <PermissionModel>[];
   var pLoad = false.obs;
   var cDraw = false.obs;
   var loadData = false.obs;
@@ -142,6 +143,8 @@ class EmployeeCon extends GetxController {
 
   void getEmployee() {
     getData.value = true;
+
+    //final List<EmpListModel> data =  await Isolate(controlPort)
     fetchEmployee().then((value) {
       employee = [];
       employeeRecords = [];
@@ -662,7 +665,7 @@ class EmployeeCon extends GetxController {
     }
   }
 
-    int calculateYearDays(int year) {
+  int calculateYearDays(int year) {
     int totalDays =
         DateTime(year + 1, 0, 0).difference(DateTime(year, 1, 1)).inDays;
     int totalWorkingDays = 0;
@@ -678,13 +681,13 @@ class EmployeeCon extends GetxController {
     return totalWorkingDays;
   }
 
-    int daysPassedInYear() {
+  int daysPassedInYear() {
     DateTime currentDate = DateTime.now();
     DateTime jan1st = DateTime(DateTime.now().year, 1, 1);
     return currentDate.difference(jan1st).inDays + 1;
   }
 
-    getRadalData(String id) async {
+  getRadalData(String id) async {
     cDraw.value = true;
     try {
       var data = {"action": "view_profile", "id": id};
@@ -749,6 +752,7 @@ class EmployeeCon extends GetxController {
       return permission;
     }
   }
+
   Future<List<EmpListModel>> fetchEmployee() async {
     var employee = <EmpListModel>[];
     try {
@@ -760,11 +764,13 @@ class EmployeeCon extends GetxController {
       var result = await Query.queryData(data);
       var empJson = jsonDecode(result);
       if (empJson != 'false') {
-        for (var empJson in empJson) {
-          employee.add(EmpListModel.fromJson(empJson));
-        }
+          for (var empJson in empJson) {
+            employee.add(EmpListModel.fromJson(empJson));
+          }
+          return employee;
+      } else {
+        return employee;
       }
-      return employee;
     } catch (e) {
       // ignore: avoid_print
       print(e);

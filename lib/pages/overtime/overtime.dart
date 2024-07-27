@@ -86,9 +86,9 @@ class OverTime extends GetView<OvertimeCon> {
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                   mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: "Overtime Table ",
                                   subText:
@@ -137,9 +137,9 @@ class OverTime extends GetView<OvertimeCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                   mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: "Overtime Table ",
                                   subText:
@@ -194,7 +194,7 @@ class OverTime extends GetView<OvertimeCon> {
                         if (Utils.access
                             .contains(Utils.initials("Overtime", 0)))
                           SizedBox(
-                            height: myHeight(context, 1.28),
+                              height: myHeight(context, 1.28),
                               child: const OvertimeTable())
                       ],
                     ),
@@ -239,7 +239,7 @@ class OverTime extends GetView<OvertimeCon> {
                     label: "Select department",
                     controller: controller.selDepartment,
                     isLoading: controller.depLoading.value,
-                    validate:true,
+                    validate: true,
                     list: controller.departmentList,
                     onChange: (DropDownModel? data) {
                       controller.depText.text = data!.id.toString();
@@ -263,7 +263,7 @@ class OverTime extends GetView<OvertimeCon> {
                         showDateRangePicker(
                                 context: context,
                                 firstDate: controller.today,
-                                lastDate: DateTime(9999))
+                                lastDate: DateTime.parse('2024-07-26'))
                             .then((value) {
                           if (value != null) {
                             DateTimeRange fromRange = DateTimeRange(
@@ -305,7 +305,7 @@ class OverTime extends GetView<OvertimeCon> {
                     ),
                     MButton(
                       onTap: () {
-                      //  controller.clearText();
+                        //  controller.clearText();
                         Get.back();
                       },
                       type: ButtonType.cancel,

@@ -41,7 +41,7 @@ class UsersController extends GetxController {
   var genSelected = ' '.obs;
   @override
   void onInit() {
-      Utils.checkAccess();
+    Utils.checkAccess();
     super.onInit();
     getSmsDetails();
     reload();
@@ -112,7 +112,7 @@ class UsersController extends GetxController {
             "id": id,
             "email": email.text,
             "branch": isAdmin.value ? "0" : branch.text,
-            "password":password.text,
+            "password": password.text,
             "cid": Utils.cid
           };
           var val = await Query.queryData(data);
@@ -326,6 +326,7 @@ class Pages {
     'department',
     'Permission',
     'holidays',
+    'position',
   ];
   final smsSection = ['View Record', 'Send sms'];
 

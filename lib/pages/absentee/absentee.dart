@@ -79,16 +79,16 @@ class Absentee extends GetView<AbsenteeCon> {
                                   .contains(Utils.initials("absentees", 1)))
                                 MButton(
                                   onTap: () {
-                                  //  controller.clearText();
+                                    //  controller.clearText();
                                     add(context);
                                   },
                                   type: ButtonType.search,
                                 ).hPadding9,
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                  mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: "Absentees Table ",
                                   subText:
@@ -139,9 +139,9 @@ class Absentee extends GetView<AbsenteeCon> {
                             children: [
                               Obx(() => MyRichText(
                                   load: controller.getData.value,
-                                    mainColor:  Utils.isLightTheme.value
-              ? Colors.black
-              :  light,
+                                  mainColor: Utils.isLightTheme.value
+                                      ? Colors.black
+                                      : light,
                                   subColor: Colors.red,
                                   mainText: "Absentees Table ",
                                   subText:
@@ -152,7 +152,7 @@ class Absentee extends GetView<AbsenteeCon> {
                                   if (newValue == "Search record") {
                                     if (Utils.access.contains(
                                         Utils.initials("absentees", 1))) {
-                                     // controller.clearText();
+                                      // controller.clearText();
                                       add(context);
                                     } else {
                                       Utils().showError(
@@ -196,7 +196,7 @@ class Absentee extends GetView<AbsenteeCon> {
                         if (Utils.access
                             .contains(Utils.initials("absentees", 0)))
                           SizedBox(
-                            height: myHeight(context, 1.28),
+                              height: myHeight(context, 1.28),
                               child: const AbsentTable())
                       ],
                     ),
@@ -228,7 +228,7 @@ class Absentee extends GetView<AbsenteeCon> {
                         label: "Select branch",
                         controller: controller.selBranch,
                         isLoading: controller.isB.value,
-                        validate:true,
+                        validate: true,
                         list: controller.bList,
                         onChange: (DropDownModel? data) {
                           controller.branch.text = data!.id.toString();
@@ -254,7 +254,7 @@ class Absentee extends GetView<AbsenteeCon> {
                     label: "Select employee",
                     controller: controller.selEmployee,
                     isLoading: controller.empLoading.value,
-                    validate:true,
+                    validate: true,
                     list: controller.employeesList,
                     onChange: (DropDownModel? data) {
                       controller.empName.text = data!.id.toString();
@@ -265,7 +265,7 @@ class Absentee extends GetView<AbsenteeCon> {
                           context: context,
                           initialDate: DateTime.now(), // Refer step 1
                           firstDate: DateTime.parse('2021-01-01'),
-                          lastDate: DateTime(9999),
+                          lastDate: DateTime.parse('2024-07-26'),
                         );
                         if (picked != null) {
                           controller.today = picked;

@@ -33,7 +33,7 @@ class ThemeController extends GetxController {
 ThemeData lightTheme = ThemeData.light().copyWith(
   scaffoldBackgroundColor: mygrey,
   canvasColor: mygrey,
- // useMaterial3: true,
+  // useMaterial3: true,
   //  buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
 
   textTheme: GoogleFonts.poppinsTextTheme().apply(bodyColor: dark),
@@ -47,8 +47,8 @@ ThemeData lightTheme = ThemeData.light().copyWith(
 ThemeData darkTheme = ThemeData.dark().copyWith(
   scaffoldBackgroundColor: dark,
 //useMaterial3: true,
- // buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
- 
+  // buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+
   textTheme: GoogleFonts.poppinsTextTheme().apply(bodyColor: light),
   pageTransitionsTheme: const PageTransitionsTheme(builders: {
     TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),

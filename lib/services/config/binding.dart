@@ -1,4 +1,5 @@
 import 'package:ams/pages/layout/component/controller/controller.dart';
+import 'package:ams/pages/position/component/controller/controller.dart';
 
 import '../../pages/absent_report/component/controller.dart';
 import '../../pages/absentee/component/controller/controller.dart';
@@ -29,6 +30,8 @@ class AMSBinding implements Bindings {
     Get.lazyPut(() => LoginController());
     Get.lazyPut(() => AbsentReportCon(), fenix: true);
     Get.lazyPut(() => AbsenteeCon());
+    Get.lazyPut(() => PositionCon(), fenix: true);
+
     // Get.put( EmployeeCon(), permanent: true);
     // Get.create<EmployeeCon>(() => EmployeeCon());
     Get.lazyPut(() => EmployeeCon(), fenix: true);
@@ -45,7 +48,7 @@ class AMSBinding implements Bindings {
     Get.lazyPut(() => UsersController());
     Get.lazyPut(() => CompanyCon());
     Get.lazyPut(() => CompanyInfoCon());
-    Get.lazyPut(() => RoleController());
+    Get.lazyPut(() => RoleController(), fenix: true);
     Get.lazyPut(() => HolidayCon());
     Get.lazyPut(() => LunchCon());
   }

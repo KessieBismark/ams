@@ -260,7 +260,7 @@ class AbsentReport extends GetView<AbsentReportCon> {
                         showDateRangePicker(
                                 context: context,
                                 firstDate: controller.today,
-                                lastDate: DateTime(9999))
+                                lastDate: DateTime.parse('2024-07-26'))
                             .then((value) {
                           if (value != null) {
                             DateTimeRange fromRange = DateTimeRange(

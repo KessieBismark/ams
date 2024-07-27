@@ -9,6 +9,7 @@ import 'package:ams/pages/lunch_break/lunch.dart';
 import 'package:ams/pages/monthly/monthly.dart';
 import 'package:ams/pages/overtime/overtime.dart';
 import 'package:ams/pages/permission/permission.dart';
+import 'package:ams/pages/position/position.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -102,60 +103,72 @@ class MenuHeader {
           icon: Icons.message,
           widget: const SMS())
     ]),
-    MenuHeader(header: "REPORT & ANALYSIS", menus: [
-      MenuModel(
-          id: Utils.getInitials('Attendance'),
-          title: 'Attendance',
-          icon: Icons.timelapse,
-          subMenu: [],
-          widget: const Attendance()),
-      MenuModel(
-          id: Utils.getInitials('Lunch Break'),
-          title: 'Lunch Break',
-          icon: Icons.lunch_dining,
-          subMenu: [],
-          widget: const Lunch()),
-      MenuModel(
-          id: Utils.getInitials('Report'),
-          title: 'Report',
-          icon: FontAwesomeIcons.flask,
-          subMenu: [
-            SubMenu(
-                icon: Entypo.dot,
-                id: Utils.getInitials('Absent Report'),
-                title: 'Absent Report',
-                widget: const AbsentReport()),
-            SubMenu(
-                icon: Entypo.dot,
-                id: Utils.getInitials('Absentees'),
-                title: 'Absentees',
-                widget: const Absentee()),
-            SubMenu(
-                icon: Entypo.dot,
-                id: Utils.getInitials('Monthly Report'),
-                title: 'Monthly Report',
-                widget: const MonthlyReport()),
-            SubMenu(
-                icon: Entypo.dot,
-                id: Utils.getInitials('Overtime Report'),
-                title: 'Overtime Report',
-                widget: const OverTime())
-          ]),
-    ]),
-    MenuHeader(header: "Configurations & Settings", menus: [
-      MenuModel(
-          id: Utils.getInitials('Branches'),
-          title: 'Branches',
-          subMenu: [],
-          icon: FontAwesomeIcons.codeBranch,
-          widget: const Branches()),
-      MenuModel(
-          id: Utils.getInitials('Company info'),
-          title: 'Company info',
-          subMenu: [],
-          icon: FontAwesomeIcons.industry,
-          widget: const CompanyInfo())
-    ]),
+    MenuHeader(
+      header: "REPORT & ANALYSIS",
+      menus: [
+        MenuModel(
+            id: Utils.getInitials('Attendance'),
+            title: 'Attendance',
+            icon: Icons.timelapse,
+            subMenu: [],
+            widget: const Attendance()),
+        MenuModel(
+            id: Utils.getInitials('Lunch Break'),
+            title: 'Lunch Break',
+            icon: Icons.lunch_dining,
+            subMenu: [],
+            widget: const Lunch()),
+        MenuModel(
+            id: Utils.getInitials('Report'),
+            title: 'Report',
+            icon: FontAwesomeIcons.flask,
+            subMenu: [
+              SubMenu(
+                  icon: Entypo.dot,
+                  id: Utils.getInitials('Absent Report'),
+                  title: 'Absent Report',
+                  widget: const AbsentReport()),
+              SubMenu(
+                  icon: Entypo.dot,
+                  id: Utils.getInitials('Absentees'),
+                  title: 'Absentees',
+                  widget: const Absentee()),
+              SubMenu(
+                  icon: Entypo.dot,
+                  id: Utils.getInitials('Monthly Report'),
+                  title: 'Monthly Report',
+                  widget: const MonthlyReport()),
+              SubMenu(
+                  icon: Entypo.dot,
+                  id: Utils.getInitials('Overtime Report'),
+                  title: 'Overtime Report',
+                  widget: const OverTime())
+            ]),
+      ],
+    ),
+    MenuHeader(
+      header: "Configurations & Settings",
+      menus: [
+        MenuModel(
+            id: Utils.getInitials('Position'),
+            title: 'Positions',
+            subMenu: [],
+            icon: FontAwesomeIcons.groupArrowsRotate,
+            widget: const Position()),
+        MenuModel(
+            id: Utils.getInitials('Branches'),
+            title: 'Branches',
+            subMenu: [],
+            icon: FontAwesomeIcons.codeBranch,
+            widget: const Branches()),
+        MenuModel(
+            id: Utils.getInitials('Company info'),
+            title: 'Company info',
+            subMenu: [],
+            icon: FontAwesomeIcons.industry,
+            widget: const CompanyInfo())
+      ],
+    ),
     MenuHeader(header: "User Accounts", menus: [
       MenuModel(
           id: Utils.getInitials('Accounts'),

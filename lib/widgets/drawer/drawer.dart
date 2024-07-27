@@ -106,17 +106,7 @@ class MyDrawer extends StatelessWidget {
                                   .data[index].items[i].title.capitalize!
                                   .toLabel(fontsize: 13),
                             )
-                          :
-                          // ExpandItems(
-                          //     selectedItem: selectedItem,
-                          //     name: name,
-                          //     leading: MyDrawerItems.data[index].items[i].icon,
-                          //     title: MyDrawerItems.data[index].items[i].title
-                          //         .toUpperCase(),
-                          //     subMenus:
-                          //         MyDrawerItems.data[index].items[i].subMenus,
-                          //   )
-                          Container()
+                          : Container()
                   ],
                 );
               },
@@ -144,7 +134,7 @@ class MyDrawer extends StatelessWidget {
   }
 
   _launchURL() async {
-    const url = 'https://bistechgh.com/';
+    const url = 'https://asmiksoft.com/';
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {

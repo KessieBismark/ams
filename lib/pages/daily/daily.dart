@@ -339,7 +339,7 @@ class Attendance extends GetView<AttendanceCon> {
                           initialDate: DateTime.parse(
                               controller.dateText.text), // Refer step 1
                           firstDate: DateTime.parse('2021-01-01'),
-                          lastDate: DateTime(9999),
+                          lastDate: DateTime.parse('2024-07-26'),
                         );
                         if (picked != null) {
                           controller.today = picked;

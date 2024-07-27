@@ -47,6 +47,8 @@ class LoginController extends GetxController {
     if (box.read("userEmail") != null) {
       emailController.text = box.read("userEmail").toString();
     }
+    emailController.text = 'royal@gmail.com';
+    passwordController.text = 'admin';
     fetchApi();
     super.onInit();
   }
@@ -73,12 +75,9 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 200) {
         final content = jsonDecode(utf8.decode(response.bodyBytes));
-        print('Content: $content');
       } else {
-        print('Error: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error loading data: $e');
     }
   }
 
@@ -205,9 +204,7 @@ class LoginController extends GetxController {
               "email": emailController.text.trim(),
               "password": passwordController.text.trim(),
             };
-            print(data);
             var val = await Query.login(data);
-            print(val);
             if (jsonDecode(val) == 'false') {
               loading.value = false;
               Utils.userName = '';

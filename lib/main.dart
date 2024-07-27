@@ -7,6 +7,7 @@ import 'services/utils/themes.dart';
 
 void main() async {
   await GetStorage.init();
+  // ignore: unused_local_variable
   ThemeController themes = Get.put(ThemeController());
   runApp(const MyApp());
 }
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'AMS',
-        theme: lightTheme,
+        theme: darkTheme,
         initialBinding: AMSBinding(),
         darkTheme: darkTheme,
         // themeMode: ThemeMode.system,

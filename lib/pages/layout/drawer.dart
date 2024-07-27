@@ -158,33 +158,33 @@ class MyDrawer extends GetView<HomeController> {
               },
             ),
           ),
-          Row(
-            children: [
-              const Text("Theme: "),
-              Obx(
-                () => IconButton(
-                        onPressed: () {
-                          Utils.isLightTheme.toggle();
-                          Get.changeThemeMode(
-                            Utils.isLightTheme.value
-                                ? ThemeMode.light
-                                : ThemeMode.dark,
-                          );
+          // Row(
+          //   children: [
+          //     const Text("Theme: "),
+          //     Obx(
+          //       () => IconButton(
+          //               onPressed: () {
+          //                 Utils.isLightTheme.toggle();
+          //                 Get.changeThemeMode(
+          //                   Utils.isLightTheme.value
+          //                       ? ThemeMode.light
+          //                       : ThemeMode.dark,
+          //                 );
 
-                          ThemeController().saveThemeStatus();
-                        },
-                        icon: Utils.isLightTheme.value
-                            ? const Icon(FontAwesomeIcons.solidMoon)
-                            : const Icon(Icons.wb_sunny))
-                    .hPadding9,
-              ),
-            ],
-          ).hPadding9,
+          //                 ThemeController().saveThemeStatus();
+          //               },
+          //               icon: Utils.isLightTheme.value
+          //                   ? const Icon(FontAwesomeIcons.solidMoon)
+          //                   : const Icon(Icons.wb_sunny))
+          //           .hPadding9,
+          //     ),
+          //   ],
+          // ).hPadding9,
           InkWell(
             onTap: _launchURL,
             child: MyRichTextTwo(
               mainText: "Developed by ",
-              subText: "BISTECH GHANA",
+              subText: "ASMIKSOFT GHANA",
               mainStyle: TextStyle(color: lightGrey, fontSize: 14),
               subStyle: const TextStyle(
                   color: Color.fromARGB(182, 75, 184, 187), fontSize: 14),
@@ -199,7 +199,7 @@ class MyDrawer extends GetView<HomeController> {
   }
 
   _launchURL() async {
-    const url = 'https://bistechgh.com/';
+    const url = 'https://asmiksoft.com/';
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {

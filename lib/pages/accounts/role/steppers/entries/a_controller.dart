@@ -31,6 +31,7 @@ class EntriesController extends GetxController {
     'department',
     'Permission',
     'holidays',
+    'position',
   ];
 
   final setions = [
